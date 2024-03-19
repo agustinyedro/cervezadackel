@@ -6,13 +6,13 @@
 - [**Repositorio _Git Hub_**](https://github.com/agustinyedro/cervezadackel)
 
 ### Paginas o recursos donde sacar mas ideas 
-
+ 
 - [**Nackel _e-Commerce_**](https://nakel.mitiendaonline.com/)
 ---
 ## Preguntas y respuestas
 
 ### ¿Cómo pensar un proyecto web?  
-    A nivel conceptual, tenemos que tener clara la idea de negocio. Se trata “simplemente” de hacer un ejercicio de análisis y reflexión. 
+A nivel conceptual, tenemos que tener clara la idea de negocio. Se trata “simplemente” de hacer un ejercicio de análisis y reflexión. 
 
 |Preguntas|Respuestas|
 |---|---|
