@@ -1,4 +1,4 @@
-#  Pagina Web_Dakel Cerveza_ **Proyecto Node 2024**
+#  Pagina Web _Dakel Cerveza_ **Proyecto Node 2024**
 
 ## Recursos utilizables en el proyecto
 
@@ -20,7 +20,6 @@ A nivel conceptual, tenemos que tener clara la idea de negocio. Se trata “simp
 | ¿Quién es tu público objetivo?  | Es clave saber quién es tu audiencia para dirigirte a ella. Ahí radica la diferencia: recibir tráfico cualificado, interesado realmente en lo que ofreces. De lo contrario, podrás conseguir miles de visitas, pero muy pocos clientes interesados. |
 | ¿Quién eres tú para merecerlos? | Es importante reflexionar sobre qué tienes tú o tu producto o tu servicio que te haga diferente del resto: ¿por qué habría yo de elegirte a ti y no al de al lado? Identificar los beneficios que obtendrá la persona que te compre, contrate o lo que sea que ofrezcas.|
 | ¿Cuáles son tus palabras clave? | Las palabras clave son el alimento del que se nutre tu blog y tu sitio web. Tienes que tenerlas claras. Algo que haga referencia, a tu cliente ideal, a tu especialidad o lo que te hace diferente, o a algún beneficio que posea tu producto. Esto último es fruto de identificar beneficios y nichos de mercado.|
-|
 
 ### Tipos de estructura de un sitio web 
 
