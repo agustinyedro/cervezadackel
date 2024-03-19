@@ -8,6 +8,14 @@
 ### Paginas o recursos donde sacar mas ideas
 
 - [**Nackel _e-Commerce_**](https://nakel.mitiendaonline.com/)
+- [**Holmes Brewery**](https://www.holmesbrewery.com)
+- [**Mefisto _Beer Point_**](https://mefisto.com.ar)
+- [**Manush**](https://cervezamanush.com.ar)
+- [**Goyeneche**](https://pediteunagoye.com.ar)
+- [**Ratsel**](https://ratsel.com.ar)
+- [**Beer Market**](https://beermarket.com.ar)
+- [**Silo Cervecero**](https://www.silocervecero.com.ar)
+- [**7 Vidas**](https://cerveza7vidas.com)
   
 ---
 
@@ -38,7 +46,7 @@ A nivel conceptual, tenemos que tener clara la idea de negocio. Se trata “simp
 
 ~~~Html
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es">****
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
