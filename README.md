@@ -24,7 +24,7 @@
 ### ¿Cómo pensar un proyecto web?
 
 A nivel conceptual, tenemos que tener clara la idea de negocio. Se trata “simplemente” de hacer un ejercicio de análisis y reflexión.
-
+HOLA!!
 |Preguntas|Respuestas|
 |---|---|
 | ¿Cuál es el objetivo a cumplir con este proyecto? |En ello está basado todo tu negocio. Si vas a montar una tienda de calzado, seguro que tienes clarifico que tu objetivo es vender calzado. Sin embargo, la gente piensa que su objetivo es tener miles de visitas, o posicionarse en el primer lugar de Google. Sí, eso está muy bien, pero sólo para vender zapatos.|
