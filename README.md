@@ -1,4 +1,4 @@
-# Pagina Web _Dakel Cerveza_ **Proyecto Node 2024**
+# Pagina Web _Dackel Cerveza_ **Proyecto Node 2024**
 
 ## Recursos utilizables en el proyecto
 
