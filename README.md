@@ -1,5 +1,5 @@
 # Pagina Web _Dackel Cerveza_ **Proyecto Node 2024**
-Hola
+
 ## Recursos utilizables en el proyecto
 
 - [**Pagina web original _Dakel_**](https://cervezadackel.com.ar)
