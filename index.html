@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CaC-Proyecto-FrontEnd</title>
+
+    <!-- zona logo -->
+    <link rel="logo" href="./static/img/logo-simple-dorado.svg" type="image/logo">
+
+    <!-- zona de script -->
+    <script src="https://kit.fontawesome.com/fa04600604.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<!-- 
+Crear sitio web
+-->
+
+<header>
+    <!-- diseño de la barra de navegación-->
+    <nav>
+        <!--espacio del logo -->
+        <a href="./index.html"><i class="logo-simple-dorado"></i>CaC-Proyecto-FrontEnd</a>
+        <!-- diseño del menú con etiqueta de listas desordenadas en ul-->
+        <ul type="square">
+            <li><a href="#"><i class="logo-simple-dorado">&nbsp;&nbsp;</i>Home</a></li>
+            <li><a href="#">Tienda</a></li>
+            <li><a href="#">Acerca de nosotros</a></li>
+            <li><a href="./templates/register.html" title="Haz click aquí para registrarte">Registrarse</a></li>
+            <li> <a href="#">Iniciar Sesión</a></li>
+        </ul>
+    </nav>
+</header>
+<!-- zona principal del index-->
+<main>
+    <!-- portada -->
+    <section id="banner">
+        <div>
+            <h1>Cerveza Dackel</h1>
+            <!-- subtitulo principal-->
+            <h2>Disfruta el paladar con una fría cerveza</h2>
+            <!-- botón de acción -->
+            <a href="./templates/register.html">Registrate</a>
+        </div>
+    </section>
+
+<!-- Section de búsqueda -->
+    <section id="search">
+        <h3>¿Qué estas buscando?</h3>
+        <form action="" method="get">
+            <label ></label>
+            <input type="text" placeholder="Buscar..." class="input-buscador"><!-- Renderiza una instrucción de entrada. El valor submit renderiza en un botón y text en un box de texto -->
+            <input type="submit" value="Buscar" class="boton-buscador">
+        </form>
+    </section>
+
+<!-- Section de tendencias -->
+    <section id="popular">
+        <div>
+            <h3>Las Ofertas de Hoy</h3>
+            <div id="list-popular">
+                <table>
+                    <!-- primera fila -->
+                    <tr>
+                        <!-- columnas o celdas -->
+                        <td><a href="#"><div class="cerveza"><img src="./static/img/cervezas/apa.webp" alt="Imagen tipo" title="Haz clik por más información"></div></a><div class="cerveza-tipo"><h4>tipo de cerveza</h4></div></td>
+                        <td><a href="#"><div class="cerveza"><img src="./static/img/cervezas/apa2.webp" alt="Imagen tipo" title="Haz clik por más información"></div></a><div class="cerveza-tipo"><h4>tipo de cerveza</h4></div></td>
+                        <td><a href="#"><div class="cerveza"><img src="./static/img/cervezas/barleyWine.webp" alt="Imagen tipo" title="Haz clik por más información"></div></a><div class="cerveza-tipo"><h4>tipo de cerveza</h4></div></td>
+                        <td><a href="#"><div class="cerveza"><img src="./static/img/cervezas/barleyWine2.webp" alt="Imagen tipo" title="Haz clik por más información"></div></a><div class="cerveza-tipo"><h4>tipo de cerveza</h4></div></td>
+                        <td><a href="#"><div class="cerveza"><img src="./static/img/cervezas/beeFlower.webp" alt="Imagen tipo" title="Haz clik por más información"></div></a><div class="cerveza-tipo"><h4>tipo de cerveza</h4></div></td>
+                        <td><a href="#"><div class="cerveza"><img src="./static/img/cervezas/beeFlower2.webp" alt="Imagen tipo" title="Haz clik por más información"></div></a><div class="cerveza-tipo"><h4>tipo de cerveza</h4></div></td>
+                        
+                    </tr>
+                    <!-- segunda fila -->
+                    <tr>
+                        <!-- columnas o celdas -->
+                        <td><a href="#"><div class="cerveza"><img src="./static/img/cervezas/apa.webp" alt="Imagen tipo" title="Haz clik por más información"></div></a><div class="cerveza-tipo"><h4>tipo de cerveza</h4></div></td>
+                        <td><a href="#"><div class="cerveza"><img src="./static/img/cervezas/apa2.webp" alt="Imagen tipo" title="Haz clik por más información"></div></a><div class="cerveza-tipo"><h4>tipo de cerveza</h4></div></td>
+                        <td><a href="#"><div class="cerveza"><img src="./static/img/cervezas/barleyWine.webp" alt="Imagen tipo" title="Haz clik por más información"></div></a><div class="cerveza-tipo"><h4>tipo de cerveza</h4></div></td>
+                        <td><a href="#"><div class="cerveza"><img src="./static/img/cervezas/barleyWine2.webp" alt="Imagen tipo" title="Haz clik por más información"></div></a><div class="cerveza-tipo"><h4>tipo de cerveza</h4></div></td>
+                        <td><a href="#"><div class="cerveza"><img src="./static/img/cervezas/beeFlower.webp" alt="Imagen tipo" title="Haz clik por más información"></div></a><div class="cerveza-tipo"><h4>tipo de cerveza</h4></div></td>
+                        <td><a href="#"><div class="cerveza"><img src="./static/img/cervezas/beeFlower2.webp" alt="Imagen tipo" title="Haz clik por más información"></div></a><div class="cerveza-tipo"><h4>tipo de cerveza</h4></div></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- zona más compradas -->
+    <section id="top-rated">
+        <h3>Las más compradas</h3>
+        <!-- zona del carrusel -->
+        <div id="list-top-rated">
+            <div class="cerveza-item"><a href="#"><img src="./static/img/cervezas/golden1.webp" alt="Imagen tipo" title="Click para más información"></a></div>
+            <div class="cerveza-item"><a href="#"><img src="./static/img/cervezas/ipa.webp" alt="Imagen tipo" title="Click para más información"></a></div>
+            <div class="cerveza-item"><a href="#"><img src="./static/img/cervezas/ipaRed.webp" alt="Imagen tipo" title="Click para más información"></a></div>
+            <div class="cerveza-item"><a href="#"><img src="./static/img/cervezas/ipaRed2.webp" alt="Imagen tipo" title="Click para más información"></a></div>
+            <div class="cerveza-item"><a href="#"><img src="./static/img/cervezas/barleyWine.webp" alt="Imagen tipo" title="Click para más información"></a></div>
+               
+        </div>
+    </section>
+
+</main>
+
+<!-- zona <footer></footer> -->
+
+<footer>
+    <a href="./templates/register.html" download="">Descarga el catálogo</a>&nbsp;&nbsp;
+    <a href="#">Términos y condiciones</a>&nbsp;&nbsp;
+    <a href="#">Ayuda</a>&nbsp;&nbsp;
+    <a href="#">Administrador</a>&nbsp;&nbsp;
+</footer>
+
+</body>
+</html>
