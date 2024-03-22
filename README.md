@@ -5,7 +5,7 @@
 - [**Pagina web original _Dakel_**](https://cervezadackel.com.ar)
 - [**Repositorio _Git Hub_**](https://github.com/agustinyedro/cervezadackel)
 
-### Paginas o recursos donde sacar mas ideas
+### Paginas o recursos donde 
 
 - [**Nackel _e-Commerce_**](https://nakel.mitiendaonline.com/)
 - [**Holmes Brewery**](https://www.holmesbrewery.com)
