@@ -1,5 +1,11 @@
 # Pagina Web _Dackel Cerveza_ **Proyecto Node 2024**
 
+El progreso cuidadoso y en pequeños pasos puede parecer lento, pero en realidad es con diferencia la forma más rápida de progresar. El famoso desarrollador de software Robert "Uncle Bob" Martin ha declarado
+>
+>"La única manera de ir rápido, es hacerlo bien"
+>
+es decir, según Martin, avanzar con cuidado y con pequeños pasos es incluso la única manera de ser rápido.
+
 ## Recursos utilizables en el proyecto
 
 - [**Pagina web original _Dakel_**](https://cervezadackel.com.ar)
