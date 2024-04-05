@@ -1,5 +1,6 @@
 /* selector :root */
 :root {
+    
     --primary-color: #9f3647;
     --bg-color: #181419;
     --secondary-color: #ffc098;
@@ -7,8 +8,12 @@
     --third-bis-color: #db4648f2;
     --bg-input-color: #4f31572c;
     --white-color: #fdf5ef;
-    /* fuentes */
-    --primary-font: 'Raleway';
+    /* fuentes 
+    * Títulos : font-weight: 600;
+    * Cuerpo : font-weight: 400;
+    *
+    */
+    --primary-font: "Raleway", sans-serif;
 }
 
 body, html{
@@ -16,7 +21,10 @@ body, html{
     padding: 0;
     margin: 0;
     height: 100vh;
+    box-sizing: border-box;
 }
+
+/*** sección header ***/
 
 header{
     background-color: var(--third-color);
@@ -88,12 +96,12 @@ nav ul li a:hover{
     position: relative;
     text-align: left;
     padding: 0 50px;
-    bottom: 250px;
+    bottom: 35%;
     color: var(--white-color);
 }
 .texto h2{
-    font-size: 4rem;
-    margin-bottom: 50px;
+    font-size: 6rem;
+    font-weight: 700;
 }
 .banner-carrusel img{
     width: 100vw;
@@ -135,35 +143,40 @@ nav ul li a:hover{
 
 /* sección variedades */
 #varietal{
+    height: 100vh;
     margin: 0;
-    padding: 0;
+    padding: 20% auto;
     display: flex;
     align-items: center;
+    flex-direction: column;
 }
-.container{
-    margin: 5% 20%;
-    padding: 0; 
-    top: 0;
-}
+
 .estilos{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    
 }
-.estilos h1{
+.estilos-titulo{
+    padding: 0;
+    margin: 0;
+}
+.estilos h2{
     font-size: 4rem;
     color: rgba(187, 148, 88, 1);
-    margin-bottom: 100px;
+    /* margin-bottom: 100px; */
 }
 .estilos p{
     position: relative;
-    margin-left: -1000px;
+    /* margin-left: -1000px; */
     top: 50px;
 }
 .card-estilos{
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    
+    
 }
 .card-cerveza{
     width: 370px;
@@ -196,15 +209,15 @@ nav ul li a:hover{
     display: flexbox;
     align-content: center;
 }
-.footer-logo{
-    /* background-color: blue; */
-}
+/* .footer-logo{
+    background-color: blue; *
+} */
 
 .footer-container{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: aqua;
+    background-color: var(--third-color);
 }
 .footer-contacto, .footer-social{
     width: 350px;
@@ -221,7 +234,7 @@ nav ul li a:hover{
     background-color: blue;
 } */
 .footer-container a{
-    font-family: Raleway;
+    font-family: Raleway, sans-serif;
     font-size: 18px;
     color: var(--white-color);
     text-decoration: none;
