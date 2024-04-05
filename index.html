@@ -1,116 +1,122 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CaC-Proyecto-FrontEnd</title>
-
-    <!-- zona logo -->
-    <link rel="logo" href="./static/img/logo-simple-dorado.svg" type="image/logo">
-
-    <!-- zona de script -->
-    <script src="https://kit.fontawesome.com/fa04600604.js" crossorigin="anonymous"></script>
-
+    <!-- espacio de script -->
+    <script src="https://kit.fontawesome.com/af1e3d563d.js" crossorigin="anonymous"></script>
+    <!-- vinculación con estilos -->
+    <link rel="stylesheet" href="./static/css/style.css">
+    <title>CaC-TPO</title>
+    <!-- espacio de favicon
+    <link rel="icon" href="../favicon.ico" type="image/x-icon"> -->
+    <!-- vinculación con google fonts Raleway la fuente para el proyecto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-<!-- 
-Crear sitio web
--->
+    <!-- encabezado o header -->
+    <header>
+        <nav>
+            <a href="./index.html"></a>
+            <!-- logo -->
+            <div id="logo">
+                <img src="./static/img/Logo.svg" class="logo" alt="Logo">
+            </div>
 
-<header>
-    <!-- diseño de la barra de navegación-->
-    <nav>
-        <!--espacio del logo -->
-        <a href="./index.html"><i class="logo-simple-dorado"></i>CaC-Proyecto-FrontEnd</a>
-        <!-- diseño del menú con etiqueta de listas desordenadas en ul-->
-        <ul type="square">
-            <li><a href="#"><i class="logo-simple-dorado">&nbsp;&nbsp;</i>Home</a></li>
-            <li><a href="#">Tienda</a></li>
-            <li><a href="#">Acerca de nosotros</a></li>
-            <li><a href="./templates/register.html" title="Haz click aquí para registrarte">Registrarse</a></li>
-            <li> <a href="#">Iniciar Sesión</a></li>
-        </ul>
-    </nav>
-</header>
-<!-- zona principal del index-->
-<main>
-    <!-- portada -->
-    <section id="banner">
-        <div>
-            <h1>Cerveza Dackel</h1>
-            <!-- subtitulo principal-->
-            <h2>Disfruta el paladar con una fría cerveza</h2>
-            <!-- botón de acción -->
-            <a href="./templates/register.html">Registrate</a>
-        </div>
-    </section>
+            <!-- hipervínculos del menú -->
+            <ul>
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="./tienda.html">Tienda</a></li>
+                <li><a href="./nosotros.html">Nosotros</a></li>
+                <li><a href="./contacto.html">Contacto</a></li>
+                <li><a href="./micuenta.html">Micuenta</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<!-- Section de búsqueda -->
-    <section id="search">
-        <h3>¿Qué estas buscando?</h3>
-        <form action="" method="get">
-            <label ></label>
-            <input type="text" placeholder="Buscar..." class="input-buscador"><!-- Renderiza una instrucción de entrada. El valor submit renderiza en un botón y text en un box de texto -->
-            <input type="submit" value="Buscar" class="boton-buscador">
-        </form>
-    </section>
+    <main>
+        <section id="banner" class="carrusel">
+            <div class="banner-carrusel">
+             <ul>
+                <li>
+                    <img src="./static/img/muchasCervezas.webp" alt="Variedad de cervezas">
+                    <div class="texto">
+                        <h2>Elegí la tuya</h2>
+                    </div>
+                </li>
+                <li>
+                    <img src="./static/img/SirviendoMedallasDeFondo.webp" alt="Cata de cerveza">
+                    <div class="texto">
+                        <h2>Compartimos una pasión</h2>
+                    </div>
+                </li>
+                <li>
+                    <img src="./static/img/ingreso_fabrica.webp" alt="Centro de producción">
+                    <div class="texto">
+                        <h2>Nuestro Espacio</h2>
+                    </div>
+                </li>
+             </ul>   
+            </div>
+        </section>
+        <section id="varietal">
+            <div class="container">
+                <div class="estilos"> 
+                <h1>NUESTRAS CERVEZAS</h1>
+                <P>Elaboramos una amplia gama de estilos para que hagas match con la cerveza justa para vos</P>
+                <button>Ver todas</button>
+               </div>
+               <div class="card-estilos">
+                <div class="card-cerveza">
+                    <img src="./static/img/cervezas/ipaRed.webp" alt="">
+                    <h2>RED IPA</h2>
+                    <p>De color rojo, balanceada hacia el lúpulo, <br><br> fácil de tomar, armónica y refrescante.</p>
+                </div>
+                <div class="card-cerveza">
+                    <img src="./static/img/cervezas/irishStout.webp" alt="">
+                    <h2>Irish Stout</h2>
+                    <p>Cerveza negra con espuma cremosa, <br><br> 
+                        en aroma notas dulces a malta tostada<br><br>
+                        café y chocolate amargo</p>
+                </div>
+                <div class="card-cerveza">
+                    <img src="./static/img/cervezas/ira.webp" alt="">
+                    <h2>IRA de Dackel</h2>
+                    <p>Rojo fuego, una liberación de sensaciones.<br><br>
+                        Las maltas en primer plano con carameros<br><br>
+                        y notas tostadas.</p>
+                </div>
+            </div>
+            </div>
+        </section>
+    </main>
 
-<!-- Section de tendencias -->
-    <section id="popular">
-        <div>
-            <h3>Las Ofertas de Hoy</h3>
-            <div id="list-popular">
-                <table>
-                    <!-- primera fila -->
-                    <tr>
-                        <!-- columnas o celdas -->
-                        <td><a href="#"><div class="cerveza"><img src="./static/img/cervezas/apa.webp" alt="Imagen tipo" title="Haz clik por más información"></div></a><div class="cerveza-tipo"><h4>tipo de cerveza</h4></div></td>
-                        <td><a href="#"><div class="cerveza"><img src="./static/img/cervezas/apa2.webp" alt="Imagen tipo" title="Haz clik por más información"></div></a><div class="cerveza-tipo"><h4>tipo de cerveza</h4></div></td>
-                        <td><a href="#"><div class="cerveza"><img src="./static/img/cervezas/barleyWine.webp" alt="Imagen tipo" title="Haz clik por más información"></div></a><div class="cerveza-tipo"><h4>tipo de cerveza</h4></div></td>
-                        <td><a href="#"><div class="cerveza"><img src="./static/img/cervezas/barleyWine2.webp" alt="Imagen tipo" title="Haz clik por más información"></div></a><div class="cerveza-tipo"><h4>tipo de cerveza</h4></div></td>
-                        <td><a href="#"><div class="cerveza"><img src="./static/img/cervezas/beeFlower.webp" alt="Imagen tipo" title="Haz clik por más información"></div></a><div class="cerveza-tipo"><h4>tipo de cerveza</h4></div></td>
-                        <td><a href="#"><div class="cerveza"><img src="./static/img/cervezas/beeFlower2.webp" alt="Imagen tipo" title="Haz clik por más información"></div></a><div class="cerveza-tipo"><h4>tipo de cerveza</h4></div></td>
-                        
-                    </tr>
-                    <!-- segunda fila -->
-                    <tr>
-                        <!-- columnas o celdas -->
-                        <td><a href="#"><div class="cerveza"><img src="./static/img/cervezas/apa.webp" alt="Imagen tipo" title="Haz clik por más información"></div></a><div class="cerveza-tipo"><h4>tipo de cerveza</h4></div></td>
-                        <td><a href="#"><div class="cerveza"><img src="./static/img/cervezas/apa2.webp" alt="Imagen tipo" title="Haz clik por más información"></div></a><div class="cerveza-tipo"><h4>tipo de cerveza</h4></div></td>
-                        <td><a href="#"><div class="cerveza"><img src="./static/img/cervezas/barleyWine.webp" alt="Imagen tipo" title="Haz clik por más información"></div></a><div class="cerveza-tipo"><h4>tipo de cerveza</h4></div></td>
-                        <td><a href="#"><div class="cerveza"><img src="./static/img/cervezas/barleyWine2.webp" alt="Imagen tipo" title="Haz clik por más información"></div></a><div class="cerveza-tipo"><h4>tipo de cerveza</h4></div></td>
-                        <td><a href="#"><div class="cerveza"><img src="./static/img/cervezas/beeFlower.webp" alt="Imagen tipo" title="Haz clik por más información"></div></a><div class="cerveza-tipo"><h4>tipo de cerveza</h4></div></td>
-                        <td><a href="#"><div class="cerveza"><img src="./static/img/cervezas/beeFlower2.webp" alt="Imagen tipo" title="Haz clik por más información"></div></a><div class="cerveza-tipo"><h4>tipo de cerveza</h4></div></td>
-                    </tr>
-                </table>
+    <footer id="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <a href="">
+                    <img src="./static/img/logo-simple-blanco.svg" class="logo" alt="Logo de Dackel">
+                </a>
+            </div>            
+            <div class="footer-contacto">               
+                <a href="ubicación"><i class="fa fa-location-dot"></i>La Plata</a>
+                <a href="teléfono"><i class="fa fa-phone"></i>+54 221 477 9519</a>
+                <a href="email"><i class="fa fa-envelope"></i>cerveceriadackel@gmail.com</a>
+            </div>
+            <div class="footer-social">
+                 <a href="#facebook"><i class="fa-brands fa-facebook"></i></a>
+                 <a href="#instagram"><i class="fa-brands fa-instagram"></i></a>
             </div>
         </div>
-    </section>
-
-    <!-- zona más compradas -->
-    <section id="top-rated">
-        <h3>Las más compradas</h3>
-        <!-- zona del carrusel -->
-        <div id="list-top-rated">
-            <div class="cerveza-item"><a href="#"><img src="./static/img/cervezas/golden1.webp" alt="Imagen tipo" title="Click para más información"></a></div>
-            <div class="cerveza-item"><a href="#"><img src="./static/img/cervezas/ipa.webp" alt="Imagen tipo" title="Click para más información"></a></div>
-            <div class="cerveza-item"><a href="#"><img src="./static/img/cervezas/ipaRed.webp" alt="Imagen tipo" title="Click para más información"></a></div>
-            <div class="cerveza-item"><a href="#"><img src="./static/img/cervezas/ipaRed2.webp" alt="Imagen tipo" title="Click para más información"></a></div>
-            <div class="cerveza-item"><a href="#"><img src="./static/img/cervezas/barleyWine.webp" alt="Imagen tipo" title="Click para más información"></a></div>
-               
+        <div class="footer-derechos">
+            <small>&copy2023 <b>Dackel Cerveza -</b>Todos los derechos Reservados</small>
         </div>
-    </section>
-
-</main>
-
-<!-- zona <footer></footer> -->
-
-<footer>
-    <a href="./templates/register.html" download="">Descarga el catálogo</a>&nbsp;&nbsp;
-    <a href="#">Términos y condiciones</a>&nbsp;&nbsp;
-    <a href="#">Ayuda</a>&nbsp;&nbsp;
-    <a href="#">Administrador</a>&nbsp;&nbsp;
-</footer>
-
+    </footer>
 </body>
+
 </html>
