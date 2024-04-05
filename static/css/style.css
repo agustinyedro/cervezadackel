@@ -164,20 +164,15 @@ nav ul li a:hover{
 .estilos h2{
     font-size: 4rem;
     color: rgba(187, 148, 88, 1);
-    /* margin-bottom: 100px; */
 }
-.estilos p{
-    position: relative;
-    /* margin-left: -1000px; */
-    top: 50px;
-}
+
 .card-estilos{
     width: 100%;
     display: flex;
     align-items: center;
-    
-    
+    justify-content: space-around;
 }
+
 .card-cerveza{
     width: 370px;
     height: 516px;
