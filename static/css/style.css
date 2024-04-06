@@ -8,7 +8,7 @@
     --third-bis-color: #db4648f2;
     --bg-input-color: #4f31572c;
     --white-color: #fdf5ef;
-    --gray:#aba9b0;
+    --gray: #aba9b0;
     /* fuentes 
     * Títulos : font-weight: 600;
     * Cuerpo : font-weight: 400;
@@ -294,13 +294,39 @@ a i {
 }
 
 .tienda-container {
+
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     gap: 25px;
     margin: 25px;
 }
+hr{
+    width: 90vw;
+    margin: 0 auto;
+    border: .5px solid var(--gray);
+}
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    float: left;
+    margin: 50px;
+}
+.sidebar .buscador input {
+    width: 60%;
+    height: 4vh;
+    border: 1px solid var(--third-bis-color);
+    border-radius: 5px;    
+}
+.sidebar .buscador button {
+    width: 20%;
+}
+.sidebar li {
+    list-style: none;
+}
+
 
 .card-tienda {
+    width: 40vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -309,47 +335,52 @@ a i {
     width: 40vw;
     border-radius: 10px;
     background-color: #f1f1f1;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
-   position: relative;
-   overflow: hidden ;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card-tienda:hover {
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
 }
 
 .card-tienda .card-tienda-img {
-    
     border-radius: 9px 9px 0 0;
     width: 40vw;
-    transition: transform 0.3s ;
-}
-.card-tienda .card-tienda-img:hover {
-    transform: scale(1.1) ;
 }
 
-.card-tienda .card-tienda-titulo{
+
+.card-tienda .card-tienda-titulo {
     font-size: 2.2rem;
     color: var(--primary-color);
     margin: 0;
+    text-align: center;
 }
-.card-tienda .detalles{
+
+.card-tienda .detalles {
     padding: 10px;
     text-align: center;
     width: 70%;
     border-top: 1px solid var(--gray);
     border-bottom: 1px solid var(--gray);
-    color:var(--gray);
-    margin:0;
+    color: var(--gray);
+    margin: 0;
 }
-.card-tienda .precio{
+
+.card-tienda .precio {
     font-size: 1.3rem;
     margin: 0;
 }
-.btn-stock{
-    width: 100%;
+
+.btn-stock {
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .stock {
@@ -360,7 +391,7 @@ a i {
     height: 5vh;
     border: 1px solid var(--third-bis-color);
     border-radius: 20px;
-   margin: 0   ;
+    margin: 0;
 }
 
 .stock .sumar,
@@ -372,7 +403,7 @@ a i {
     height: 100%;
     cursor: pointer;
     padding: 0 16px;
-    
+
 }
 
 .stock .sumar {
@@ -408,7 +439,7 @@ a i {
 
 
 .btn-agregar {
-    margin:0;
+    margin: 0;
     width: 95%;
     background-color: var(--third-color);
     color: var(--white-color);
