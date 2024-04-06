@@ -1,6 +1,6 @@
 /* selector :root */
 :root {
-    
+
     --primary-color: #9f3647;
     --bg-color: #181419;
     --secondary-color: #ffc098;
@@ -8,6 +8,7 @@
     --third-bis-color: #db4648f2;
     --bg-input-color: #4f31572c;
     --white-color: #fdf5ef;
+    --gray:#aba9b0;
     /* fuentes 
     * Títulos : font-weight: 600;
     * Cuerpo : font-weight: 400;
@@ -16,7 +17,8 @@
     --primary-font: "Raleway", sans-serif;
 }
 
-body, html{
+body,
+html {
     font-family: var(--primary-font);
     padding: 0;
     margin: 0;
@@ -26,123 +28,153 @@ body, html{
 
 /*** sección header ***/
 
-header{
+header {
     background-color: var(--third-color);
     padding: 2vh;
 }
 
-nav{
+nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-#logo{
+#logo {
     display: flex;
     align-items: center;
 }
-.logo{
+
+.logo {
     width: 112px;
     height: 78px;
 }
 
-nav ul{
-   list-style-type: none;
+nav ul {
+    list-style-type: none;
     margin: 0;
     padding: 0;
     text-align: right;
 }
+
 nav ul li {
     display: inline-block;
     list-style: none;
     margin: 1vw 2vw;
 }
-nav ul li a{
+
+nav ul li a {
     text-decoration: none;
     color: var(--white-color);
     font-size: 2rem;
     padding: 10px 20px;
     transition-duration: background-color 0.2s;
 }
-nav ul li a:hover{
+
+nav ul li a:hover {
     background-color: var(--primary-color);
 }
 
 /* main sección carrusel */
-#banner{
+#banner {
     margin: 0;
     padding: 0;
 }
-.banner-carrusel{
+
+.banner-carrusel {
     width: 100vw;
     height: 100vh;
     margin: 0 auto 0;
     padding: 0;
     overflow: hidden;
 }
-.banner-carrusel ul{
+
+.banner-carrusel ul {
     display: flex;
     padding: 0;
     margin: 0;
     width: 100vw;
-    animation:slide 20s infinite alternate ease-in-out;
+    animation: slide 20s infinite alternate ease-in-out;
 }
-.banner-carrusel li{
+
+.banner-carrusel li {
     width: 100vw;
     list-style: none;
     position: relative;
 }
-.texto{
+
+.texto {
     position: relative;
     text-align: left;
     padding: 0 50px;
     bottom: 35%;
     color: var(--white-color);
 }
-.texto h2{
+
+.texto h2 {
     font-size: 6rem;
     font-weight: 700;
 }
-.banner-carrusel img{
+
+.banner-carrusel img {
     width: 100vw;
     height: 100vh;
 }
-@keyframes slide{
-     0%{margin-left: 0;}
-    45%{margin-left: 0;}
 
-    50%{margin-left: -100%;}
-    70%{margin-left: -100%;}
+@keyframes slide {
+    0% {
+        margin-left: 0;
+    }
 
-    75%{margin-left: -200%;}
-   100%{margin-left: -200%;}
+    45% {
+        margin-left: 0;
+    }
+
+    50% {
+        margin-left: -100%;
+    }
+
+    70% {
+        margin-left: -100%;
+    }
+
+    75% {
+        margin-left: -200%;
+    }
+
+    100% {
+        margin-left: -200%;
+    }
 }
 
 @media (max-width:991px) {
-    
+
     body {
         padding: 0;
     }
-    nav ul li a{
+
+    nav ul li a {
         font-size: 1rem;
         padding: 5px 5px;
     }
-    .banner-carrusel{
+
+    .banner-carrusel {
         width: 100%;
         height: 100%;
     }
-    .banner-carrusel img{
+
+    .banner-carrusel img {
         width: 100vw;
         height: 50vh;
-    } 
-    .texto h2{
+    }
+
+    .texto h2 {
         font-size: 3rem;
-       
-    } 
+
+    }
 }
 
 /* sección variedades */
-#varietal{
+#varietal {
     height: 100vh;
     margin: 0;
     padding: 20% auto;
@@ -151,76 +183,85 @@ nav ul li a:hover{
     flex-direction: column;
 }
 
-.estilos{
+.estilos {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    
+
 }
-.estilos-titulo{
+
+.estilos-titulo {
     padding: 0;
     margin: 0;
 }
-.estilos h2{
+
+.estilos h2 {
     font-size: 4rem;
     color: rgba(187, 148, 88, 1);
 }
 
-.card-estilos{
+.card-estilos {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
 
-.card-cerveza{
+.card-cerveza {
     width: 370px;
     height: 516px;
     background-color: rgb(241, 235, 235);
     border-radius: 10px 10px;
-   
+
 }
-.card-cerveza img{
+
+.card-cerveza img {
     width: 370px;
     height: 290px;
     border-radius: 10px 10px;
 }
-.card-cerveza h2{
+
+.card-cerveza h2 {
     font-size: 2rem;
     text-align: center;
     color: var(--primary-color);
     font-family: Raleway;
 }
-.card-cerveza p{
+
+.card-cerveza p {
     text-align: center;
     font-size: 18px;
     font-family: Raleway;
 }
 
 /* sección footer */
-#footer{
+#footer {
     height: 200px;
     background-color: var(--third-color);
     display: flexbox;
     align-content: center;
 }
+
 /* .footer-logo{
     background-color: blue; *
 } */
 
-.footer-container{
+.footer-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: var(--third-color);
 }
-.footer-contacto, .footer-social{
+
+.footer-contacto,
+.footer-social {
     width: 350px;
     height: 100px;
     display: flex;
     flex-direction: column;
-   /*  background-color: blue; */
+    /*  background-color: blue; */
 }
+
 /* .redes{
     width: 250px;
     height: 100px;
@@ -228,13 +269,157 @@ nav ul li a:hover{
     flex-direction: column;
     background-color: blue;
 } */
-.footer-container a{
+.footer-container a {
     font-family: Raleway, sans-serif;
     font-size: 18px;
     color: var(--white-color);
     text-decoration: none;
 }
+
 a i {
     width: 20px;
 }
 
+/** 
+*
+*
+*
+*
+*PAGINA TIENDA
+*/
+
+.title {
+    padding-left: 5vw;
+    font-size: 3rem;
+}
+
+.tienda-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 25px;
+    margin: 25px;
+}
+
+.card-tienda {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 40vw;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+   position: relative;
+   overflow: hidden ;
+}
+
+.card-tienda .card-tienda-img {
+    
+    border-radius: 9px 9px 0 0;
+    width: 40vw;
+    transition: transform 0.3s ;
+}
+.card-tienda .card-tienda-img:hover {
+    transform: scale(1.1) ;
+}
+
+.card-tienda .card-tienda-titulo{
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin: 0;
+}
+.card-tienda .detalles{
+    padding: 10px;
+    text-align: center;
+    width: 70%;
+    border-top: 1px solid var(--gray);
+    border-bottom: 1px solid var(--gray);
+    color:var(--gray);
+    margin:0;
+}
+.card-tienda .precio{
+    font-size: 1.3rem;
+    margin: 0;
+}
+.btn-stock{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    margin-bottom: 5px;
+}
+
+.stock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    height: 5vh;
+    border: 1px solid var(--third-bis-color);
+    border-radius: 20px;
+   margin: 0   ;
+}
+
+.stock .sumar,
+.stock .restar {
+    color: var(--third-bis-color);
+    font-size: 1.3rem;
+    font-weight: 200;
+    border: 0;
+    height: 100%;
+    cursor: pointer;
+    padding: 0 16px;
+    
+}
+
+.stock .sumar {
+    border-radius: 0 20px 20px 0;
+}
+
+.stock .restar {
+    border-radius: 20px 0 0 20px;
+}
+
+.stock .sumar:hover,
+.stock .restar:hover {
+    background-color: var(--third-bis-color);
+    color: var(--white-color);
+}
+
+.stock input {
+    outline: none;
+    font-size: 1.3rem;
+    text-align: center;
+    border: 0;
+    width: 70%;
+    height: 90%;
+
+}
+
+.stock input::-webkit-inner-spin-button,
+.stock input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+
+.btn-agregar {
+    margin:0;
+    width: 95%;
+    background-color: var(--third-color);
+    color: var(--white-color);
+    border-radius: 5px;
+    font-family: Raleway, sans-serif;
+    font-size: 1rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 0;
+}
+
+.btn-agregar:hover {
+    opacity: 0.8;
+}
