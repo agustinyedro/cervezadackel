@@ -17,14 +17,13 @@ const renderCards = (productos) => {
   productos.forEach((producto, index) => {
     const card = document.createElement("div");
     card.classList.add("card-tienda");
-
-
+    
     const img = document.createElement("img");
     img.classList.add("card-tienda-img");
     img.src = producto.imagen;
     img.alt = producto.name;
     card.appendChild(img);
-    
+
     const titulo = document.createElement("h2");
     titulo.textContent = producto.name;
     titulo.classList.add("card-tienda-titulo");
