@@ -597,7 +597,7 @@ hr {
             padding: 0.7rem 0.5rem;
             border-radius: 0.3rem;
             cursor: pointer;
-            border-left: transparent 5px solid;
+            border-left: transparent 4px solid;
 
             &:hover {
                 background: #aba9b080;
@@ -606,7 +606,7 @@ hr {
 
             &.active {
                 background: var(--gray);
-                border-left: var(--primary-color) 5px solid;
+                border-left: var(--primary-color) 4px solid;
             }
         }
 
