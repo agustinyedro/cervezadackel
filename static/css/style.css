@@ -306,54 +306,59 @@ a i {
         font-size: 1rem;
         color: var(--primary-color);
     }
+
     select {
         width: 200px;
-        padding: 8px 24px 8px 8px; /* Ajusta el espacio para el icono */
+        padding: 8px 24px 8px 8px;
+        /* Ajusta el espacio para el icono */
         background-color: #f2f2f2;
         color: #333;
         border: 1px solid #ccc;
         border-radius: 4px;
         cursor: pointer;
-        appearance: none; /* Oculta el estilo predeterminado del select */
-        background-image: url('arrow-down.png'); /* Flecha hacia abajo */
+        appearance: none;
+        /* Oculta el estilo predeterminado del select */
+        background-image: url('arrow-down.png');
+        /* Flecha hacia abajo */
         background-repeat: no-repeat;
         background-position: right center;
-      }
-      
-      /* Cambia el icono del select cuando está abierto */
-      select:focus {
-        background-image: url('arrow-up.png'); /* Flecha hacia arriba */
-      }
-      
-      /* Estilo para las opciones */
-      option {
+    }
+
+    /* Cambia el icono del select cuando está abierto */
+    select:focus {
+        background-image: url('arrow-up.png');
+        /* Flecha hacia arriba */
+    }
+
+    /* Estilo para las opciones */
+    option {
         background-color: #fff;
         color: #333;
-      }
-      
-      /* Estilo para las opciones cuando se hace hover */
-      option:hover {
+    }
+
+    /* Estilo para las opciones cuando se hace hover */
+    option:hover {
         background-color: #e9ecef;
         color: #333;
-      }
-      
-      /* Estilo para las opciones cuando se seleccionan */
-      select option:checked {
+    }
+
+    /* Estilo para las opciones cuando se seleccionan */
+    select option:checked {
         display: inline-block;
         font-size: 1.2rem;
         border: 1px solid #ccc;
         background-color: #aba9b0;
         color: #fff;
-      }
-    
+    }
+
     /* select { */
-        /* appearance: none; */
-        /* border:0; */
-        /* border-radius: 4px; */
-        /* padding: 8px 16px; */
-        /* font-size: 1rem; */
-        /* cursor: pointer; */
-        /* outline: none; */
+    /* appearance: none; */
+    /* border:0; */
+    /* border-radius: 4px; */
+    /* padding: 8px 16px; */
+    /* font-size: 1rem; */
+    /* cursor: pointer; */
+    /* outline: none; */
     /* } */
 
 
@@ -515,6 +520,103 @@ hr {
 
 }
 
+.dropdown {
+    float: right;
+    position: relative;
+    margin: 2rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0.5rem;
+    z-index: 900;
+    font-size: 0.9rem;
+
+    * {
+        box-sizing: border-box;
+    }
+
+    h3 {
+        margin: 0;
+        color: var(--primary-color);
+    }
+
+    .select {
+        color: var(--bg-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        transition: border-bottom 0.3s;
+
+        &:hover {
+            color: #26489a;
+        }
+
+        &.select-clicked {
+
+            .selected {
+                color: #26489a;
+            }
+        }
+
+        .caret {
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 6px solid #26489a;
+            transition: 0.3s;
+            margin-left: 5px;
+        }
+
+        .caret-rotate {
+            transform: rotate(180deg);
+        }
+    }
+
+    .menu {
+        list-style: none;
+        padding: 0;
+        text-align: start;
+        background: #fff;
+        box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+        border-radius: 0.5em;
+        color: var(--bg-color);
+        position: absolute;
+        top: 1em;
+        left: 60%;
+        width: 95%;
+        transform: translateX(-50%);
+        opacity: 0;
+        display: none;
+        transition: 0.2s;
+        z-index: 1;
+
+
+        li {
+            padding: 0.7rem 0.5rem;
+            border-radius: 0.3rem;
+            cursor: pointer;
+            border-left: transparent 5px solid;
+
+            &:hover {
+                background: #aba9b080;
+                border-left: #9f364780 4px solid;
+            }
+
+            &.active {
+                background: var(--gray);
+                border-left: var(--primary-color) 5px solid;
+            }
+        }
+
+        &.menu-open {
+            display: block;
+            opacity: 1;
+        }
+    }
+}
+
 .sidebar {
     display: flex;
     flex-direction: column;
@@ -526,7 +628,7 @@ hr {
         align-items: center;
 
         input {
-            padding: 0 8px;
+            padding: 4px 10px;
             font-size: 1.1rem;
             outline: none;
             width: 60%;
@@ -536,7 +638,7 @@ hr {
 
             &:hover,
             &:focus {
-                border: 1px solid var(--third-bis-color);
+                border: 1px solid var(--primary-color);
             }
         }
 
@@ -544,6 +646,10 @@ hr {
             border: 0;
             background-color: transparent;
             border-radius: 50%;
+
+            svg {
+                fill: var(--primary-color);
+            }
 
             &:hover {
                 background-color: var(--primary-color);
@@ -612,4 +718,39 @@ hr {
         }
     }
 
+    .limpiar-filtros {
+
+        button {
+            margin-top: 20px;
+            padding: 0.5rem 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            border: 1px solid var(--primary-color);
+            background-color: transparent;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: var(--primary-color);
+
+            &:hover, &:focus {
+                border: 1px solid transparent;
+                background-color: var(--primary-color);
+                color  : var(--white-color);
+            }
+            &:hover svg , &:focus svg {
+                fill  : var(--white-color);
+            }
+            svg {
+                fill: var(--primary-color);
+                width: 15px;
+                height: 15px;
+
+            }
+        }
+
+
+    }
 }

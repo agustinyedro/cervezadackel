@@ -41,23 +41,22 @@
       id="title-tienda">
       Nuestras Cervezas
     </h1>
-    <div class="ordenar"> 
-      <h3>Ordenar por:</h3>
-      <select>
-          <option>
-             Nombre
-          </option>
-          <option>
-              Menor precio
-          </option>
-          <option>
-          Mayor precio
-        </option>
-        <option>
-         Fecha de lanzamiento
-      </option>
-      </select>
-  </div>
+
+    <div class="dropdown">
+      <h3>Ordenar por: </h3>
+      <div class="select">
+        <span class="selected">Menor precio</span>
+        <div class="caret"></div>
+      </div>
+    
+      <ul class="menu">
+        <li>Nombre</li>
+        <li>Menor precio</li>
+        <li class="active">Mayor precio</li>
+        <li>Fecha de lanzamiento</li>
+      </ul>
+    </div>
+
     <hr>
 
     <!-- zona de filtros -->
