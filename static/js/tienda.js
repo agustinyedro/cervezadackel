@@ -1,3 +1,5 @@
+
+
 const $tienda = document.querySelector("#tienda-container");
 
 const fetchData = async () => {
@@ -9,8 +11,11 @@ const fetchData = async () => {
 
 fetchData().then((data) => {
   const cervezas = data.productos[0].cervezas;
+  const remeras = data.productos[0].remeras;
   renderCards(cervezas);
+  // renderCards(remeras);
 });
+
 
 const renderCards = (productos) => {
 
@@ -114,9 +119,13 @@ const renderCards = (productos) => {
   });
 };
 
-const dropdowns = document.querySelectorAll(".dropdown");
 
-  dropdowns.forEach((dropdown) => {
+
+
+
+const dropdown = document.querySelectorAll(".dropdown");
+
+dropdown.forEach((dropdown) => {
   const select = dropdown.querySelector(".select");
   const caret = dropdown.querySelector(".caret");
   const menu = dropdown.querySelector(".menu");
@@ -142,3 +151,5 @@ const dropdowns = document.querySelectorAll(".dropdown");
     });
   });
 });
+
+

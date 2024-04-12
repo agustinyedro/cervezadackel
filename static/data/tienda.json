@@ -117,6 +117,31 @@
           "cantidad": 100,
           "premios": ["Medalla de Plata Copa Argentina 2016 "]
         }
+      ], 
+      "remeras": [
+        {
+          "id": 9,
+          "name": "Remera Negra",
+          "precio": 7500,
+          "talla": "S",
+          "color": "Negro",
+          "material": "Algodón",
+          "descripcion": "Remera de algodón negro con cuello redondo y manga corta.",
+          "imagen": "../static/img/remeras/remeraNegra.webp",
+          "cantidad": 10
+        }
+      ],
+      "calcomanias": [
+        {
+          "id": 11,
+          "name": "Calcomanía de Logo",
+          "precio": 100,
+          "tamano": "10x10 cm",
+          "tipo": "Vinilo",
+          "descripcion": "Calcomanía del logo de la marca en vinilo resistente al agua y al sol.",
+          "imagen": "../static/img/calcomanias/logo.webp",
+          "cantidad": 10
+        }
       ]
     }
   ]
