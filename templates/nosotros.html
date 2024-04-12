@@ -1,22 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!-- vinculación con estilos -->
-    <link rel="stylesheet" href="../static/css/style.css">
-    <title>CaC-TPO</title>
+    <link rel="stylesheet" href="../static/css/style.css" crossorigin="anonymous"/>
+
+    <title>Cerveza Dackel</title>
+    <link rel="icon" href="./Perro salchicha Dackel.ico" type="image/x-icon" />
+
     <!-- vinculación con google fonts Raleway la fuente para el proyecto -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
+
+
 <body>
     <!-- encabezado o header -->
     <header>
         <nav>
-            <a href="../"></a>
+            <a href="./nosotros.html"></a>
             <!-- logo -->
             <div id="logo">
                 <img src="../static/img/Logo.svg" class="logo" alt="Logo">
@@ -28,10 +33,117 @@
                 <li><a href="./tienda.html">Tienda</a></li>
                 <li><a href="./nosotros.html">Nosotros</a></li>
                 <li><a href="./contacto.html">Contacto</a></li>
-                <li><a href="./micuenta.html">Micuenta</a></li>
+                <li><a href="./micuenta.html">Mi cuenta</a></li>
             </ul>
         </nav>
     </header>
-    <h1>Acerca de nosotros</h1>
+
+    <main>
+        <section id="nosotros" class="nosotros-historia">
+            <div class="texto"><h2>NOSOTROS</h2></div>
+            <div class="nosotros-historia"><img src="../static/img/Nosotros.jpg" alt="foto de integrante de dackel en plantación de lúpulo"/>
+                <p>Es una empresa de amigos. Arrancamos en el año 2008, Pedro, Nicolás y Alejandro, en un garage y con un equipo prestado. Miramos para atrás todo el recorrido transitado y celebramos quienes somos. Hacemos los que nos gusta. 
+                    Desarrollamos una amplia variedad de estilos de cerveza, donde el balance entre los lúpulos y las maltas, se define en estilos de buena tomabilidad y con un equilibrio armonioso de sabores y aromas. </p>
+        </section>
+
+        <section id="proposito" class="proposito-valores">
+            <div class="texto"><h2>PROPÓSITO</h2></div>
+            <p>Trabajamos para superarnos día a día en búsqueda de una mejor cerveza, innovando sobre los procesos productivos con el fin de mejorar la calidad con énfasis en el cuidado y respeto del medio ambiente, a través de la reutilización de desechos, el cuidado del agua y la eficiencia energética.</p>
+
+        </section>
+                
+        <section id="premios">
+            <div class="estilos">
+                <div class="estilos-titulo">
+                <h2>RECONOCIMIENTOS</h2>
+                </div>  
+            </div>
+            
+            <div class="card-estilos">
+                <div class="card-cerveza">
+                    <!-- ponemos fotos de la cerveza o solo se escribe el estilo? -->
+                  <img src="../static/img/cervezas/irishStout.webp" alt="lata de irish stout" />
+                  <h2>IRISH STOUT</h2>
+                  <p>Medalla de Bronce South Beer Cup 2022 <br>
+                    Medalla de Oro Copa Argentina de Cervezas 2022 <br>
+                    Medalla de Oro Copa Argentina de Cervezas 2020 <br>
+                    Medalla de Bronce Copa Tres Ciudades 2019 <br>
+                  </p>
+                </div>
+                <div class="card-cerveza">
+                  <img src="../static/img/cervezas/ira.webp" alt="lata de ira" />
+                  <h2>IRISH RED ALE</h2>
+                  <p>
+                    Cerveza negra con espuma cremosa, <br /><br />
+                    en aroma notas dulces a malta tostada<br /><br />
+                    café y chocolate amargo
+                  </p>
+                </div>
+                <div class="card-cerveza">
+                  <img src="./static/img/cervezas/ira.webp" alt="" />
+                  <h2>IRA de Dackel</h2>
+                  <p>
+                    Rojo fuego, una liberación de sensaciones.<br /><br />
+                    Las maltas en primer plano con carameros<br /><br />
+                    y notas tostadas.
+                  </p>
+                </div>
+            </div>
+            <!-- </div> -->
+        </section>
+        
+        <br>
+        
+        
+
+    
+        <br><br>
+        <p style="text-align: center;">Cuidamos nuestro entorno para poder compartir, sentir y disfrutar</p>
+        <br>
+    
+
+        <h5>Reconocimientos</h5></p> 
+        <img src="./img/Premios y reconocimientos.jpg" alt="fotos de premios y reconocimientos">
+       
+            <ul>
+                <li><img src="../static/img/cervezas/irishStout.webp" alt="estilo irish stout">
+                <p></p></li>
+                <li><img src="../static/img/cervezas/ira.webp" alt="estilo ira"></li>
+                <li><img src="../static/img/cervezas/golden1.webp" alt="estilo golden ale"></li>
+            
+            </ul>
+
+            <footer id="footer">
+                <div class="footer-container">
+                  <div class="footer-logo">
+                    <a href="">
+                      <img
+                        src="../static/img/logo-simple-blanco.svg"
+                        class="logo"
+                        alt="Logo de Dackel"
+                      />
+                    </a>
+                  </div>
+                  <div class="footer-contacto">
+                    <!-- agregamos esto:, Provincia de Buenos Aires Argentina -->
+                    <a href="https://maps.app.goo.gl/73RvuPAn7HGJsdCr6"><i class="fa fa-location-dot"></i>La Plata</a> <br> 
+                    <a href="teléfono"><i class="fa fa-phone"></i>+54 221 477 9519</a> <br>
+                    <a href="email"><i class="fa fa-envelope"></i>cerveceriadackel@gmail.com</a> <br>
+                  </div>
+                  <div class="footer-social">
+                    <a href="https://www.facebook.com/CervezaDackel"><i class="fa-brands fa-facebook"></i></a> <br>
+                    <a href="https://www.instagram.com/cervezadackel/"><i class="fa-brands fa-instagram"></i></a> <br>
+                  </div>
+                </div>
+                <div class="footer-derechos">
+                  <small
+                    >&copy2024 <b>Dackel Cerveza -</b>Todos los derechos Reservados</small
+                  >
+                  <!-- <button>Botón de arrepentimiento</button> -->
+                </div>
+              </footer>
+
+
+
 </body>
 </html>

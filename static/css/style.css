@@ -194,88 +194,54 @@ nav ul li a:hover{
 }
 
 /* sección footer */
-.footer {
-    width: 100%;
-    background-color:var(--third-color);
-    color: #fff;
-    padding: 20px 0;
+#footer{
+    height: 200px;
+    background-color: var(--third-color);
+    display: flexbox;
+    align-content: center;
 }
+/* .footer-logo{
+    
+background-color: blue 
+No me convence, lo dejaria con el fondo del container
+Habria que ponerle margen a la izquierda para que no este tan pegado
 
-.footer .footer-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 150px;
-    padding: 25px 0;
-    /* display: flex;
-    justify-content: space-between;
-    align-items: center; */
-}
+}  */
 
-.footer .footer-container .footer-logo{
-    width: 100%;
-    height: 100%;
+.footer-container{
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: space-between;
+    background-color: var(--third-color);
+}
+.footer-contacto, .footer-social{
+    width: 350px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+   /*  background-color: blue; */
 }
 
-.footer .footer-container .footer-logo img{
-    width: 200px;
-}
-
-.footer .footer-container h2{
+/* .redes{
+    width: 250px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    background-color: blue;
+} */
+.footer-container a{
+    font-family: Raleway, sans-serif;
+    font-size: 18px;
     color: var(--white-color);
-    margin-bottom: 25px;
-    font-size: 20px;
-}
-
-.footer .footer-container ul{
-    list-style: none;
-}
-
-.footer .footer-container li i{
-    margin-bottom: 15px;  
-}
-
-.footer .footer-container .social-media a{
-    display: inline-block;
     text-decoration: none;
-    width: 45px;
-    height: 45px;
-    line-height: 45px;
-    font-size: 25px;
-    color: var(--white-color);
-    margin-right: 10px;
-    background-color: #e36346;
+}
+a i {
+    width: 20px;
+}
+
+.footer-derechos{
+    
     text-align: center;
-    transition: all 300ms ease;
-}
 
-.footer .footer-container .social-media a:hover{
-    color: #2362d7;
-}
-
-.footer .footer-derechos p{
-   /*  background-color: #ed6161; */
-    border-top: 1px solid #ccc;
-    padding: 20px 10px;
-    font-size: 15px;
-    text-align: center;
-}
-
-/* Media queries para hacerlo responsive */
- @media screen and (max-width: 800px) {
-    .footer .footer-container {
-        width: 90%;
-        grid-template-columns: repeat(1, 1fr);
-        grid-gap: 30px;
-        padding: 35px 0;
-    }
-    .social-media {
-        margin-top: 10px;
-    }
 }
 
