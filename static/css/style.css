@@ -194,43 +194,88 @@ nav ul li a:hover{
 }
 
 /* sección footer */
-#footer{
-    height: 200px;
-    background-color: var(--third-color);
-    display: flexbox;
-    align-content: center;
+.footer {
+    width: 100%;
+    background-color:var(--third-color);
+    color: #fff;
+    padding: 20px 0;
 }
-/* .footer-logo{
-    background-color: blue; *
-} */
 
-.footer-container{
-    display: flex;
-    align-items: center;
+.footer .footer-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 150px;
+    padding: 25px 0;
+    /* display: flex;
     justify-content: space-between;
-    background-color: var(--third-color);
+    align-items: center; */
 }
-.footer-contacto, .footer-social{
-    width: 350px;
-    height: 100px;
+
+.footer .footer-container .footer-logo{
+    width: 100%;
+    height: 100%;
     display: flex;
-    flex-direction: column;
-   /*  background-color: blue; */
+    justify-content: center;
+    align-items: center;
 }
-/* .redes{
-    width: 250px;
-    height: 100px;
-    display: flex;
-    flex-direction: column;
-    background-color: blue;
-} */
-.footer-container a{
-    font-family: Raleway, sans-serif;
-    font-size: 18px;
+
+.footer .footer-container .footer-logo img{
+    width: 200px;
+}
+
+.footer .footer-container h2{
     color: var(--white-color);
-    text-decoration: none;
+    margin-bottom: 25px;
+    font-size: 20px;
 }
-a i {
-    width: 20px;
+
+.footer .footer-container ul{
+    list-style: none;
+}
+
+.footer .footer-container li i{
+    margin-bottom: 15px;  
+}
+
+.footer .footer-container .social-media a{
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 25px;
+    color: var(--white-color);
+    margin-right: 10px;
+    background-color: #e36346;
+    text-align: center;
+    transition: all 300ms ease;
+}
+
+.footer .footer-container .social-media a:hover{
+    color: #2362d7;
+}
+
+.footer .footer-derechos p{
+   /*  background-color: #ed6161; */
+    border-top: 1px solid #ccc;
+    padding: 20px 10px;
+    font-size: 15px;
+    text-align: center;
+}
+
+/* Media queries para hacerlo responsive */
+ @media screen and (max-width: 800px) {
+    .footer .footer-container {
+        width: 90%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 30px;
+        padding: 35px 0;
+    }
+    .social-media {
+        margin-top: 10px;
+    }
 }
 
