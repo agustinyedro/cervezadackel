@@ -1,7 +1,7 @@
 {
   "productos": [
-    {
-      "cervezas": [
+    
+    
         {
           "id": 1,
           "name": "Red IPA",
@@ -13,7 +13,8 @@
           "descripcion": "Entrelaza notas a caramelo y frutos secos característico de las maltas especiales utilizadas con un lupulado intenso en aroma y firme en sabor. De color rojo, balanceada hacia el lúpulo, una cerveza fácil de tomar, armónica y refrescante.",
           "imagen": "../static/img/cervezas/ipaRed.webp",
           "imagen2": "../static/img/cervezas/ipaRed2.webp",
-          "cantidad": 100
+          "cantidad": 100,
+          "tipo":"cervezas"
         },
         {
           "id": 2,
@@ -32,7 +33,8 @@
             "Medalla de Oro Copa Argentina de Cervezas 2022",
             "Medalla de Oro Copa Argentina de Cervezas 2020",
             "Medalla de Bronce Copa Tres Ciudades 2019"
-          ]
+          ],
+          "tipo":"cervezas"
         },
         {
           "id": 3,
@@ -45,7 +47,8 @@
           "descripcion": "Una expresión extrema del lúpulo en todos los sentidos. Color dorado, de aroma frutal proveniente de los lúpulos. En sabor más lúpulo de amable amargor y final seco. ",
           "imagen": "../static/img/cervezas/ipa.webp",
           "imagen2": "../static/img/cervezas/ipa2.webp",
-          "cantidad": 100
+          "cantidad": 100,
+          "tipo":"cervezas"
         },
         {
           "id": 4,
@@ -58,7 +61,8 @@
           "descripcion": "Cerveza rubia refrescante y lupulada, de amargor moderado. Una experiencia de lupulación cauta y con gran soporte de maltas.",
           "imagen": "../static/img/cervezas/apa.webp",
           "imagen2": "../static/img/cervezas/apa2.webp",
-          "cantidad": 100
+          "cantidad": 100,
+          "tipo":"cervezas"
         },
         {
           "id": 5,
@@ -71,7 +75,8 @@
           "descripcion": "De aroma a maltas caramelo, guindas y suave lupulado. Una English Barley Wine que esconde sus 9 grados de alcohol detrás de un final entre dulce y seco con notas licorosas que se balancean con los 60 IBU de amargor.",
           "imagen": "../static/img/cervezas/barleyWine.webp",
           "imagen2": "../static/img/cervezas/barleyWine2.webp",
-          "cantidad": 100
+          "cantidad": 100,
+          "tipo":"cervezas"
         },
         {
           "id": 6,
@@ -84,7 +89,8 @@
           "descripcion": "Rubia y brillante, la honey de Dackel con aroma a maltas y un suave lupulado floral.  La miel y el lúpulo se suman en un complejo equilibrio de dulzor y amargo logrando un estilo auténtico inequívocamente descripto por su nombre Bee Flower.",
           "imagen": "../static/img/cervezas/beeFlower.webp",
           "imagen2": "../static/img/cervezas/beeFlower2.webp",
-          "cantidad": 100
+          "cantidad": 100,
+          "tipo":"cervezas"
         },
         {
           "id": 7,
@@ -101,7 +107,8 @@
           "premios": [
             "Medalla de Bronce South Beer Cup 2022",
             "Medalla de Plata Copa Argentina de Cervezas 2022"
-          ]
+          ],
+          "tipo":"cervezas"
         },
         {
           "id": 8,
@@ -115,10 +122,9 @@
           "imagen": "../static/img/cervezas/golden1.webp",
           "imagen2": "../static/img/cervezas/golden2.webp",
           "cantidad": 100,
-          "premios": ["Medalla de Plata Copa Argentina 2016 "]
-        }
-      ], 
-      "remeras": [
+          "premios": ["Medalla de Plata Copa Argentina 2016 "],
+          "tipo":"cervezas"
+        },
         {
           "id": 9,
           "name": "Remera Negra",
@@ -128,21 +134,19 @@
           "material": "Algodón",
           "descripcion": "Remera de algodón negro con cuello redondo y manga corta.",
           "imagen": "../static/img/remeras/remeraNegra.webp",
-          "cantidad": 10
-        }
-      ],
-      "calcomanias": [
+          "cantidad": 10,
+          "tipo":"remeras"
+        },
         {
           "id": 11,
           "name": "Calcomanía de Logo",
           "precio": 100,
           "tamano": "10x10 cm",
-          "tipo": "Vinilo",
           "descripcion": "Calcomanía del logo de la marca en vinilo resistente al agua y al sol.",
           "imagen": "../static/img/calcomanias/logo.webp",
-          "cantidad": 10
+          "cantidad": 10,
+          "tipo":"calcomanias"
         }
-      ]
-    }
+
   ]
 }

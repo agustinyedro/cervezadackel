@@ -1,4 +1,5 @@
 
+document.title = 'Tienda Dackel';
 
 const $tienda = document.querySelector("#tienda-container");
 
@@ -10,8 +11,8 @@ const fetchData = async () => {
 
 
 fetchData().then((data) => {
-  const cervezas = data.productos[0].cervezas;
-  const remeras = data.productos[0].remeras;
+  const cervezas = data.productos;
+
   renderCards(cervezas);
   // renderCards(remeras);
 });
@@ -22,6 +23,7 @@ const renderCards = (productos) => {
   productos.forEach((producto, index) => {
     const card = document.createElement("div");
     card.classList.add("card-tienda");
+    card.id = `producto-${producto.id}`
     
     const img = document.createElement("img");
     img.classList.add("card-tienda-img");
@@ -83,7 +85,18 @@ const renderCards = (productos) => {
 
     card.appendChild(btnStock);
 
+    // codigo para redirigir a la pagina de detalles
+    card.addEventListener("click", (event) => {
+      if (event.target.classList.contains('btn-agregar') || event.target.classList.contains('sumar') || event.target.classList.contains('restar') || event.target.classList.contains('btn-stock') || event.target.classList.contains('cantidad')) {
+        // Si fue en un botón, no redireccionar
+        return;
+    }
+      const productoId = producto.id;
+      window.location.href = `producto.html?id=${productoId}`;
+    });
+
     $tienda.appendChild(card);
+
 
     const botonSumar = document.querySelector(`#sumar-${index}`);
     const botonRestar = document.querySelector(`#restar-${index}`);
@@ -152,4 +165,20 @@ dropdown.forEach((dropdown) => {
   });
 });
 
+
+// document.addEventListener("DOMContentLoaded", function() {
+  
+//   var cards = document.querySelectorAll(".card-tienda");
+//   console.log(cards);
+//   cards.forEach(function(card) {
+//     console.log(card);
+//       card.addEventListener("click", function() {
+//         console.log(this.id);
+//           // Obtener el ID de la tarjeta
+//           var cardId = this.id;
+//           // Redireccionar a otra página pasando el ID como parámetro
+//           window.location.href = "producto.html?id=" + cardId;
+//       });
+//   });
+// });
 

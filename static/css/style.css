@@ -2,6 +2,7 @@
 :root {
 
     --primary-color: #9f3647;
+    --primary-color-hover: #9f364780;
     --bg-color: #181419;
     --secondary-color: #ffc098;
     --third-color: #db4648;
@@ -291,31 +292,68 @@ a i {
 .main {
     display: grid;
     grid-template-columns: minmax(200px, 300px) 1fr;
-    grid-template-rows: 100px 50px 1fr;
+    grid-template-rows: 500px 50px 50px 1fr;
     /* Agregado una fila adicional */
     gap: 20px;
-    padding: 2vh;
     margin-bottom: 15vh;
 
 
     .title {
-        font-size: 3rem;
-        color: var(--primary-color);
+        margin: 0;
+        font-size: 5rem;
+        color: var(--secondary-color);
         grid-column: span 2;
         grid-row: 1/2;
+        background-image: url('../img/FondoTienda.webp') ;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0.9;
+    }
+
+    .navegador{
+        grid-column: span 2;
+        grid-row: 2/3;
+        padding: 5vh;
+        display: flex;
+        align-items: center ;
+        justify-content: flex-start;
+        gap: 0.5rem;
+
+
+        span{
+            color: var(--primary-color);
+        }
+
+        a{
+            text-decoration: none;
+            color: var(--primary-color);
+
+            &:hover{
+                color: var(--primary-color-hover);
+            }
+        }
+    }
+
+    .dropdown.mobile{
+        display: none;
     }
 
     .dropdown {
         padding: 10px;
+        padding-right: 20px;
         position: relative;
         display: flex;
-        align-items: flex-end;
+        align-items: center;
         justify-content: flex-end;
         gap: 0.5rem;
         z-index: 900;
         font-size: 0.9rem;
         grid-column: 2/-1;
-        grid-row: 2/3;
+        grid-row: 3/4;
 
         * {
             box-sizing: border-box;
@@ -371,8 +409,8 @@ a i {
             border-radius: 0.5em;
             color: var(--bg-color);
             position: absolute;
-            top: 3rem;
-            left: 90%;
+            top: 1.7rem;
+            left: 89%;
             width: 180px;
             transform: translateX(-50%);
             opacity: 0;
@@ -405,16 +443,12 @@ a i {
         }
     }
 
-    hr {
-        width: 95vw;
-        border: .5px solid var(--gray);
-    }
-
     .tienda-container {
+        padding: 2vh;
         grid-column: 2/-1;
-        grid-row: 3/4;
+        grid-row: 4/5;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 25px;
 
         .card-tienda {
@@ -474,6 +508,8 @@ a i {
 
             .precio {
                 font-size: 1.3rem;
+                font-weight: 700;
+                color:#222222;
                 margin: 0;
             }
 
@@ -539,7 +575,7 @@ a i {
 
                 .btn-agregar {
                     margin: 0;
-                    width: 90%;
+                    width: 95%;
                     background-color: var(--third-color);
                     color: var(--white-color);
                     border-radius: 5px;
@@ -562,6 +598,8 @@ a i {
     .buscador {
         display: flex;
         align-items: center;
+        padding-left: 5vh;
+        grid-column: span 1;
 
         input {
             padding: 4px 10px;
@@ -609,13 +647,18 @@ a i {
     .sidebar {
         display: flex;
         flex-direction: column;
-        margin: 50px;
+        padding-left: 5vh ;
+        padding-top: 0;
+        grid-column: span 1;
+        grid-row: span 1;
 
         .filtros {
 
             h3 {
                 font-size: 1.5rem;
                 color: var(--primary-color);
+                padding: 0;
+                margin-top: 0;
             }
 
             ul {
@@ -702,6 +745,8 @@ a i {
         }
     }
 }
+
+/*** RESPONSIVE ***/
 
 @media (max-width: 600px) {
     .main {
