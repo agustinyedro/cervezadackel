@@ -133,7 +133,7 @@
           "color": "Negro",
           "material": "Algodón",
           "descripcion": "Remera de algodón negro con cuello redondo y manga corta.",
-          "imagen": "../static/img/remeras/remeraNegra.webp",
+          "imagen": "../static/img/remeras/remeraNegra1.webp",
           "cantidad": 10,
           "tipo":"remeras"
         },
@@ -143,7 +143,7 @@
           "precio": 100,
           "tamano": "10x10 cm",
           "descripcion": "Calcomanía del logo de la marca en vinilo resistente al agua y al sol.",
-          "imagen": "../static/img/calcomanias/logo.webp",
+          "imagen": "../static/img/calcomanias/Recurso 1.webp",
           "cantidad": 10,
           "tipo":"calcomanias"
         }

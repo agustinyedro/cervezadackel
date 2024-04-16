@@ -13,56 +13,89 @@ document.addEventListener("DOMContentLoaded", async function () {
   const card = document.createElement("div");
   card.classList.add("card-producto");
   card.id = `producto-${cardData.id}`;
+  
 
   const img = document.createElement("img");
   img.classList.add("card-producto-img");
   img.src = cardData.imagen;
   img.alt = cardData.name;
-  card.appendChild(img);
+  
 
   const img2 = document.createElement("img");
   img2.classList.add("card-producto-img2");
   img2.src = cardData.imagen2;
   img2.alt = cardData.name;
-  card.appendChild(img2);
+  
+
+  const imgPequenias = document.createElement("div");
+  imgPequenias.classList.add("card-producto-imgPequenias");
+  imgPequenias.appendChild(img);
+  imgPequenias.appendChild(img2);
+  card.appendChild(imgPequenias);
+
+  
+
+  const imgGrande = document.createElement("img");
+  imgGrande.classList.add("card-producto-imgGrande");
+
+  imgGrande.src = cardData.imagen;
+  imgGrande.alt = cardData.name;
+
+
+
+  img.addEventListener("click", () => {
+    imgGrande.src = cardData.imagen;
+  })
+  img2.addEventListener("click", () => {
+    imgGrande.src = cardData.imagen2;
+  })
+  card.appendChild(imgGrande);
+
+  const cardDetalles= document.createElement("div");
+  cardDetalles.classList.add("card-producto-detalles");
 
   const titulo = document.createElement("h2");
   titulo.textContent = cardData.name;
   titulo.classList.add("card-producto-titulo");
-  card.appendChild(titulo);
+  cardDetalles.appendChild(titulo);
 
-  const detalles = document.createElement("p");
-  detalles.classList.add("detalles");
-  detalles.textContent = cardData.descripcion;
-  card.appendChild(detalles);
+  const precio = document.createElement("p");
+  precio.classList.add("card-producto-precio");
+  precio.textContent = `$ ${cardData.precio}`;
+  cardDetalles.appendChild(precio);
 
   if (cardData.alcohol != null && cardData.IBU != null) {
     const detallesAlcohol = document.createElement("p");
     detallesAlcohol.classList.add("detalles");
     detallesAlcohol.textContent = `alc ${cardData.alcohol}%  - IBU:${cardData.IBU}`;
-    card.appendChild(detallesAlcohol);
+    cardDetalles.appendChild(detallesAlcohol);
   }
 
+  // const detalles = document.createElement("p");
+  // detalles.classList.add("detalles");
+  // detalles.textContent = cardData.descripcion;
+  // cardDetalles.appendChild(detalles);
 
-  const precio = document.createElement("p");
-  precio.classList.add("card-producto-precio");
-  precio.textContent = `$ ${cardData.precio}`;
-  card.appendChild(precio);
+
+
+
+  
 
   if(cardData.cantidad > 0) {
     const stock = document.createElement("p");
-    stock.classList.add("card-producto-precio");
+    stock.classList.add("card-producto-stock");
     stock.textContent = `Stock disponible`;
-    card.appendChild(stock);
+    cardDetalles.appendChild(stock);
   }
 
 
   const boton = document.createElement("button");
   boton.classList.add("card-producto-boton");
-  boton.textContent = "Comprar";
-  card.appendChild(boton);
+  boton.textContent = "Comprar ahora";
+  cardDetalles.appendChild(boton);
 
 
+  card.appendChild(cardDetalles);
 
   $cardDetailsContainer.appendChild(card);
 

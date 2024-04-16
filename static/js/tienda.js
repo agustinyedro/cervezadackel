@@ -43,6 +43,17 @@ const renderCards = (productos) => {
       detallesAlcohol.classList.add("detalles");
       detallesAlcohol.textContent = `alc ${producto.alcohol}%  - IBU:${producto.IBU}`;
       card.appendChild(detallesAlcohol);
+    } else if(producto.talla != null) {
+      const detallesTalla = document.createElement("p");
+      detallesTalla.classList.add("detalles");
+      detallesTalla.textContent = `Talla: ${producto.talla}`;
+      card.appendChild(detallesTalla);
+    }else if(producto.tamano != null) {
+      const detallesTamanio = document.createElement("p");
+      detallesTamanio.classList.add("detalles");
+      detallesTamanio.textContent = `Tamanio: ${producto.tamano}`;
+      card.appendChild(detallesTamanio);
+
     }
 
     const precio = document.createElement("p");
