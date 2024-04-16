@@ -11,10 +11,11 @@ const fetchData = async () => {
 
 
 fetchData().then((data) => {
-  const cervezas = data.productos;
+  const productos = data.productos;
 
-  renderCards(cervezas);
-  // renderCards(remeras);
+
+
+  renderCards(productos);
 });
 
 
@@ -132,13 +133,52 @@ const renderCards = (productos) => {
   });
 };
 
+// const dropdown = document.querySelectorAll(".dropdown");
 
+// dropdown.forEach((dropdown) => {
+//   const select = dropdown.querySelector(".select");
+//   const caret = dropdown.querySelector(".caret");
+//   const menu = dropdown.querySelector(".menu");
+//   const options = dropdown.querySelectorAll(".menu li");
+//   const selected = dropdown.querySelector(".selected");
 
+//   select.addEventListener("click", () => {
+//     select.classList.toggle("select-clicked");
+//     caret.classList.toggle("caret-rotate");
+//     menu.classList.toggle("menu-open");
+//   });
 
+//   options.forEach((option) => {
+//     option.addEventListener("click", () => {
+//       console.log(option.innerText);
+//       selected.innerText = option.innerText;
+//       select.classList.remove("select-clicked");
+//       caret.classList.remove("caret-rotate");
+//       menu.classList.remove("menu-open");
+//       options.forEach((option) => {
+//         option.classList.remove("active");
+//       });
+//       option.classList.add("active");
+//     });
+//   });
+// });
+const filtroMobile = document.querySelectorAll(".filtro-mobile")
+filtroMobile.forEach((filtro)=>{
+  const btnS = filtro.querySelector(".btn");
+  const caretD = filtro.querySelector(".caretD");
+  const menuD = filtro.querySelector(".menuD");
+  
+  btnS.addEventListener('click', () =>{
+    btnS.classList.toggle("btn-clicked");
+    caretD.classList.toggle("caretD-rotate");
+    menuD.classList.toggle("menuD-open");
+  })
+  
+})
 
-const dropdown = document.querySelectorAll(".dropdown");
+const dropdowns = document.querySelectorAll(".dropdown");
 
-dropdown.forEach((dropdown) => {
+  dropdowns.forEach((dropdown) => {
   const select = dropdown.querySelector(".select");
   const caret = dropdown.querySelector(".caret");
   const menu = dropdown.querySelector(".menu");
@@ -164,21 +204,3 @@ dropdown.forEach((dropdown) => {
     });
   });
 });
-
-
-// document.addEventListener("DOMContentLoaded", function() {
-  
-//   var cards = document.querySelectorAll(".card-tienda");
-//   console.log(cards);
-//   cards.forEach(function(card) {
-//     console.log(card);
-//       card.addEventListener("click", function() {
-//         console.log(this.id);
-//           // Obtener el ID de la tarjeta
-//           var cardId = this.id;
-//           // Redireccionar a otra página pasando el ID como parámetro
-//           window.location.href = "producto.html?id=" + cardId;
-//       });
-//   });
-// });
-
