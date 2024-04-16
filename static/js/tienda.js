@@ -26,9 +26,10 @@ const renderCards = (productos) => {
     card.classList.add("card-tienda");
     card.id = `producto-${producto.id}`
     
+   
     const img = document.createElement("img");
     img.classList.add("card-tienda-img");
-    img.src = producto.imagen;
+    img.src = producto.imagen[0];
     img.alt = producto.name;
     card.appendChild(img);
 

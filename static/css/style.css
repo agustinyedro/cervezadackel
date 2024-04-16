@@ -1006,35 +1006,43 @@ a i {
     .card-producto {
         display: flex;
 
-        .card-producto-imgPequenias {
+        .card-producto-imagenes{
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
-            gap: 0.5rem;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
 
-            .card-producto-img,
-            .card-producto-img2 {
-                width: 80px;
-                height: 60px;
-                border-radius: 5px;
-                border: 1px solid #22222280;
-
-                &:hover {
-                    border: 1px solid var(--primary-color);
-                    cursor: pointer;
+            .card-producto-imgPequenias {
+                display: flex;
+                align-items: flex-start;
+                justify-content: flex-start;
+                gap: 0.5rem;
+    
+                .card-producto-img,
+                .card-producto-img2 {
+                    width: 80px;
+                    height: 60px;
+                    border-radius: 5px;
+                    border: 1px solid #22222280;
+    
+                    &:hover {
+                        border: 1px solid var(--primary-color);
+                        cursor: pointer;
+                    }
                 }
             }
+    
+            .card-producto-imgGrande {
+                width: 350px;
+                height: 320px;
+                margin: 0 2vh;
+                border-radius: 5%;
+                box-sizing: 1px 1px 10px 1px #22222280;
+            }
+    
         }
-
-        .card-producto-imgGrande {
-            width: 350px;
-            height: 320px;
-            margin: 0 2vh;
-            border-radius: 5%;
-            box-sizing: 1px 1px 10px 1px #22222280;
-        }
-
+        
         .card-producto-titulo {
             font-size: 1.5rem;
             color: var(--primary-color);
@@ -1061,30 +1069,107 @@ a i {
 
             .card-producto-precio {
                 font-size: 1.5rem;
-                font-weight: 700;
+                font-weight: 500;
                 color: #222222;
                 margin: 0;
             }
 
-            .card-producto-boton{
-                width: 100%;
-                border: none;
-                background-color: var(--primary-color);
-                color: var(--white-color);
-                font-size: 1.1rem;
-                font-weight: 600;
-                padding: 0.8rem;
-                border-radius: 8px;
-                margin-bottom: 20px;
-                cursor: pointer;
+            .btn-stock{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                gap: 2px;
 
-                &:hover{
+                .stock {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    height: 4vh;
+                    border: 1px solid var(--third-bis-color);
+                    border-radius: 20px;
+                    margin: 0;
+
+                    .sumar {
+                        border-radius: 0 10px 10px 0;
+                    }
+
+                    .restar {
+                        border-radius: 10px 0 0 10px;
+                    }
+
+                    .sumar,
+                    .restar {
+                        color: var(--third-bis-color);
+                        font-size: 1.3rem;
+                        font-weight: 200;
+                        border: 0;
+                        height: 100%;
+                        cursor: pointer;
+                        padding: 0 16px;
+
+                        &:hover {
+                            background-color: var(--third-bis-color);
+                            color: var(--white-color);
+                        }
+                    }
+
+                    input {
+                        outline: none;
+                        font-size: 1.3rem;
+                        text-align: center;
+                        border: 0;
+                        width: 70%;
+                        height: 90%;
+
+                    }
+
+                    input::-webkit-inner-spin-button,
+                    input::-webkit-outer-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+                }
+
+                .card-producto-boton{
+                    width: 100%;
+                    border: none;
+                    background-color: var(--primary-color);
+                    color: var(--white-color);
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    padding: 0.8rem;
+                    border-radius: 8px;
+                    margin-bottom: 5px;
+                    cursor: pointer;
+    
+                    &:hover{
+                        background-color: var(--primary-color-hover);
+                        color: var(--white-color);
+                        transition: 0.2s;
+                        cursor: pointer;
+                    }
+                }
+                .btn-agregar {
+                    width: 100%;
+                    border: none;
                     background-color: var(--primary-color-hover);
                     color: var(--white-color);
-                    transition: 0.2s;
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    padding: 0.8rem;
+                    border-radius: 8px;
+                    margin-bottom: 20px;
                     cursor: pointer;
+
+                    &:hover {
+                        background-color: var(--primary-color);
+                    }
                 }
             }
+
+            
         }
     }
 
