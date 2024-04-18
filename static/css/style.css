@@ -195,6 +195,95 @@ nav ul li a:hover{
 
 
 
+/* Html Nosotros sección banner */
+
+.col-full {
+    max-width: 100%;
+    padding: 0;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+}
+
+.image-left{
+    width: 50%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+
+}
+
+.image-right {
+    width: 50%;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    position: absolute;
+}
+
+.background-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: center
+}
+
+/* 
+
+.nosotros-contenido {
+    font-size: 1.1em;
+    width: 55%;
+    margin: 50px auto
+}
+
+.nosotros-contenido strong {
+    color: #131315
+}
+
+.nosotros-premios {
+    width: 80%;
+    margin: 0 auto
+}
+
+.nosotros-premios .premios-container {
+    width: 100%
+}
+
+.nosotros-premios .premios-container ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap
+}
+
+.nosotros-premios .premios-container ul li {
+    border-top: 4px solid #d3cdb3;
+    padding: 20px 0 0;
+    margin: 0 10px 30px;
+    flex-grow: 1;
+    width: calc(100%/3 - 20px)
+}
+
+.nosotros-premios .premios-container ul strong {
+    color: #131315;
+    font-size: 1.2rem
+}
+
+.nosotros-premios .premios-container ul p img {
+    max-width: 90px;
+    margin-right: 10px
+}
+ */
+
+
+
 
 /* sección footer */
 #footer{
