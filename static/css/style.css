@@ -29,6 +29,7 @@ header{
 
 nav{
     display: flex;
+
     align-items: center;
     justify-content: space-between;
 }
@@ -197,13 +198,26 @@ nav ul li a:hover{
 
 /* Html Nosotros sección banner */
 
+#content {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
 .col-full {
     max-width: 100%;
     padding: 0;
 }
 
-.hero {
+.hero-slide {
     position: relative;
+    width: 100%;
+}
+
+
+.cta-image {
+    display: flex; 
     width: 100%;
 }
 
@@ -231,22 +245,27 @@ nav ul li a:hover{
     top: 0;
     left: 0;
     object-fit: cover;
-    object-position: center
+    object-position: center;
 }
 
-/* 
-
-.nosotros-contenido {
+.nosotros-historia {
     font-size: 1.1em;
     width: 55%;
-    margin: 50px auto
+    margin: 100px auto
+    
 }
 
-.nosotros-contenido strong {
-    color: #131315
+.nosotros-historia h2{
+    color: rgba(187, 148, 88, 1)
 }
 
-.nosotros-premios {
+.nosotros-historia texto {
+    font-size: 4rem;
+    color: #181419;;
+
+}   
+
+.proposito-valores {
     width: 80%;
     margin: 0 auto
 }
@@ -280,7 +299,9 @@ nav ul li a:hover{
     max-width: 90px;
     margin-right: 10px
 }
- */
+
+
+
 
 
 
