@@ -249,32 +249,69 @@ nav ul li a:hover{
 }
 
 .nosotros-historia {
-    font-size: 1.1em;
+    font-size: 2rem;
     width: 55%;
     margin: 100px auto
-    
 }
 
 .nosotros-historia h2{
     color: rgba(187, 148, 88, 1)
 }
 
-.nosotros-historia texto {
-    font-size: 4rem;
-    color: #181419;;
+.nosotros-historia .texto {
+    font-size: 2rem;
+    color: #181419;
+    text-align: center;
 
 }   
 
+p strong {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-block-start: 2rem;
+    margin-block-end: 2rem;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
 .proposito-valores {
+    font-size: 2rem;
     width: 80%;
     margin: 0 auto
 }
 
-.nosotros-premios .premios-container {
-    width: 100%
+.proposito-valores h2{
+    color: rgba(187, 148, 88, 1)
 }
 
-.nosotros-premios .premios-container ul {
+
+.proposito-valores .texto {
+    font-size: 2rem;
+    color: #181419;
+    text-align: center;
+
+}   
+
+.premios-container {
+    font-size: 2rem;
+    width: 100%;
+    margin: 0 auto
+}
+
+.premios-container h2{
+    color: rgba(187, 148, 88, 1)
+}
+
+
+.premios-container .texto {
+    font-size: 2rem;
+    color: #181419;
+    text-align: center
+
+}  
+
+.premios-container ul {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -282,7 +319,9 @@ nav ul li a:hover{
     flex-wrap: wrap
 }
 
-.nosotros-premios .premios-container ul li {
+
+
+.premios-container ul li {
     border-top: 4px solid #d3cdb3;
     padding: 20px 0 0;
     margin: 0 10px 30px;
@@ -290,20 +329,31 @@ nav ul li a:hover{
     width: calc(100%/3 - 20px)
 }
 
-.nosotros-premios .premios-container ul strong {
+.premios-container ul strong {
     color: #131315;
     font-size: 1.2rem
 }
 
-.nosotros-premios .premios-container ul p img {
+.premios-container ul p img {
     max-width: 90px;
     margin-right: 10px
 }
 
 
+.frase h3 {
+    font-style: italic;
+    text-align: center;
+    font-family: 'Barlow Condensed';
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0.05rem;
+    text-align: center;
+
+}
 
 
-
+  
 
 
 /* sección footer */
