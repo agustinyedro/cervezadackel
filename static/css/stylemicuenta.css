@@ -68,16 +68,16 @@
         }
 
 
-        .form {
+        .forms {
             display: grid;
-            grid-template-columns: repeat(2, 2fr);
+            grid-template-columns: repeat(2, 1fr);
             grid-template-rows: 50px 50px 100px 50px ;
             gap: 50px;
             width: 80%;
             height: 60%;
             border-radius: 2vw;
 
-            & #name {
+            & #user {
                 border-radius: 0.5vh;
                 border: none;
                 grid-column: 1/2;
@@ -117,7 +117,8 @@
          
 
             & input[type="submit"] {
-                grid-column: span 1;
+                grid-column: 1 / -1;
+                font-size: 1.1rem;
                 background-color: var(--primary-color);
                 color: var(--white-color);
                 font-family: var(--primary-font);
@@ -130,10 +131,16 @@
                 }
             }
 
-           
+           & a{
+                grid-column: 1 / -1;
+                font-size: 1.1rem;
+                text-decoration: none;
+                text-align: center;
+           }
         }
     }
 }
+
 
 @media  (max-width: 760px) {
     .micuenta__form{
@@ -169,23 +176,18 @@
                 font-size: 1.5rem;
             }
     
-            & p {
-                color: var(--white-color);
-                text-align: center;
-                padding: 20px 20px;
-                margin-bottom: 50px;
-            }
+           
     
-            .form {
+            .forms {
                 display: grid;
-                grid-template-columns: 45% 45%;
-                grid-template-rows: 30px 30px 30px 30px 100px 30px;
+                grid-template-columns: 1;
+                grid-template-rows: auto;
                 gap: 30px;
                 width: 80%;
                 height: 100%;
                 border-radius: 2vw;
     
-                & #name {
+                & #user {
                     grid-column: 1/-1;
                 }
     
