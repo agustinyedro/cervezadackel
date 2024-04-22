@@ -198,73 +198,61 @@ nav ul li a:hover{
 
 /* Html Nosotros sección banner */
 
-#content {
+/*baner dos img*/
+
+#nosotros {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0;
+}
+.container-image {
+    width: 100vw;
+    display: flex; 
+    align-items: center;
+    width: 100%;
+    height: 80vh;
+}
+
+.container-image .image{
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* secciones */
+
+section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+section .titulo-nosotros{
+    color: rgba(187, 148, 88, 1);
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+section .nosotros-parrafo {
+    width: 80%;
+    font-size: 1.3rem;
+    margin: 0 auto;
+}
+
+section blockquote {
+    
+    height: 80px;
     display: flex;
     align-items: center;
-    margin: 0;
-    padding: 0;
+    width: 70%;
+    margin: 30px auto;
+    border-left: 3px solid #d3cdb3;
+    padding-left: 0 30px;
 }
-
-.col-full {
-    max-width: 100%;
-    padding: 0;
-}
-
-.hero-slide {
-    position: relative;
-    width: 100%;
-}
-
-
-.cta-image {
-    display: flex; 
-    width: 100%;
-}
-
-.image-left{
-    width: 50%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    position: absolute;
-
-}
-
-.image-right {
-    width: 50%;
-    height: 100%;
-    top: 0;
-    left: 50%;
-    position: absolute;
-}
-
-.background-image {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    object-fit: cover;
-    object-position: center;
-}
-
-.nosotros-historia {
-    font-size: 2rem;
-    width: 55%;
-    margin: 100px auto
-}
-
-.nosotros-historia h2{
-    color: rgba(187, 148, 88, 1)
-}
-
-.nosotros-historia .texto {
-    font-size: 2rem;
-    color: #181419;
-    text-align: center;
-
-}   
-
 p strong {
     display: block;
     font-size: 2rem;
@@ -275,23 +263,6 @@ p strong {
     margin-inline-end: 0px;
 }
 
-.proposito-valores {
-    font-size: 2rem;
-    width: 80%;
-    margin: 0 auto
-}
-
-.proposito-valores h2{
-    color: rgba(187, 148, 88, 1)
-}
-
-
-.proposito-valores .texto {
-    font-size: 2rem;
-    color: #181419;
-    text-align: center;
-
-}   
 
 .premios-container {
     font-size: 2rem;
