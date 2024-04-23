@@ -265,7 +265,7 @@ p strong {
 
 
 .premios-container {
-    font-size: 2rem;
+    font-size: 1rem;
     width: 100%;
     margin: 0 auto
 }
@@ -274,14 +274,6 @@ p strong {
     color: rgba(187, 148, 88, 1)
 }
 
-
-.premios-container .texto {
-    font-size: 2rem;
-    color: #181419;
-    text-align: center
-
-}  
-
 .premios-container ul {
     margin: 0;
     padding: 0;
@@ -289,7 +281,6 @@ p strong {
     display: flex;
     flex-wrap: wrap
 }
-
 
 
 .premios-container ul li {
@@ -315,7 +306,7 @@ p strong {
     font-style: italic;
     text-align: center;
     font-family: 'Barlow Condensed';
-    font-size: 50px;
+    font-size: 35px;
     font-weight: 400;
     line-height: 32px;
     letter-spacing: 0.05rem;
