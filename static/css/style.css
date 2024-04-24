@@ -208,7 +208,7 @@ nav ul li a:hover{
     padding: 0;
 }
 .container-image {
-    width: 100vw;
+    max-width: 100vw;
     display: flex; 
     align-items: center;
     width: 100%;
@@ -298,7 +298,8 @@ p strong {
 
 .premios-container ul p img {
     max-width: 90px;
-    margin-right: 10px
+    margin-right: 10px;
+
 }
 
 
@@ -315,7 +316,11 @@ p strong {
 }
 
 
-/* @media only screen and (max-width: 600px) */
+@media (max-width: 768px){
+    
+}
+
+
   
 
 
