@@ -298,7 +298,8 @@ p strong {
 
 .premios-container ul p img {
     max-width: 90px;
-    margin-right: 10px
+    border-radius: 3px;
+    margin-right: 10px;
 }
 
 
@@ -315,7 +316,37 @@ p strong {
 }
 
 
-/* @media only screen and (max-width: 600px) */
+@media  (max-width: 600px) {
+
+    .container-image{
+        flex-direction: column;
+        width: 350%
+        
+    }
+
+    section .titulo-nosotros{
+    
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-top: 0 auto;
+    }
+    
+    section .nosotros-parrafo {
+        width: 50%;
+        font-size: 1rem;
+    }
+    
+    section blockquote {
+    
+        height: 80px;
+        display: flex;
+        align-items: center;
+        width: 70%;
+        margin-left: 150px;
+        
+    }
+
+}
   
 
 
