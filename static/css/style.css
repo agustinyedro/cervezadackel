@@ -208,7 +208,7 @@ nav ul li a:hover{
     padding: 0;
 }
 .container-image {
-    width: 100vw;
+    max-width: 100vw;
     display: flex; 
     align-items: center;
     width: 100%;
@@ -298,8 +298,13 @@ p strong {
 
 .premios-container ul p img {
     max-width: 90px;
+<<<<<<< HEAD
     border-radius: 3px;
     margin-right: 10px;
+=======
+    margin-right: 10px;
+
+>>>>>>> 5787cd9893af206b97ef53318c0c0fb17138d3a3
 }
 
 
@@ -314,6 +319,7 @@ p strong {
     text-align: center;
 
 }
+<<<<<<< HEAD
 
 
 @media  (max-width: 600px) {
@@ -348,6 +354,9 @@ p strong {
 
 }
   
+=======
+ 
+>>>>>>> 5787cd9893af206b97ef53318c0c0fb17138d3a3
 
 
 /* sección footer */
