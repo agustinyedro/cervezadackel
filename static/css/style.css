@@ -410,6 +410,7 @@ nav ul li a:hover {
                 font-family: var(--primary-font);
                 font-size: 1rem;
 
+
                 &:focus,
                 &:active,
                 &:hover {
@@ -580,21 +581,21 @@ nav ul li a:hover {
     }
 }
 
-@media  (max-width: 760px) {
-    .contacto{
+@media (max-width: 760px) {
+    .contacto {
         .contacto__title {
             display: flex;
             align-items: center;
             justify-content: center;
             height: 30vh;
             position: relative;
-    
+
             h1 {
                 font-size: 2rem;
                 color: var(--secondary-color);
                 z-index: 1;
             }
-    
+
             .contacto__fondo {
                 margin-top: 0;
                 position: absolute;
@@ -609,18 +610,18 @@ nav ul li a:hover {
 
         .contacto__form {
             height: 100vh;
-           
+
             & h2 {
                 font-size: 1.5rem;
             }
-    
+
             & p {
                 color: var(--white-color);
                 text-align: center;
                 padding: 20px 20px;
                 margin-bottom: 50px;
             }
-    
+
             .form {
                 display: grid;
                 grid-template-columns: 45% 45%;
@@ -629,50 +630,50 @@ nav ul li a:hover {
                 width: 80%;
                 height: 100%;
                 border-radius: 2vw;
-    
+
                 & #name {
                     grid-column: 1/-1;
                 }
-    
+
                 & #email {
                     grid-column: 1/-1;
                 }
-    
+
                 & #phone {
                     grid-column: 1/-1;
                 }
-    
+
                 .motivo {
-                    
-                    grid-column: 1/-100%;
+
+                    grid-column: 1/-1;
                     position: relative;
-    
+
                 }
-    
+
                 & #message {
                     grid-column: 1/-1;
                 }
-    
+
                 & input[type="submit"] {
                     grid-column: span 1;
                     font-size: 1.1rem;
 
                 }
-    
+
                 .whatsapp {
                     grid-column: span 1;
                     gap: 2px;
-                    
+
                     svg {
-                       
+
                         width: 20px;
                         height: 20px;
                     }
-    
-            
+
+
                 }
             }
         }
     }
-    
+
 }
