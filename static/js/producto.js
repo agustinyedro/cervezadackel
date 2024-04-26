@@ -105,22 +105,38 @@ document.addEventListener("DOMContentLoaded", async function () {
     detallesTalla.classList.add("detalles");
     detallesTalla.innerHTML = /*HTML*/ `
     <p class="detalles-texto">Talla:</p>
-    <button class = "detalles-btn">${cardData.talla} </button>`;
+    <button id="btn-talla-${cardData.id}" class = "detalles-btn-talla">${cardData.talla} </button>`;
     cardDetalles.appendChild(detallesTalla);
   }
   if (cardData.color != null) {
     const detallesColor = document.createElement("div");
     detallesColor.classList.add("detalles");
+    let colorBgBtn = "white";
+
+    switch (cardData.color) {
+      case "Negro":
+        colorBgBtn = "black";
+        break;
+      case "Blanco":
+        colorBgBtn = "white";
+        break;
+      case "Rojo":
+        colorBgBtn = "red";
+        break;
+      default:
+        break;
+    }
     detallesColor.innerHTML = /* HTML */ `
       <p class="detalles-texto">Color:</p>
       <button
-        class="detalles-btn"
+        id="btn-color-${cardData.id}"
+        class="detalles-btn-color"
         style="background-color: ${cardData.color === "Negro"
           ? "black"
           : "white"};
       color: ${cardData.color === "Negro" ? "white" : "black"};"
       >
-        ${cardData.color}
+        N
       </button>
     `;
     cardDetalles.appendChild(detallesColor);
