@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./static/img/logo-simple-dorado.svg" type="image/x-icon">
     <!-- espacio de script -->
     <script
       src="https://kit.fontawesome.com/af1e3d563d.js"
@@ -24,14 +25,17 @@
 
   <body>
     <!-- encabezado o header -->
-    <header>
-      <nav>
-        <a href="./index.html"></a>
-        <!-- logo -->
-        <div id="logo">
-          <img src="./static/img/Logo.svg" class="logo" alt="Logo" />
-        </div>
-
+    <header class="header">
+      <div class="menu container">
+        <a href="..\index.html" class="logo">
+          <img src="./static/img/Logo.svg" alt="Logo de Cerveza Dackel" />
+        </a>
+        <input type="checkbox" id="menu">
+        <label for="menu">
+          <img src="./static/img/menu.png" class="menu-icono" alt="">
+        </label>
+      
+      <nav class="nav-links">
         <!-- hipervínculos del menú -->
         <ul>
           <li><a href="./index.html">Inicio</a></li>
