@@ -200,14 +200,14 @@ nav ul li a:hover{
 /*baner dos img*/
 
 #nosotros {
+    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 auto;
     padding: 0;
 }
 .container-image {
-    max-width: 100vw;
+
     display: flex; 
     align-items: center;
     width: 100%;
@@ -295,9 +295,9 @@ p strong {
     font-size: 1.2rem;
 }
 
-.premios-container ul p img {
-    max-width: 90px;
-    border-radius: 3px;
+.premios-container ul .imagen-medalla {
+    width: 50px;
+    border-radius: 50%;
     margin-right: 10px;
 }
 
@@ -314,19 +314,25 @@ p strong {
 
 }
 
+/* celular */
+@media  (max-width: 768px) {
 
-@media  (max-width: 650px) {
+
 
     #nosotros {
         /* no me doy cuenta como ampliar las fotos para que cubra los margenes en blanco */
+        width: 100vw;
         justify-content:space-around;
     
     }
-
     .container-image{
         flex-direction: column;
-        max-width:100%;
         
+    }
+    .container-image .image{
+        width:100%;
+        height:50%;
+    
     }
 
     section {
@@ -337,15 +343,14 @@ p strong {
 
     section .titulo-nosotros{
     
-        font-size: 2.5rem;
+        font-size: 1.5rem;
         font-weight: 700;
-        margin-top: 0 auto;
     
     }
     
     section .nosotros-parrafo {
         width: 50%;
-        font-size: 1rem;
+        font-size: 0.75rem;
         text-align:justify;
     }
     
@@ -353,13 +358,19 @@ p strong {
     section blockquote {
 
         font-style: italic;
-        text-align: ;
+        text-align: center;
         height: 50%;
         /* ¿como hago que la linea se centre? */
         border-left: 3px solid #d3cdb3; 
         margin: 20px auto;
-        padding-left: 0 100px;
+        padding-left: 0 2vw;
         
+    }
+
+    .premios-container ul {
+
+        flex-direction: column;
+        align-items: center;
     }
 
     .premios-container ul li {
@@ -370,14 +381,17 @@ p strong {
         font-size: 1rem;
     }
     
-    .premios-container ul p img {
+    .premios-container .imagen-medalla {
         /* no me doy cuenta como achicar las imagenes */
-        max-width: 40%;
+        width: 80px;
         margin-right: 10px;
     }
 
 
 }
+/* tablet completar*/
+@media  (min-width: 769px) and (max-width:1024px) {
+    }
 
 
 /* sección footer */
