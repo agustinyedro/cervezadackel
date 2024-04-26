@@ -247,7 +247,7 @@ section blockquote {
     height: 80px;
     display: flex;
     align-items: center;
-    width: 70%;
+    width: 40%;
     margin: 30px auto;
     border-left: 3px solid #d3cdb3;
     padding-left: 0 30px;
@@ -264,7 +264,7 @@ p strong {
 
 
 .premios-container {
-    font-size: 1rem;
+    font-size: 0.9rem;
     width: 100%;
     margin: 0 auto;
 }
@@ -296,7 +296,7 @@ p strong {
 }
 
 .premios-container ul .imagen-medalla {
-    width: 50px;
+    width: 70px;
     border-radius: 50%;
     margin-right: 10px;
 }
@@ -314,13 +314,10 @@ p strong {
 
 }
 
-/* celular */
+/* diseño responsivo para celular */
 @media  (max-width: 768px) {
 
-
-
     #nosotros {
-        /* no me doy cuenta como ampliar las fotos para que cubra los margenes en blanco */
         width: 100vw;
         justify-content:space-around;
     
@@ -360,7 +357,6 @@ p strong {
         font-style: italic;
         text-align: center;
         height: 50%;
-        /* ¿como hago que la linea se centre? */
         border-left: 3px solid #d3cdb3; 
         margin: 20px auto;
         padding-left: 0 2vw;
@@ -382,14 +378,21 @@ p strong {
     }
     
     .premios-container .imagen-medalla {
-        /* no me doy cuenta como achicar las imagenes */
         width: 80px;
         margin-right: 10px;
     }
 
+    .frase h3{
+        font-size: 20px;
+        font-weight: 200;
+        margin-left: 10px;
+        margin-right: 10px;
+
+    }
+
 
 }
-/* tablet completar*/
+/* diseño responsivo para tablet completar*/
 @media  (min-width: 769px) and (max-width:1024px) {
     }
 
