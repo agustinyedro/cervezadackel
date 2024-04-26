@@ -4,6 +4,7 @@
       "id": 1,
       "name": "Red IPA",
       "precio": 2500,
+      "calibre": "473ml",
       "estilo": "IPA",
       "sabor": "Caramelo",
       "alcohol": 5.5,
@@ -20,6 +21,7 @@
       "id": 2,
       "name": "Irish Stout",
       "precio": 3000,
+      "calibre": "473ml",
       "estilo": "Stout",
       "sabor": "Caramelo",
       "alcohol": 5,
@@ -42,6 +44,7 @@
       "id": 3,
       "name": "IPA",
       "precio": 2600,
+      "calibre": "473ml",
       "estilo": "IPA",
       "sabor": "Caramelo",
       "alcohol": 5.5,
@@ -58,6 +61,7 @@
       "id": 4,
       "name": "APA",
       "precio": 2550,
+      "calibre": "473ml",
       "estilo": "APA",
       "sabor": "Caramelo",
       "alcohol": 4.5,
@@ -74,6 +78,7 @@
       "id": 5,
       "name": "Barley Wine",
       "precio": 2550,
+      "calibre": "473ml",
       "estilo": "APA",
       "sabor": "Caramelo",
       "alcohol": 9,
@@ -90,6 +95,7 @@
       "id": 6,
       "name": "Bee Flower",
       "precio": 2100,
+      "calibre": "473ml",
       "estilo": "Dulce",
       "sabor": "Caramelo",
       "alcohol": 7,
@@ -106,6 +112,7 @@
       "id": 7,
       "name": "IRA de Dackel",
       "precio": 1990,
+      "calibre": "473ml",
       "estilo": "Dulce",
       "sabor": "Caramelo",
       "alcohol": 5,
@@ -126,6 +133,7 @@
       "id": 8,
       "name": "Golden Ale",
       "precio": 1940,
+      "calibre": "473ml",
       "estilo": "Dulce",
       "sabor": "Caramelo",
       "alcohol": 5,
@@ -136,9 +144,7 @@
         "../static/img/cervezas/golden2.webp"
       ],
       "cantidad": 100,
-      "premios": [
-        "Medalla de Plata Copa Argentina 2016 "
-      ],
+      "premios": ["Medalla de Plata Copa Argentina 2016 "],
       "tipo": "cervezas"
     },
     {
@@ -149,9 +155,7 @@
       "color": "Negro",
       "material": "Algodón",
       "descripcion": "Remera de algodón negro con cuello redondo y manga corta.",
-      "imagen": [
-        "../static/img/remeras/remeraNegra1.webp"
-      ],
+      "imagen": ["../static/img/remeras/remeraNegra1.webp"],
       "cantidad": 10,
       "tipo": "remeras"
     },
@@ -161,9 +165,7 @@
       "precio": 100,
       "tamano": "10x10 cm",
       "descripcion": "Calcomanía del logo de la marca en vinilo resistente al agua y al sol.",
-      "imagen": [
-        "../static/img/calcomanias/Recurso 1.webp"
-      ],
+      "imagen": ["../static/img/calcomanias/Recurso 1.webp"],
       "cantidad": 10,
       "tipo": "calcomanias"
     }
