@@ -8,12 +8,14 @@
 
 .main {
     background-color: #ededed;
+    height: fit-content;
+    padding: 0 2vw 15vh 2vw;
     display: grid;
     grid-template-columns: minmax(200px, 300px) 1fr;
     grid-template-rows: 500px 50px 50px 1fr;
     /* Agregado una fila adicional */
     gap: 20px;
-    margin-bottom: 15vh;
+
 
 
     .title {
@@ -919,9 +921,11 @@
 
 
             .detalles {
+
                 h3 {
                     font-size: 1.5rem;
                     margin: 0;
+                    color: var(--primary-color);
                 }
 
                 .detalles-btn-talla {
@@ -930,9 +934,41 @@
                     border: none;
                     border-radius: 5px;
                     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+                    transition: all 0.3s ease-in-out;
+                    outline: 1px solid transparent;
 
                     &.selected {
+                        transform: scale(1.1);
                         outline: 1px solid var(--third-bis-color);
+                        box-shadow: 0 0 10px var(--third-bis-color);
+                    }
+
+                    &:hover {
+                        outline: 1px solid var(--secondary-color);
+                        box-shadow: 0 0 10px var(--secondary-color);
+                    }
+                }
+
+                .detalles-btn-color {
+                    margin: 0.2rem;
+                    padding: 0.2rem 0.5rem;
+                    border: none;
+                    border-radius: 50%;
+                    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+                    width: 25px;
+                    height: 25px;
+                    transition: all 0.3s ease-in-out;
+                    outline: 1px solid transparent;
+
+                    &.selected {
+                        transform: scale(1.1);
+                        outline: 1px solid var(--third-bis-color);
+                        box-shadow: 0 0 10px var(--third-bis-color);
+                    }
+
+                    &:hover {
+                        outline: 1px solid var(--secondary-color);
+                        box-shadow: 0 0 10px var(--third-bis-color);
                     }
                 }
             }

@@ -116,61 +116,64 @@ document.addEventListener("DOMContentLoaded", async function () {
       const btnTalla = document.createElement("button");
       btnTalla.classList.add("detalles-btn-talla");
       btnTalla.textContent = talla;
-      btnTalla.dataset.talla = talla; // Guardar la talla en el atributo data-talla
+      btnTalla.dataset.talla = talla;
 
       // Agregar evento de clic para seleccionar la talla y mostrar los colores disponibles
       btnTalla.addEventListener("click", () => {
-        // Deseleccionar todas las otras tallas
         detallesTalla.querySelectorAll(".detalles-btn-talla").forEach((btn) => {
           btn.classList.remove("selected");
         });
-        // Seleccionar la talla actual
+        // console.log(btnTalla.classList.contains("selected"));
+
         btnTalla.classList.toggle("selected");
-        // Obtener los colores disponibles para la talla seleccionada
+
         const coloresDisponibles = cardData.variantes
           .filter((variante) => variante.talla === talla)
           .map((variante) => variante.color);
         // Eliminar colores duplicados
         const coloresUnicos = [...new Set(coloresDisponibles)];
         // Limpiar los botones de colores anteriores
-        detallesColor.innerHTML = "<h3>Colores</h3>";
-        // Crear botón para cada color único
-        coloresUnicos.forEach((color) => {
-          const btnColor = document.createElement("button");
-          btnColor.classList.add("detalles-btn-color");
-          btnColor.textContent = color;
-          btnColor.dataset.color = color; // Guardar el color en el atributo data-color
+        if (btnTalla.classList.contains("selected")) {
+          detallesColor.innerHTML = "<h3>Colores</h3>";
+          // Crear botón para cada color único
+          coloresUnicos.forEach((color) => {
+            const btnColor = document.createElement("button");
+            btnColor.classList.add("detalles-btn-color");
+            btnColor.dataset.color = color; // Guardar el color en el atributo data-color
 
-          // Asignar color de fondo según el color
-          switch (color) {
-            case "Negro":
-              btnColor.style.backgroundColor = "black";
-              break;
-            case "Blanco":
-              btnColor.style.backgroundColor = "white";
-              break;
-            case "Rojo":
-              btnColor.style.backgroundColor = "red";
-              break;
-            default:
-              btnColor.style.backgroundColor = "gray";
-              break;
-          }
+            // Asignar color de fondo según el color
+            switch (color) {
+              case "Negro":
+                btnColor.style.backgroundColor = "black";
+                break;
+              case "Blanco":
+                btnColor.style.backgroundColor = "white";
+                break;
+              case "Rojo":
+                btnColor.style.backgroundColor = "red";
+                break;
+              default:
+                btnColor.style.backgroundColor = "gray";
+                break;
+            }
 
-          // Agregar evento de clic para seleccionar el color
-          btnColor.addEventListener("click", () => {
-            // Deseleccionar todos los otros colores
-            detallesColor
-              .querySelectorAll(".detalles-btn-color")
-              .forEach((btn) => {
-                btn.classList.remove("selected");
-              });
-            // Seleccionar el color actual
-            btnColor.classList.add("selected");
+            // Agregar evento de clic para seleccionar el color
+            btnColor.addEventListener("click", () => {
+              // Deseleccionar todos los otros colores
+              detallesColor
+                .querySelectorAll(".detalles-btn-color")
+                .forEach((btn) => {
+                  btn.classList.remove("selected");
+                });
+              // Seleccionar el color actual
+              btnColor.classList.add("selected");
+            });
+
+            detallesColor.appendChild(btnColor);
           });
-
-          detallesColor.appendChild(btnColor);
-        });
+        } else {
+          detallesColor.innerHTML = "";
+        }
       });
 
       detallesTalla.appendChild(btnTalla);
