@@ -151,12 +151,36 @@
       "id": 9,
       "name": "Remera Negra",
       "precio": 7500,
-      "talla": ["S", "XS", "S", "M", "L", "XL", "XXL", "XXXL"],
-      "color": ["Negro", "Blanco", "Rojo"],
+      "variantes": [
+        {
+          "talla": "XS",
+          "color": "Negro",
+          "cantidad": 2
+        },
+        {
+          "talla": "XS",
+          "color": "Blanco",
+          "cantidad": 3
+        },
+        {
+          "talla": "S",
+          "color": "Negro",
+          "cantidad": 2
+        },
+        {
+          "talla": "S",
+          "color": "Blanco",
+          "cantidad": 3
+        },
+        {
+          "talla": "S",
+          "color": "Rojo",
+          "cantidad": 1
+        }
+      ],
       "material": "Algodón",
       "descripcion": "Remera de algodón negro con cuello redondo y manga corta.",
       "imagen": ["../static/img/remeras/remeraNegra1.webp"],
-      "cantidad": 10,
       "tipo": "remeras"
     },
     {

@@ -856,6 +856,7 @@
             }
         }
 
+
         /*** DETALLES ***/
 
         .card-producto-detalles {
@@ -914,6 +915,26 @@
             .card-producto-stock {
                 font-size: 1rem;
                 z-index: 5;
+            }
+
+
+            .detalles {
+                h3 {
+                    font-size: 1.5rem;
+                    margin: 0;
+                }
+
+                .detalles-btn-talla {
+                    margin: 0 0.2rem;
+                    padding: 0.2rem 0.5rem;
+                    border: none;
+                    border-radius: 5px;
+                    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+
+                    &.selected {
+                        outline: 1px solid var(--third-bis-color);
+                    }
+                }
             }
 
             .btn-stock {

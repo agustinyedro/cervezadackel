@@ -100,48 +100,89 @@ document.addEventListener("DOMContentLoaded", async function () {
     detallesAlcohol.textContent = `alc ${cardData.alcohol}%  - IBU:${cardData.IBU}`;
     cardDetalles.appendChild(detallesAlcohol);
   }
-  if (cardData.talla != null) {
+  if (cardData.tipo === "remeras") {
     const detallesTalla = document.createElement("div");
     detallesTalla.classList.add("detalles");
-    detallesTalla.innerHTML = /*HTML*/ `
-    <p class="detalles-texto">Talla:</p>
-    <button id="btn-talla-${cardData.id}" class = "detalles-btn-talla">${cardData.talla} </button>`;
-    cardDetalles.appendChild(detallesTalla);
-  }
-  if (cardData.color != null) {
+
+    // Obtener tallas únicas
+    const tallasUnicas = [
+      ...new Set(cardData.variantes.map((variante) => variante.talla)),
+    ];
+    const tallas = document.createElement("h3");
+    tallas.textContent = "Tallas";
+    detallesTalla.appendChild(tallas);
+    // Crear botones para cada talla única
+    tallasUnicas.forEach((talla) => {
+      const btnTalla = document.createElement("button");
+      btnTalla.classList.add("detalles-btn-talla");
+      btnTalla.textContent = talla;
+      btnTalla.dataset.talla = talla; // Guardar la talla en el atributo data-talla
+
+      // Agregar evento de clic para seleccionar la talla y mostrar los colores disponibles
+      btnTalla.addEventListener("click", () => {
+        // Deseleccionar todas las otras tallas
+        detallesTalla.querySelectorAll(".detalles-btn-talla").forEach((btn) => {
+          btn.classList.remove("selected");
+        });
+        // Seleccionar la talla actual
+        btnTalla.classList.toggle("selected");
+        // Obtener los colores disponibles para la talla seleccionada
+        const coloresDisponibles = cardData.variantes
+          .filter((variante) => variante.talla === talla)
+          .map((variante) => variante.color);
+        // Eliminar colores duplicados
+        const coloresUnicos = [...new Set(coloresDisponibles)];
+        // Limpiar los botones de colores anteriores
+        detallesColor.innerHTML = "<h3>Colores</h3>";
+        // Crear botón para cada color único
+        coloresUnicos.forEach((color) => {
+          const btnColor = document.createElement("button");
+          btnColor.classList.add("detalles-btn-color");
+          btnColor.textContent = color;
+          btnColor.dataset.color = color; // Guardar el color en el atributo data-color
+
+          // Asignar color de fondo según el color
+          switch (color) {
+            case "Negro":
+              btnColor.style.backgroundColor = "black";
+              break;
+            case "Blanco":
+              btnColor.style.backgroundColor = "white";
+              break;
+            case "Rojo":
+              btnColor.style.backgroundColor = "red";
+              break;
+            default:
+              btnColor.style.backgroundColor = "gray";
+              break;
+          }
+
+          // Agregar evento de clic para seleccionar el color
+          btnColor.addEventListener("click", () => {
+            // Deseleccionar todos los otros colores
+            detallesColor
+              .querySelectorAll(".detalles-btn-color")
+              .forEach((btn) => {
+                btn.classList.remove("selected");
+              });
+            // Seleccionar el color actual
+            btnColor.classList.add("selected");
+          });
+
+          detallesColor.appendChild(btnColor);
+        });
+      });
+
+      detallesTalla.appendChild(btnTalla);
+    });
+
     const detallesColor = document.createElement("div");
     detallesColor.classList.add("detalles");
 
-    let colorBgBtn = "white";
-
-    switch (cardData.color) {
-      case "Negro":
-        colorBgBtn = "black";
-        break;
-      case "Blanco":
-        colorBgBtn = "white";
-        break;
-      case "Rojo":
-        colorBgBtn = "red";
-        break;
-      default:
-        break;
-    }
-    detallesColor.innerHTML = /* HTML */ `
-      <p class="detalles-texto">Color:</p>
-      <button
-        id="btn-color-${cardData.id}"
-        class="detalles-btn-color"
-        style="background-color: ${cardData.color === "Negro"
-          ? "black"
-          : "white"};
-      color: ${cardData.color === "Negro" ? "white" : "black"};"
-      >
-        N
-      </button>
-    `;
+    cardDetalles.appendChild(detallesTalla);
     cardDetalles.appendChild(detallesColor);
   }
+
   if (cardData.tamano != null) {
     const detallesTamano = document.createElement("p");
     detallesTamano.classList.add("detalles");
