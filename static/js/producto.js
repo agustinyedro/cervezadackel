@@ -111,6 +111,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   if (cardData.color != null) {
     const detallesColor = document.createElement("div");
     detallesColor.classList.add("detalles");
+
     let colorBgBtn = "white";
 
     switch (cardData.color) {
