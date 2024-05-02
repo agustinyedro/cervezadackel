@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- vinculación con estilos -->
     <link rel="stylesheet" href="../static/css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/af1e3d563d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="shortcut icon"
+      href="../static/img/logo-simple-dorado.svg"
+      type="image/x-icon"
+    />
     <title>CaC-TPO</title>
     <!-- vinculación con google fonts Raleway la fuente para el proyecto -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,23 +25,25 @@
   </head>
   <body>
     <!-- encabezado o header -->
-    <header>
-      <nav>
-        <a href="../"></a>
-        <!-- logo -->
-        <div id="logo">
-          <img src="../static/img/Logo.svg" class="logo" alt="Logo" />
-        </div>
-
-        <!-- hipervínculos del menú -->
-        <ul>
-          <li><a href="../">Inicio</a></li>
-          <li><a href="./tienda.html">Tienda</a></li>
-          <li><a href="./nosotros.html">Nosotros</a></li>
-          <li><a href="./contacto.html">Contacto</a></li>
-          <li><a href="./micuenta.html">Micuenta</a></li>
-        </ul>
-      </nav>
+    <header class="header">
+      <div class="menu container">
+        <a href="..\index.html" class="logo">
+          <img src="../static/img/Logo.svg" alt="Logo de Cerveza Dackel" />
+        </a>
+        <input type="checkbox" id="menu" />
+        <label for="menu">
+          <img src="./static/img/menu.png" class="menu-icono" alt="" />
+        </label>
+        <nav class="nav-links">
+          <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../templates/tienda.html">Tienda</a></li>
+            <li><a href="../templates/nosotros.html">Nosotros</a></li>
+            <li><a href="../templates/contacto.html">Contacto</a></li>
+            <li><a href="../templates/micuenta.html">Mi cuenta</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main class="contacto">
@@ -85,10 +96,11 @@
       </div>
     </main>
 
+    <!-- footer -->
     <footer class="footer">
       <div class="footer-container">
         <div class="footer-logo">
-          <a href="">
+          <a href="..\index.html">
             <img
               src="../static/img/logo-simple-blanco.svg"
               alt="Logo de Cerveza Dackel"
@@ -98,7 +110,9 @@
         <div class="footer-contacto">
           <h2>CONTÁCTENOS</h2>
           <ul>
-            <li><i class="fas fa-map-marker-alt"></i> La Plata</li>
+            <li>
+              <i class="fas fa-map-marker-alt"></i> La Plata, Buenos Aires
+            </li>
             <li><i class="fas fa-phone"></i> +54 221 477 9519</li>
             <li><i class="fas fa-envelope"></i> cerveceriadackel@gmail.com</li>
           </ul>
@@ -109,11 +123,12 @@
           <a href="#instagram"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
+      <hr class="footer-linea" />
       <div class="footer-derechos">
-        <p>
-          Derechos de autor &copy; 2024 <b> Dackel Cerveza</b> - Todos los
-          derechos Reservados.
-        </p>
+        <small
+          >Derechos de autor &copy; 2024 -<b> Dackel Cerveza</b> - Todos los
+          derechos Reservados.</small
+        >
       </div>
     </footer>
     <script src="../static/js/contacto.js"></script>

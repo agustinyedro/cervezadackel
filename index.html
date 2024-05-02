@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./static/img/logo-simple-dorado.svg" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="./static/img/logo-simple-dorado.svg"
+      type="image/x-icon"
+    />
     <!-- espacio de script -->
     <script
       src="https://kit.fontawesome.com/af1e3d563d.js"
@@ -11,10 +15,10 @@
     ></script>
     <!-- vinculación con estilos -->
     <link rel="stylesheet" href="./static/css/style.css" />
-    <title>CaC-TPO</title>
-    <!-- espacio de favicon
-    <link rel="icon" href="../favicon.ico" type="image/x-icon"> -->
-    <!-- vinculación con google fonts Raleway la fuente para el proyecto -->
+    <title>CaC TPO Equipo4</title>
+    <!-- espacio de favicon-->
+    <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+    <!-- vinculación con google fonts Raleway -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -24,31 +28,29 @@
   </head>
 
   <body>
-    <!-- encabezado o header -->
     <header class="header">
       <div class="menu container">
         <a href="..\index.html" class="logo">
           <img src="./static/img/Logo.svg" alt="Logo de Cerveza Dackel" />
         </a>
-        <input type="checkbox" id="menu">
+        <input type="checkbox" id="menu" />
         <label for="menu">
-          <img src="./static/img/menu.png" class="menu-icono" alt="">
+          <img src="./static/img/menu.png" class="menu-icono" alt="" />
         </label>
-      
-      <nav class="nav-links">
-        <!-- hipervínculos del menú -->
-        <ul>
-          <li><a href="./index.html">Inicio</a></li>
-          <li><a href="./templates/tienda.html">Tienda</a></li>
-          <li><a href="./templates/nosotros.html">Nosotros</a></li>
-          <li><a href="./templates/contacto.html">Contacto</a></li>
-          <li><a href="./templates/micuenta.html">Micuenta</a></li>
-        </ul>
-      </nav>
+        <nav class="nav-links">
+          <ul>
+            <li><a href="./index.html">Inicio</a></li>
+            <li><a href="./templates/tienda.html">Tienda</a></li>
+            <li><a href="./templates/nosotros.html">Nosotros</a></li>
+            <li><a href="./templates/contacto.html">Contacto</a></li>
+            <li><a href="./templates/micuenta.html">Mi cuenta</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <main>
-      <section id="banner" class="carrusel">
+    <main class="principal">
+      <section class="carrusel">
         <div class="banner-carrusel">
           <ul>
             <li>
@@ -81,75 +83,105 @@
           </ul>
         </div>
       </section>
-      <section id="varietal">
-        <!-- <div class="container"> -->
-          <div class="estilos">
-            <div class="estilos-titulo">
-            <h2>NUESTRAS CERVEZAS</h2>
+      <section class="varietal">
+        <div class="estilos">
+          <h2>NUESTRAS CERVEZAS</h2>
+          <p>
+            Elaboramos una amplia gama de estilos para que hagas match con la
+            cerveza justa para vos.
+          </p>
+        </div>
+        <div class="card-estilos">
+          <div class="card-cerveza">
+            <img src="./static/img/cervezas/ipaRed.webp" alt="" />
+            <h2>RED IPA</h2>
             <p>
-              Elaboramos una amplia gama de estilos para que hagas match con la
-              cerveza justa para vos
+              De color rojo, balanceada hacia el lúpulo, <br />
+              fácil de tomar, armónica y refrescante.
             </p>
-            </div>  
-            <button>Ver todas</button>
           </div>
-          <div class="card-estilos">
-            <div class="card-cerveza">
-              <img src="./static/img/cervezas/ipaRed.webp" alt="" />
-              <h2>RED IPA</h2>
-              <p>
-                De color rojo, balanceada hacia el lúpulo, <br /><br />
-                fácil de tomar, armónica y refrescante.
-              </p>
-            </div>
-            <div class="card-cerveza">
-              <img src="./static/img/cervezas/irishStout.webp" alt="" />
-              <h2>Irish Stout</h2>
-              <p>
-                Cerveza negra con espuma cremosa, <br /><br />
-                en aroma notas dulces a malta tostada<br /><br />
-                café y chocolate amargo
-              </p>
-            </div>
-            <div class="card-cerveza">
-              <img src="./static/img/cervezas/ira.webp" alt="" />
-              <h2>IRA de Dackel</h2>
-              <p>
-                Rojo fuego, una liberación de sensaciones.<br /><br />
-                Las maltas en primer plano con carameros<br /><br />
-                y notas tostadas.
-              </p>
-            </div>
+          <div class="card-cerveza">
+            <img src="./static/img/cervezas/irishStout.webp" alt="" />
+            <h2>Irish Stout</h2>
+            <p>
+              Cerveza negra con espuma cremosa, <br />
+              en aroma notas dulces a malta tostada<br />
+              café y chocolate amargo.
+            </p>
           </div>
-        <!-- </div> -->
+          <div class="card-cerveza">
+            <img src="./static/img/cervezas/ira.webp" alt="" />
+            <h2>IRA de Dackel</h2>
+            <p>
+              Rojo fuego, una liberación de sensaciones.<br />
+              Las maltas en primer plano con carameros<br />
+              y notas tostadas.
+            </p>
+          </div>
+          <div class="card-cerveza">
+            <img src="./static/img/cervezas/ipa.webp" alt="" />
+            <h2>IPA de Dackel</h2>
+            <p>
+              De color rojo, balanceada hacia el lúpulo, <br />
+              fácil de tomar, armónica y refrescante.
+            </p>
+          </div>
+          <div class="card-cerveza">
+            <img src="./static/img/cervezas/golden1.webp" alt="" />
+            <h2>Golden de Dackel</h2>
+            <p>
+              Cerveza negra con espuma cremosa, <br />
+              en aroma notas dulces a malta tostada<br />
+              café y chocolate amargo.
+            </p>
+          </div>
+          <div class="card-cerveza">
+            <img src="./static/img/cervezas/barleyWine.webp" alt="" />
+            <h2>Barley Wine</h2>
+            <p>
+              Rojo fuego, una liberación de sensaciones.<br />
+              Las maltas en primer plano con carameros<br />
+              y notas tostadas.
+            </p>
+          </div>
+        </div>
       </section>
     </main>
 
-    <!-- sección footer contacto con el sitio web -->
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-logo">
-        <a href="">
-          <img src="./static/img/logo-simple-blanco.svg" alt="Logo de Cerveza Dackel">
-        </a>
+    <!-- footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <a href="..\index.html">
+            <img
+              src="./static/img/logo-simple-blanco.svg"
+              alt="Logo de Cerveza Dackel"
+            />
+          </a>
+        </div>
+        <div class="footer-contacto">
+          <h2>CONTÁCTENOS</h2>
+          <ul>
+            <li>
+              <i class="fas fa-map-marker-alt"></i> La Plata, Buenos Aires
+            </li>
+            <li><i class="fas fa-phone"></i> +54 221 477 9519</li>
+            <li><i class="fas fa-envelope"></i> cerveceriadackel@gmail.com</li>
+          </ul>
+        </div>
+        <div class="social-media">
+          <h2>SIGUENOS</h2>
+          <a href="#facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#instagram"><i class="fab fa-instagram"></i></a>
+        </div>
       </div>
-      <div class="footer-contacto">
-        <h2>CONTÁCTENOS</h2>
-        <ul>
-          <li><i class="fas fa-map-marker-alt"></i> La Plata</li>
-          <li><i class="fas fa-phone"></i> +54 221 477 9519</li>
-          <li><i class="fas fa-envelope"></i> cerveceriadackel@gmail.com</li>
-        </ul>
+      <hr class="footer-linea" />
+      <div class="footer-derechos">
+        <small
+          >Derechos de autor &copy; 2024 -<b> Dackel Cerveza</b> - Todos los
+          derechos Reservados.</small
+        >
       </div>
-      <div class="social-media">
-        <h2>SIGUENOS</h2>
-        <a href="#facebook"><i class="fab fa-facebook"></i></a>
-        <a href="#instagram"><i class="fab fa-instagram"></i></a>
-      </div>
-    </div>
-    <div class="footer-derechos">
-      <p>Derechos de autor &copy; 2024 <b> Dackel Cerveza</b> - Todos los derechos Reservados.</p>
-    </div>
-  </footer>
+    </footer>
   </body>
 </html>

@@ -1,37 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- vinculación con estilos -->
-    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/style.css" />
     <title>CaC-TPO</title>
+    <script
+      src="https://kit.fontawesome.com/af1e3d563d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="shortcut icon"
+      href="../static/img/logo-simple-dorado.svg"
+      type="image/x-icon"
+    />
     <!-- vinculación con google fonts Raleway la fuente para el proyecto -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <!-- encabezado o header -->
-    <header>
-        <nav>
-            <a href="../"></a>
-            <!-- logo -->
-            <div id="logo">
-                <img src="../static/img/Logo.svg" class="logo" alt="Logo">
-            </div>
-
-            <!-- hipervínculos del menú -->
-            <ul>
-                <li><a href="../">Inicio</a></li>
-                <li><a href="./tienda.html">Tienda</a></li>
-                <li><a href="./nosotros.html">Nosotros</a></li>
-                <li><a href="./contacto.html">Contacto</a></li>
-                <li><a href="./micuenta.html">Micuenta</a></li>
-            </ul>
+    <header class="header">
+      <div class="menu container">
+        <a href="..\index.html" class="logo">
+          <img src="../static/img/Logo.svg" alt="Logo de Cerveza Dackel" />
+        </a>
+        <input type="checkbox" id="menu" />
+        <label for="menu">
+          <img src="./static/img/menu.png" class="menu-icono" alt="" />
+        </label>
+        <nav class="nav-links">
+          <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../templates/tienda.html">Tienda</a></li>
+            <li><a href="../templates/nosotros.html">Nosotros</a></li>
+            <li><a href="../templates/contacto.html">Contacto</a></li>
+            <li><a href="../templates/micuenta.html">Mi cuenta</a></li>
+          </ul>
         </nav>
+      </div>
     </header>
     <h1>Acerca de nosotros</h1>
-</body>
+  </body>
 </html>
