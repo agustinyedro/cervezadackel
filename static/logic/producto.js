@@ -1,3 +1,7 @@
+import { crearImagenes } from "./imagenesProducto.js";
+import { crearDetallesProducto } from "./detallesProducto.js";
+import { crearCarusel } from "./carousel.js";
+
 document.addEventListener("DOMContentLoaded", async function () {
   // Obtener el ID de la tarjeta de la URL
   const urlParams = new URLSearchParams(window.location.search);
@@ -12,81 +16,37 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   //***** Imagenes ******/
 
-  const imgPequenias = document.createElement("div");
-  imgPequenias.classList.add("card-producto-imgPequenias");
-
-  const imgGrande = document.createElement("img");
-  imgGrande.classList.add("card-producto-imgGrande");
-
-  imgGrande.src = cardData.imagen[0];
-  imgGrande.alt = cardData.name;
-
-  cardData.imagen.forEach((element, index) => {
-    // console.log(element);
-    const img = document.createElement("img");
-    img.classList.add("card-producto-img");
-    img.src = element;
-    img.alt = cardData.name;
-    imgPequenias.appendChild(img);
-
-    img.addEventListener("click", () => {
-      imgGrande.src = element;
-      imgGrande.alt = cardData.name;
-    });
-  });
-
-  const imagenes = document.createElement("div");
-  imagenes.classList.add("card-producto-imagenes");
-
-  imagenes.appendChild(imgGrande);
-  imagenes.appendChild(imgPequenias);
-  $cardDetailsContainer.appendChild(imagenes);
+  crearImagenes(cardData, $cardDetailsContainer);
 
   /*******************/
 
   /********* descripción  *********/
 
-  const detallesProducto = document.createElement("div");
-  detallesProducto.classList.add("producto-detalles");
-  detallesProducto.innerHTML = /* HTML */ `
-    <h3>Caracteristicas Pricipales</h3>
-    <p>${cardData.descripcion}</p>
-    ${cardData.calibre
-      ? /* HTML */ `<p><b>Calibre:</b> ${cardData.calibre}</p>`
-      : ""}
-    ${cardData.estilo
-      ? /* HTML */ `<p><b>Estilo:</b> ${cardData.estilo}</p>`
-      : ""}
-    ${cardData.sabor ? /* HTML */ `<p><b>Sabor:</b> ${cardData.sabor}</p>` : ""}
-    ${cardData.tamano
-      ? /* HTML */ `<p><b>Tamano:</b> ${cardData.tamano}</p>`
-      : ""}
-    ${cardData.material
-      ? /* HTML */ `<p><b>Material:</b> ${cardData.material}</p>`
-      : ""}
-    ${cardData.premios
-      ? /* HTML */ `<h3>Premios</h3>
-          <ul>
-            ${cardData.premios.map((item) => `<li>${item}</li>`).join("")}
-          </ul>`
-      : ""}
-  `;
-  $cardDetailsContainer.appendChild(detallesProducto);
+  crearDetallesProducto(cardData, $cardDetailsContainer);
 
   /********* CARD *********/
 
   const cardDetalles = document.createElement("div");
   cardDetalles.classList.add("card-producto-detalles");
 
+  /********* FONDO *********/
+
   const fondo = document.createElement("div");
   fondo.classList.add("div-fondo");
   cardDetalles.appendChild(fondo);
+
+  /********* TITULO *********/
 
   const titulo = document.createElement("h2");
   titulo.textContent = cardData.name;
   titulo.classList.add("card-producto-titulo");
   cardDetalles.appendChild(titulo);
 
+  /********* CARUSSEL DE IMAGENES CELULARES *********/
+
+  crearCarusel(cardData, cardDetalles);
+
+  /************ PRECIO *************/
   const precio = document.createElement("p");
   precio.classList.add("card-producto-precio");
   precio.textContent = `$ ${cardData.precio}`;
