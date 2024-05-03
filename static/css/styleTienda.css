@@ -5,6 +5,21 @@
 *
 * PAGINA TIENDA
 */
+:root {
+    --primary-color: #9f3647;
+    --primary-color-hover: #9f364780;
+    --bg-color: #181419;
+    --secondary-color: #ffc098;
+    --secondary-color: #BB9458;
+    --third-color: #db4648;
+    --third-bis-color: #db4648f2;
+    --bg-input-color: #4f31572c;
+    --white-color: #fdf5ef;
+    --gray: #aba9b0;
+    /* fuentes */
+    --primary-font: 'Raleway';
+}
+
 
 .main {
     background-color: #ededed;
@@ -71,7 +86,7 @@
         align-items: center;
         justify-content: flex-end;
         gap: 0.5rem;
-        z-index: 900;
+        z-index: 49;
         font-size: 0.9rem;
         grid-column: 2/-1;
         grid-row: 3/4;
@@ -129,7 +144,7 @@
             border-radius: 0.5em;
             color: var(--bg-color);
             position: absolute;
-            top: 1.7rem;
+            top: 2.8rem;
             left: 89%;
             width: 180px;
             transform: translateX(-50%);
@@ -335,8 +350,8 @@
             padding: 4px 10px;
             font-size: 1.1rem;
             outline: none;
-            width: 60%;
-            height: 4vh;
+            width: 80%;
+            height: 2rem;
             border: 1px solid var(--gray);
             border-radius: 5px;
 
@@ -347,6 +362,8 @@
         }
 
         button {
+            width: 40px;
+            height: 40px;
             grid-column: 1/2;
             margin-left: 10px;
             border: 0;
@@ -355,6 +372,7 @@
 
             svg {
                 fill: var(--primary-color);
+                width: 40px;
             }
 
             &:hover {
@@ -394,12 +412,12 @@
             }
 
             ul {
-                padding: 0;
+                padding: 1.2rem 0;
                 margin: 0;
 
                 li {
                     list-style: none;
-
+                    padding: 0.2rem 0;
 
                     input[type="checkbox"] {
                         width: 1.1rem;
@@ -645,7 +663,7 @@
 
         .card-producto-detalles {
             position: sticky;
-            top: 0;
+            top: 18vh;
             grid-column: 2/3;
             grid-row: 1/-1;
             width: 350px;

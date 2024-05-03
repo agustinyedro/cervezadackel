@@ -1,7 +1,6 @@
 /* * ROOT * */
 :root {
     --primary-color: #9f3647;
-    --primary-color-hover: #9f364780;
     --bg-color: #181419;
     --secondary-color: #ffc098;
     --secondary-color: #BB9458;
@@ -9,19 +8,9 @@
     --third-bis-color: #db4648f2;
     --bg-input-color: #4f31572c;
     --white-color: #fdf5ef;
-    --gray: #aba9b0;
-    /* fuentes 
-    * Títulos : font-weight: 600;
-    * Cuerpo : font-weight: 400;
-    *
-    */
-    --primary-font: "Raleway", sans-serif;
 }
 
-body,
-html {
-    font-family: var(--primary-font);
-    padding: 0;
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -41,12 +30,13 @@ body {
     display: flex;
     align-items: center;
     min-height: 15vh;
+    width: 100%;
     max-width: 100vw;
-    position: fixed;
+    position: sticky;
     left: 0;
     top: 0;
     right: 0;
-    z-index: 99;
+    z-index: 50;
 }
 
 .container {
@@ -111,7 +101,7 @@ body {
     display: grid;
     grid-template-columns: repeat(1, 2fr);
     grid-gap: 0.5rem;
-    padding-top: 7.7rem;
+
 }
 
 .carrusel {
@@ -349,9 +339,7 @@ body {
 
     /* * HEADER RESPONSIVE* */
 
-    .header {
-        min-height: 15%;
-    }
+
 
     .container {
         bottom: 0;
@@ -372,10 +360,6 @@ body {
     }
 
     /* * MAIN RESPONSIVE* */
-
-    .principal {
-        padding-top: 5.5rem;
-    }
 
     .carrusel {
         width: 100vw;
@@ -518,7 +502,6 @@ body {
         display: grid;
         grid-template-columns: repeat(1, 2fr);
         grid-gap: 2rem;
-        padding-top: 10rem;
     }
 
     .carrusel {
@@ -606,9 +589,7 @@ body {
 /* * PHONES-MOBILE * */
 
 @media screen and (max-width:468px) {
-    html {
-        font-size: 42.5%;
-    }
+
 
     /* * HEADER RESPONSIVE * */
 
@@ -639,7 +620,6 @@ body {
     .principal {
         display: grid;
         grid-template-columns: repeat(1, 2fr);
-        padding-top: 13rem;
     }
 
     .carrusel {
