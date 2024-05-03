@@ -52,6 +52,24 @@ document.addEventListener("DOMContentLoaded", async function () {
   precio.textContent = `$ ${cardData.precio}`;
   cardDetalles.appendChild(precio);
 
+  /************ STOCK *************/
+  const sinStock = document.createElement("p");
+  sinStock.classList.add("card-producto-stock");
+
+  let detallesTallas = "";
+  let detallesColores = "";
+
+  if (cardData.tipo !== "remeras") {
+    if (cardData.cantidad > 0) {
+      sinStock.textContent = `Disponibles: ${cardData.cantidad} unidades`;
+    } else if (cardData.cantidad > 0 && cardData.cantidad <= 12) {
+      sinStock.textContent = `Ultimas ${cardData.cantidad} unidades`;
+    } else {
+      sinStock.textContent = `Stock agotado`;
+    }
+  }
+  cardDetalles.appendChild(sinStock);
+
   /********** ELEMENTOS INDIVIDUALES *******/
 
   if (cardData.alcohol != null && cardData.IBU != null) {
@@ -60,6 +78,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     detallesAlcohol.textContent = `alc ${cardData.alcohol}%  - IBU:${cardData.IBU}`;
     cardDetalles.appendChild(detallesAlcohol);
   }
+
   if (cardData.tipo === "remeras") {
     const detallesTalla = document.createElement("div");
     detallesTalla.classList.add("detalles");
@@ -127,6 +146,17 @@ document.addEventListener("DOMContentLoaded", async function () {
                 });
               // Seleccionar el color actual
               btnColor.classList.add("selected");
+
+              // obtener stock del color seleccionado
+              const stock = cardData.variantes
+                .filter((variante) => variante.talla === talla)
+                .filter((variante) => variante.color === color)
+                .map((variante) => variante.cantidad);
+
+              detallesColores = color;
+              detallesTallas = talla;
+              // console.log(detallesColores, detallesTallas);
+              sinStock.textContent = `Disponibles: ${stock[0]}`;
             });
 
             detallesColor.appendChild(btnColor);
@@ -154,18 +184,6 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
   /********* BOTONES *********/
-
-  const sinStock = document.createElement("p");
-  sinStock.classList.add("card-producto-stock");
-
-  if (cardData.cantidad > 0) {
-    sinStock.textContent = `Stock disponible`;
-    cardDetalles.appendChild(sinStock);
-  } else if (cardData.cantidad > 0 && cardData.cantidad <= 12) {
-    sinStock.textContent = `Ultimas ${cardData.cantidad} unidades`;
-  } else {
-    sinStock.textContent = `Stock agotado`;
-  }
 
   const boton = document.createElement("button");
   boton.classList.add("card-producto-boton");
@@ -219,24 +237,55 @@ document.addEventListener("DOMContentLoaded", async function () {
   botonSumar.addEventListener("click", () => {
     const cantidadElemento = document.querySelector(`#cantidad-${cardData.id}`);
     let cantidad = parseInt(cantidadElemento.value);
-
-    if (cantidad < cardData.cantidad) {
-      cantidad++;
-      cantidadElemento.value = cantidad;
-      sinStock.textContent = `Stock disponible`;
+    if (cardData.tipo !== "remeras") {
+      if (cantidad < cardData.cantidad) {
+        cantidad++;
+        cantidadElemento.value = cantidad;
+        const cantidadReal = cardData.cantidad - cantidad;
+        sinStock.textContent = `Disponibles: ${cantidadReal}`;
+      }
     } else {
-      sinStock.textContent = `Stock agotado`;
+      const stock = cardData.variantes
+        .filter((variante) => variante.talla === detallesTallas)
+        .filter((variante) => variante.color === detallesColores)
+        .map((variante) => variante.cantidad);
+
+      if (
+        detallesTallas !== null &&
+        detallesColores !== null &&
+        cantidad < stock[0]
+      ) {
+        cantidad++;
+        cantidadElemento.value = cantidad;
+        const cantidadReal = stock - cantidad;
+        sinStock.textContent = `Disponibles: ${cantidadReal}`;
+      }
     }
   });
 
   botonRestar.addEventListener("click", () => {
     const cantidadElemento = document.querySelector(`#cantidad-${cardData.id}`);
     let cantidad = parseInt(cantidadElemento.value);
-    if (cantidad > 0) {
-      cantidad--;
-      cantidadElemento.value = cantidad;
-      if (cantidad < cardData.cantidad) {
-        sinStock.textContent = `Stock disponible`;
+    if (cardData.tipo !== "remeras") {
+      if (cantidad > 0) {
+        cantidad--;
+        cantidadElemento.value = cantidad;
+        if (cantidad < cardData.cantidad) {
+          const cantidadReal = cardData.cantidad - cantidad;
+          sinStock.textContent = `Disponibles: ${cantidadReal}`;
+        }
+      }
+    } else {
+      const stock = cardData.variantes
+        .filter((variante) => variante.talla === detallesTallas)
+        .filter((variante) => variante.color === detallesColores)
+        .map((variante) => variante.cantidad);
+
+      if (detallesTallas !== null && detallesColores !== null && cantidad > 0) {
+        cantidad--;
+        cantidadElemento.value = cantidad;
+        const cantidadReal = stock - cantidad;
+        sinStock.textContent = `Disponibles: ${cantidadReal}`;
       }
     }
   });
@@ -244,21 +293,25 @@ document.addEventListener("DOMContentLoaded", async function () {
   $btnAgregar.addEventListener("click", () => {
     const cantidadElemento = document.querySelector(`#cantidad-${cardData.id}`);
     let cantidad = parseInt(cantidadElemento.value);
-    console.log(cantidad);
+    // console.log(cantidad);
     alert(`Cervezas agregadas: ${cantidad}`);
   });
 
   const $itemProducto = document.getElementById("item-producto");
-  // console.log($itemProducto);
 
-  if (cardData.tipo === "cervezas") {
-    $itemProducto.textContent = "Cerveza";
-  } else if (cardData.tipo === "remeras") {
-    $itemProducto.textContent = "Remeras";
-  } else if (cardData.tipo === "gorras") {
-    $itemProducto.textContent = "Gorras";
-  } else if (cardData.tipo === "calcomanias") {
-    $itemProducto.textContent = "Calcomanias";
+  switch (cardData.tipo) {
+    case "cervezas":
+      $itemProducto.textContent = "Cerveza";
+      break;
+    case "remeras":
+      $itemProducto.textContent = "Remeras";
+      break;
+    case "gorras":
+      $itemProducto.textContent = "Gorras";
+      break;
+    case "calcomanias":
+      $itemProducto.textContent = "Calcomanias";
+      break;
   }
 });
 
