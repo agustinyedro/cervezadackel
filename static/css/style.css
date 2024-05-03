@@ -1,6 +1,7 @@
 /* * ROOT * */
 :root {
     --primary-color: #9f3647;
+    --primary-color-hover: #9f364780;
     --bg-color: #181419;
     --secondary-color: #ffc098;
     --secondary-color: #BB9458;
@@ -8,11 +9,19 @@
     --third-bis-color: #db4648f2;
     --bg-input-color: #4f31572c;
     --white-color: #fdf5ef;
-    /* fuentes */
-    --primary-font: 'Raleway';
+    --gray: #aba9b0;
+    /* fuentes 
+    * Títulos : font-weight: 600;
+    * Cuerpo : font-weight: 400;
+    *
+    */
+    --primary-font: "Raleway", sans-serif;
 }
 
-* {
+body,
+html {
+    font-family: var(--primary-font);
+    padding: 0;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
