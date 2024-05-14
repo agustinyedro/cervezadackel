@@ -165,14 +165,14 @@ p strong {
 
     section .titulo-nosotros{
     
-        font-size: 1.5rem;
+        font-size: 2.2rem;
         margin-bottom: 5px;
     
     }
     
     section .nosotros-parrafo {
         width: 50%;
-        font-size: 0.75rem;
+        font-size: 1.5rem;
         text-align:justify;
     }
     
@@ -197,11 +197,11 @@ p strong {
 
     .premios-container ul li {
         width: calc(100%/2 - 20px);
-        font-size: 0.75rem;
+        font-size: 1.5rem;
     }
     
     .premios-container ul strong {
-        font-size: 0.8rem;
+        font-size: 1.5rem;
     }
     
     .premios-container .imagen-medalla {
