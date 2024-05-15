@@ -1,5 +1,5 @@
 const dropdowns = document.querySelectorAll(".motivo");
-let motivo = "hola";
+// let motivo = "";
 dropdowns.forEach((dropdown) => {
   const select = dropdown.querySelector(".select");
   const caret = dropdown.querySelector(".caret");
@@ -16,7 +16,7 @@ dropdowns.forEach((dropdown) => {
   options.forEach((option) => {
     option.addEventListener("click", () => {
       selected.innerText = option.innerText;
-      motivo = "" + selected.innerText;
+      // motivo = "" + selected.innerText;
       select.classList.remove("select-clicked");
       caret.classList.remove("caret-rotate");
       menu.classList.remove("menu-open");
@@ -28,32 +28,86 @@ dropdowns.forEach((dropdown) => {
   });
 });
 
-const whatsapp = document.querySelector(".whatsapp");
 
-whatsapp.addEventListener("click", () => {
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const Mensaje = document.getElementById("message").value;
+/********* BOTON WHATSAPP *********/
 
+const btnWhatsapp = document.querySelector(".whatsapp");
+const btnEnviar = document.getElementById("enviar");
+
+
+btnWhatsapp.addEventListener("click", () => {
+  event.preventDefault();
+  const datosValidados = validarDatos(); // Almacenar el resultado de validarDatos
+  if (datosValidados !== false) {
+    const { name, email, telefono, motivo, mensaje } = datosValidados; // Obtener los datos
+    window.open(
+      `https://wa.me/######/?text=Hola,%20soy%20${name}.%20Estoy%20interesado/a%20en%20${motivo}.%20Mi%20correo%20es:%20${email}.%20${mensaje}%20`
+    );
+  }
+});
+
+btnEnviar.addEventListener("click", () => {
+  event.preventDefault();
+  const datosValidados = validarDatos(); // Almacenar el resultado de validarDatos
+  if (datosValidados !== false) {
+    const { name, email, telefono, motivo, mensaje } = datosValidados; // Obtener los datos
+    alert("Enviado");
+  }
+});
+
+
+
+
+const validarDatos = () => {
+  const name = document.getElementById("name");
+  const email = document.getElementById("email");
+  const telefono = document.getElementById("phone");
+  const mensaje = document.getElementById("message");
+
+  const motivo = document.querySelector(".motivo .selected");
+  let datos = [name, email, telefono, motivo, mensaje];
   // Validar campos
 
-  if (name === "" || email === "" || Mensaje === "") {
-    alert("Por favor, rellene todos los campos.");
-    return;
+  for (let i = 0; i < datos.length; i++) {
+    if (!validarDato(datos[i], i)) {
+      return false
+    }
   }
-  if (email.indexOf("@") === -1) {
-    alert("Por favor, ingrese un correo electrónico válido.");
-    return;
+  return {
+    name,
+    email,
+    telefono,
+    motivo,
+    mensaje
   }
-  if (motivo === "Motivo") {
-    alert("Por favor, seleccione un motivo.");
-    return;
+}
+
+function validarDato(input, index) {
+
+  const inputs = [
+    { name: "name", message: "Por favor, ingrese su nombre." },
+    { name: "email", message: "Por favor, ingrese su correo electrónico." },
+    { name: "phone", message: "Por favor, ingrese su teléfono." },
+    { name: "motivo", message: "Por favor, seleccione un motivo." },
+    { name: "message", message: "Por favor, ingrese su mensaje." }
+  ];
+  // console.log(input);
+  console.log(input.id);
+
+  if (input.value === "" || input.textContent === "Motivo") {
+    // console.log(`${inputs[index].message}`);
+    const msjError = document.createElement("p");
+    msjError.classList.add("error");
+    msjError.innerText = `${inputs[index].message}`;
+
+    console.log(input.id);
+
+    // input.insertAdjacentElement("afterend", msjError);
+
+    return false
+  } else {
+    // console.log(input);
+    return input
   }
 
-  // console.log(name, email, Mensaje);
-
-  //envía la petición a WhatsApp
-  window.open(
-    `https://wa.me/3513075338/?text=Hola,%20soy%20${name}.%20Estoy%20interesado/a%20en%20${motivo}.%20Mi%20correo%20es:%20${email}.%20${Mensaje}%20`
-  );
-});
+}

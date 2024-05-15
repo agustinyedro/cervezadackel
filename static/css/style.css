@@ -811,6 +811,10 @@ body {
                     outline: 2px solid var(--secondary-color);
                     box-shadow: 0 0 0.8em var(--secondary-color);
                 }
+
+                &.error {
+                    outline: 2px solid red;
+                }
             }
 
             & #email {
@@ -1081,11 +1085,8 @@ body {
                         width: 20px;
                         height: 20px;
                     }
-
-
                 }
             }
         }
     }
-
 }
