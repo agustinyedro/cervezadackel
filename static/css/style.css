@@ -811,13 +811,23 @@ body {
                     outline: 2px solid var(--secondary-color);
                     box-shadow: 0 0 0.8em var(--secondary-color);
                 }
+            }
+
+            .name {
+                position: relative;
 
                 &.error {
-                    outline: 2px solid red;
+                    color: #9f3647;
+                    text-shadow: 0 0 0.8em var(--primary-color);
+                    font-size: 0.75rem;
+                    position: absolute;
+                    top: 100%;
+                    transform: translate(-10%, 50%);
                 }
             }
 
             & #email {
+                position: relative;
                 border-radius: 0.5vh;
                 border: none;
                 grid-column: 2/3;
@@ -832,6 +842,27 @@ body {
                 &:hover {
                     outline: 2px solid var(--secondary-color);
                     box-shadow: 0 0 0.8em var(--secondary-color);
+                }
+            }
+
+            .email {
+                position: relative;
+
+                &.error {
+                    color: #9f3647;
+                    text-shadow: 0 0 0.8em var(--primary-color);
+                    font-size: 0.75rem;
+                    position: absolute;
+                    top: 100%;
+                    transform: translate(160%, 50%);
+                }
+
+                &:focus,
+                &:active,
+                &:hover {
+                    .error {
+                        color: #181419;
+                    }
                 }
             }
 
@@ -852,11 +883,41 @@ body {
                 }
             }
 
-            .motivo {
-
-                min-width: 15rem;
+            .phone {
                 position: relative;
 
+                &.error {
+                    color: #9f3647;
+                    text-shadow: 0 0 0.8em var(--primary-color);
+                    font-size: 0.75rem;
+                    position: absolute;
+                    top: 100%;
+                    transform: translate(-10%, 160%);
+                }
+
+                &:focus,
+                &:active,
+                &:hover {
+                    .error {
+                        color: #181419;
+                    }
+                }
+            }
+
+
+
+            .motivo {
+                position: relative;
+                min-width: 15rem;
+
+                &.error {
+                    color: #9f3647;
+                    text-shadow: 0 0 0.8em var(--primary-color);
+                    font-size: 0.75rem;
+                    position: absolute;
+                    top: 100%;
+                    transform: translate(165%, 160%);
+                }
 
                 * {
                     box-sizing: border-box;
@@ -906,7 +967,7 @@ body {
                     border-radius: 0.5em;
                     color: #9fa5b5;
                     position: absolute;
-                    top: 17px;
+                    top: 2.2rem;
                     left: 50%;
                     width: 100%;
                     transform: translateX(-50%);
@@ -955,6 +1016,20 @@ body {
                     box-shadow: 0 0 0.8em var(--secondary-color);
                 }
             }
+
+            .message {
+                position: relative;
+
+                &.error {
+                    color: #9f3647;
+                    text-shadow: 0 0 0.8em var(--primary-color);
+                    font-size: 0.75rem;
+                    position: absolute;
+                    top: 100%;
+                    transform: translate(-10%, 405%);
+                }
+            }
+
 
             & input[type="submit"] {
                 grid-column: span 1;
