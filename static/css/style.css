@@ -105,15 +105,16 @@ body {
 }
 
 .carrusel {
-    width: 100%;
+    max-width: 100vw;
+    max-height: 75vh;
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
 
 .banner-carrusel {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 75vh;
     display: flex;
     position: relative;
 }
@@ -139,7 +140,7 @@ body {
 }
 
 .texto h2 {
-    font-size: 6rem;
+    font-size: 4rem;
     font-weight: 700;
 }
 
@@ -192,7 +193,7 @@ body {
 }
 
 .estilos h2 {
-    font-size: 4rem;
+    font-size: 3rem;
     color: var(--secondary-color);
 }
 
@@ -337,9 +338,11 @@ body {
 
 @media screen and (max-width: 1024px) {
 
+    html {
+        font-size: 85%;
+    }
+
     /* * HEADER RESPONSIVE* */
-
-
 
     .container {
         bottom: 0;
@@ -362,24 +365,27 @@ body {
     /* * MAIN RESPONSIVE* */
 
     .carrusel {
-        width: 100vw;
+        margin: 0;
+        padding: 0;
+        max-width: 100vw;
+        max-height: 55vh;
     }
 
     .banner-carrusel {
         width: 100vw;
-        height: 100vh;
+        height: 55vh;
     }
 
     .banner-carrusel img {
         height: 100%;
     }
 
-    .texto {
+    /*  .texto {
         bottom: 45%;
-    }
+    } */
 
     .texto h2 {
-        font-size: 4rem;
+        font-size: 3.2rem;
     }
 
     /* * VARIETAL RESPONSIVE* */
@@ -390,7 +396,7 @@ body {
     }
 
     .estilos h2 {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
     .estilos p {
@@ -450,10 +456,14 @@ body {
 @media screen and (max-width:768px) {
 
     html {
-        font-size: 55%;
+        font-size: 65%;
     }
 
     /* *  HEADER RESPONSIVE* */
+    .header {
+        padding: 0;
+    }
+
     .container {
         max-width: 100%;
     }
@@ -489,7 +499,7 @@ body {
 
     .menu .nav-links ul li a {
         font-size: 1.6rem;
-        padding: 1rem 7rem 0;
+        padding: 1rem 5rem 0;
     }
 
     #menu:checked~.nav-links {
@@ -506,13 +516,13 @@ body {
 
     .carrusel {
         max-width: 100%;
-        max-height: 70vh;
+        max-height: 40vh;
         overflow: hidden;
     }
 
     .banner-carrusel {
         max-width: 100%;
-        max-height: 70vh;
+        max-height: 40vh;
         padding: 0;
     }
 
@@ -521,7 +531,7 @@ body {
     }
 
     .texto {
-        padding-top: 13rem;
+        padding-top: 3rem;
     }
 
     .texto h2 {
@@ -567,7 +577,7 @@ body {
     }
 
     .footer-contacto {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .social-media a {
@@ -590,11 +600,14 @@ body {
 
 @media screen and (max-width:468px) {
 
+    html {
+        font-size: 45%;
+    }
 
     /* * HEADER RESPONSIVE * */
 
     .menu {
-        padding: 0 2rem;
+        padding: 0 5rem;
     }
 
     .logo img {
@@ -624,7 +637,7 @@ body {
 
     .carrusel {
         width: 100%;
-        height: 35vh;
+        height: 30vh;
         overflow: hidden;
     }
 
