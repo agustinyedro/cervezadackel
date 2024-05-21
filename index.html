@@ -21,7 +21,10 @@
     <!-- vinculación con google fonts Raleway -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
@@ -48,37 +51,41 @@
 
     <main class="principal">
       <section class="carrusel">
-        <div class="banner-carrusel">
-          <ul>
-            <li>
-              <img
-                src="./static/img/cervezas desparramadas.webp"
-                alt="Variedad de cervezas"
-              />
-              <div class="texto">
-                <h2>Elegí la tuya</h2>
-              </div>
-            </li>
-            <li>
-              <img
-                src="./static/img/SirviendoMedallasDeFondo.webp"
-                alt="Cata de cerveza"
-              />
-              <div class="texto">
-                <h2>Compartimos una pasión</h2>
-              </div>
-            </li>
-            <li>
-              <img
-                src="./static/img/ingreso_fabrica.webp"
-                alt="Centro de producción"
-              />
-              <div class="texto">
-                <h2>Nuestro Espacio</h2>
-              </div>
-            </li>
-          </ul>
-        </div>
+        <ul id="banner-carrusel" class="banner-carrusel">
+          <li>
+            <img
+              src="./static/img/cervezas desparramadas.webp"
+              alt="Variedad de cervezas"
+            />
+            <div class="texto">
+              <h2>Elegí la tuya</h2>
+            </div>
+          </li>
+          <li>
+            <img
+              src="./static/img/SirviendoMedallasDeFondo.webp"
+              alt="Cata de cerveza"
+            />
+            <div class="texto">
+              <h2>Compartimos una pasión</h2>
+            </div>
+          </li>
+          <li>
+            <img
+              src="./static/img/ingreso_fabrica.webp"
+              alt="Centro de producción"
+            />
+            <div class="texto">
+              <h2>Nuestro Espacio</h2>
+            </div>
+          </li>
+          <div class="btn-izquierda">
+            <span class="flecha"></span>
+          </div>
+          <div class="btn-derecha">
+            <span class="flecha"></span>
+          </div>
+        </ul>
       </section>
       <section class="varietal">
         <div class="estilos">
@@ -185,4 +192,5 @@
       </div>
     </footer>
   </body>
+  <script src="./static/logic/index.js"></script>
 </html>

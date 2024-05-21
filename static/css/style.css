@@ -8,6 +8,7 @@
     --third-bis-color: #db4648f2;
     --bg-input-color: #4f31572c;
     --white-color: #fdf5ef;
+    --tamanio-titulo-desktop: 3rem;
 }
 
 * {
@@ -56,12 +57,12 @@ body {
 
 .logo img {
     width: auto;
-    height: 5.5rem;
+    height: 5rem;
     transition: all 0.3s;
 }
 
 .logo img:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 .menu .nav-links ul li {
@@ -71,10 +72,11 @@ body {
 
 .menu .nav-links ul li a {
     font-size: 1.3rem;
+    font-weight: 400;
     padding: 2rem;
     color: var(--white-color);
     display: block;
-    font-weight: 600;
+
 }
 
 .menu nav ul li a:hover {
@@ -97,37 +99,42 @@ body {
 
 /* * SECCIÓN MAIN  CARRUSEL * */
 
-.principal {
+/* .principal {
     display: grid;
     grid-template-columns: repeat(1, 2fr);
     grid-gap: 0.5rem;
-
-}
+} */
 
 .carrusel {
     width: 100%;
-    margin: 0;
-    padding: 0;
+    position: relative;
     overflow: hidden;
+}
+
+.carrusel:hover {
+    cursor: pointer;
+    /* transition: opacity 0.5s ease-in-out;
+
+    .btn-izquierda {
+        opacity: 1;
+    }
+
+    .btn-derecha {
+        opacity: 1;
+    } */
 }
 
 .banner-carrusel {
     width: 100vw;
-    height: 100vh;
+    height: 85vh;
     display: flex;
-    position: relative;
-}
-
-.banner-carrusel ul {
-    display: flex;
-    padding: 0;
-    margin: 0;
     animation: slide 15s infinite alternate ease-in-out;
 }
 
 .banner-carrusel img {
     width: 100vw;
     height: 100%;
+    object-fit: cover;
 }
 
 .texto {
@@ -143,7 +150,84 @@ body {
     font-weight: 700;
 }
 
-@keyframes slide {
+.hidden {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+.btn-izquierda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background-color: #222222bb;
+    width: 5%;
+    height: 100%;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    .flecha {
+        position: absolute;
+        right: 20px;
+        /* Ajustar la posición del caret */
+        width: 0;
+        height: 0;
+        border-color: white;
+        border-style: solid;
+        border-width: 0 0.1rem 0.1rem 0;
+        height: 1rem;
+        left: 2rem;
+        width: 1rem;
+        transform: rotate(135deg);
+        /* Color del caret */
+    }
+
+}
+
+.btn-derecha {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: #4444447e;
+    width: 5rem;
+    height: 100%;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    .flecha {
+        position: absolute;
+        right: 20px;
+        /* Ajustar la posición del caret */
+        width: 0;
+        height: 0;
+        border-color: white;
+        border-style: solid;
+        border-width: 0 0.1rem 0.1rem 0;
+        height: 1rem;
+        right: 2rem;
+        vertical-align: top;
+        width: 1rem;
+        transform: rotate(-45deg);
+        /* Color del caret */
+    }
+
+}
+
+/* @keyframes slide {
 
     0% {
         margin-left: 0;
@@ -154,21 +238,21 @@ body {
     }
 
     40% {
-        margin-left: -100%;
+        margin-left: -102%;
     }
 
     60% {
-        margin-left: -100%;
+        margin-left: -102%;
     }
 
     75% {
-        margin-left: -200%;
+        margin-left: -202%;
     }
 
     100% {
-        margin-left: -200%;
+        margin-left: -202%;
     }
-}
+} */
 
 
 /*  *  SECCIÓN MAIN VARIETAL* */
@@ -822,7 +906,7 @@ body {
                     font-size: 0.75rem;
                     position: absolute;
                     top: 100%;
-                    transform: translate(-10%, 50%);
+                    transform: translate(-10%, 10%);
                 }
             }
 
@@ -846,7 +930,6 @@ body {
             }
 
             .email {
-                position: relative;
 
                 &.error {
                     color: #9f3647;
@@ -854,7 +937,7 @@ body {
                     font-size: 0.75rem;
                     position: absolute;
                     top: 100%;
-                    transform: translate(160%, 50%);
+                    transform: translate(170%, 10%);
                 }
 
                 &:focus,
@@ -892,7 +975,7 @@ body {
                     font-size: 0.75rem;
                     position: absolute;
                     top: 100%;
-                    transform: translate(-10%, 160%);
+                    transform: translate(-10%, 120%);
                 }
 
                 &:focus,
@@ -916,7 +999,7 @@ body {
                     font-size: 0.75rem;
                     position: absolute;
                     top: 100%;
-                    transform: translate(165%, 160%);
+                    transform: translate(178%, 120%);
                 }
 
                 * {
@@ -1026,7 +1109,7 @@ body {
                     font-size: 0.75rem;
                     position: absolute;
                     top: 100%;
-                    transform: translate(-10%, 405%);
+                    transform: translate(-10%, 360%);
                 }
             }
 

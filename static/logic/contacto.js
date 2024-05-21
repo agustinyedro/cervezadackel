@@ -21,7 +21,7 @@ btnWhatsapp.addEventListener("click", () => {
       error.remove();
     }
     window.open(
-      `https://wa.me/######/?text=Hola,%20soy%20${name}.%20Estoy%20interesado/a%20en%20${motivo}.%20Mi%20correo%20es:%20${email}.%20${mensaje}%20`
+      `https://wa.me/+542214779519/?text=Hola,%20soy%20${name}.%20Estoy%20interesado/a%20en%20${motivo}.%20Mi%20correo%20es:%20${email}.%20${mensaje}%20`
     );
   }
 });
@@ -31,14 +31,17 @@ btnEnviar.addEventListener("click", () => {
   event.preventDefault();
   const datosValidados = validarDatos(document.querySelector("form")); // Almacenar el resultado de validarDatos
   if (!Array.isArray(datosValidados)) {
-    const { name, email, telefono, motivo, mensaje } = datosValidados; // Obtener los datos
+    // const { name, email, telefono, motivo, mensaje } = datosValidados; // Obtener los datos
 
-    alert("Enviado");
     const error = document.querySelector(`.${input.classList}.error`);
     if (error) {
       error.remove();
     }
   }
+  else {
+    window.location.href = "gracias.html";
+  }
+
 });
 
 /******* BORRAR TODOS LOS ERRORES ********/
