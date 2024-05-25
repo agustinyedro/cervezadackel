@@ -27,3 +27,5 @@ function previousImage() {
 
 document.querySelector(".btn-left").addEventListener("click", previousImage);
 document.querySelector(".btn-right").addEventListener("click", nextImage);
+
+setInterval(nextImage, 6000);
