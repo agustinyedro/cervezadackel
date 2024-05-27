@@ -1100,7 +1100,7 @@ body {
                 .select {
                     height: 30px;
                     background: #fff;
-                    color: #181419;
+                    color: #1814198f;
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
@@ -1116,7 +1116,7 @@ body {
                         box-shadow: 0 0 0.8em var(--secondary-color);
                     }
 
-                    .caret {
+                    .flecha {
                         width: .5rem;
                         height: .5rem;
                         border-right:
