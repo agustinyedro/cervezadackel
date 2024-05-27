@@ -38,9 +38,6 @@ btnEnviar.addEventListener("click", () => {
       error.remove();
     }
   }
-  else {
-    window.location.href = "gracias.html";
-  }
 
 });
 
