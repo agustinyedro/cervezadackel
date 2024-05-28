@@ -1,6 +1,6 @@
 /* selector :root */
 :root {
-    
+
     --primary-color: #9f3647;
     --bg-color: #181419;
     --secondary-color: #ffc098;
@@ -23,15 +23,16 @@
     align-items: center;
     padding: 0;
 }
+
 .container-image {
 
-    display: flex; 
+    display: flex;
     align-items: center;
     width: 100%;
     height: 80vh;
 }
 
-.container-image .image{
+.container-image .image {
     width: 50%;
     height: 100%;
     object-fit: cover;
@@ -47,7 +48,7 @@ section {
     justify-content: center;
 }
 
-section .titulo-nosotros{
+section .titulo-nosotros {
     color: rgba(187, 148, 88, 1);
     font-size: 4rem;
     font-weight: 700;
@@ -62,7 +63,7 @@ section .nosotros-parrafo {
 }
 
 section blockquote {
-    
+
     height: 80px;
     display: flex;
     align-items: center;
@@ -71,6 +72,7 @@ section blockquote {
     border-left: 3px solid #d3cdb3;
     padding-left: 0 30px;
 }
+
 p strong {
     display: block;
     font-size: 2rem;
@@ -88,7 +90,7 @@ p strong {
     margin: 0 auto;
 }
 
-.premios-container h2{
+.premios-container h2 {
     color: rgba(187, 148, 88, 1)
 }
 
@@ -139,22 +141,41 @@ p strong {
 /************** RESPONSIVE ***************/
 /****** CELULAR *******/
 
-@media screen and (max-width: 768px){
+
+@media screen and (max-width: 425px) {
+    .container-image {
+        flex-direction: column;
+        height: 85vh;
+    }
+
+    .container-image .image {
+        width: 100%;
+        height: 50%;
+
+    }
+}
+
+@media screen and (min-width: 426px) and (max-width: 768px) {
 
 
     #nosotros {
         width: 100vw;
-        justify-content:space-around;
-    
+        justify-content: space-around;
+
     }
-    .container-image{
-        flex-direction: column;
-        
+
+    .container-image {
+
+        align-items: flex-start;
+
+        height: 50vh;
     }
-    .container-image .image{
-        width:100%;
-        height:50%;
-    
+
+
+    .container-image .image {
+        width: 50%;
+        height: 100%;
+
     }
 
     section {
@@ -163,53 +184,53 @@ p strong {
     }
 
 
-    section .titulo-nosotros{
-    
+    section .titulo-nosotros {
+
         font-size: 2.2rem;
         margin-bottom: 5px;
-    
+
     }
-    
+
     section .nosotros-parrafo {
         width: 50%;
         font-size: 1.5rem;
-        text-align:justify;
+        text-align: justify;
     }
-    
-    
+
+
     section blockquote {
 
         font-style: italic;
         text-align: center;
         height: 50%;
-        border-left: 3px solid #d3cdb3; 
+        border-left: 3px solid #d3cdb3;
         margin: 20px auto;
         padding-left: 0 2vw;
-        
+
     }
 
     .premios-container ul {
 
         flex-direction: column;
         align-items: center;
-    
+
     }
 
     .premios-container ul li {
         width: calc(100%/2 - 20px);
         font-size: 1.5rem;
     }
-    
+
     .premios-container ul strong {
         font-size: 1.5rem;
     }
-    
+
     .premios-container .imagen-medalla {
         width: 80px;
         margin-right: 10px;
     }
 
-    .frase h3{
+    .frase h3 {
         font-size: 20px;
         font-weight: 200;
         margin-left: 10px;
@@ -223,53 +244,54 @@ p strong {
 
 /****** TABLET *******/
 
-@media  (min-width: 769px) and (max-width:1024px) {
-    
+@media (min-width: 769px) and (max-width:1024px) {
+
     #nosotros {
         width: 100vw;
-        justify-content:space-around;
-        
-    
+        justify-content: space-around;
     }
-    .container-image{
-        flex-direction: column;
-        
+
+    .container-image {
+        align-items: center;
+        height: 70vh;
     }
-    .container-image .image{
-        width:100%;
-        height:50%;
-    
+
+    .container-image .image {
+        width: 50%;
+        height: 100%;
+
     }
+
 
     section {
         flex-direction: column;
         align-items: justify;
     }
 
-    section .titulo-nosotros{
+    section .titulo-nosotros {
         font-size: 3rem;
-        
+
     }
-    
+
     section .nosotros-parrafo {
         width: 50%;
         font-size: 1.5rem;
-        text-align:justify;
+        text-align: justify;
         margin: 5px 10px;
 
 
     }
-    
-    
+
+
     section blockquote {
 
         font-style: italic;
         text-align: center;
         height: 50%;
-        border-left: 3px solid #d3cdb3; 
+        border-left: 3px solid #d3cdb3;
         margin: 20px auto;
         padding-left: 0 2vw;
-        
+
     }
 
     .premios-container ul {
@@ -286,22 +308,23 @@ p strong {
         width: 200px;
         font-size: 1.2rem;
     }
-    
+
     .premios-container ul strong {
         font-size: 1.4rem;
     }
-    
+
     .premios-container .imagen-medalla {
         width: 80px;
         margin-right: 10px;
     }
 
-    
+
     hr {
-        margin: 20px auto; /* Alineación central */
+        margin: 20px auto;
+        /* Alineación central */
     }
-    
-    .frase h3{
+
+    .frase h3 {
         font-size: 24px;
         font-weight: 200;
         margin-left: 10px;

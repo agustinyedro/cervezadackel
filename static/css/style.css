@@ -46,7 +46,6 @@ body {
 
 .menu {
     position: absolute;
-    top: 1rem;
     left: 0;
     right: 0;
     display: flex;
@@ -56,12 +55,12 @@ body {
 
 .logo img {
     width: auto;
-    height: 5.5rem;
+    height: 4.5rem;
     transition: all 0.3s;
 }
 
 .logo img:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 .menu .nav-links ul li {

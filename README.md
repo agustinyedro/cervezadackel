@@ -16,7 +16,12 @@ El progreso cuidadoso y en pequeños pasos puede parecer lento, pero en realidad
 /************** RESPONSIVE ***************/
 /****** CELULAR *******/
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 425px) {
+}
+
+/****** CELULAR HORIZONTAL Y TABLET PEQUEÑAS *********/
+
+@media screen and (min-width: 426px) and (max-width: 768px) {
 }
 /****** TABLET ******/
 @media screen and (min-width: 768px) and (max-width: 1023px) {
@@ -58,5 +63,10 @@ classDiagram
     class Producto{
      +String id
      +String titulo
+    }
+
+    class Compra{
+    }
+    class Contacto{
     }
 ```
