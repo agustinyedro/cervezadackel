@@ -1,0 +1,97 @@
+:root {
+    --primary-color: #9f3647;
+    --primary-color-hover: #9f364780;
+    --bg-color: #181419;
+    --secondary-color: #ffc098;
+    --secondary-color: #BB9458;
+    --third-color: #db4648;
+    --third-bis-color: #db4648f2;
+    --bg-input-color: #4f31572c;
+    --white-color: #fdf5ef;
+    --gray: #d4d3d6;
+    --primary-font: 'Raleway';
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: var(--primary-font);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--gray);
+
+
+    .gracias {
+        height: fit-content;
+        width: 70vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        background-color: var(--bg-color);
+        border-radius: 1rem;
+        padding: 3rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+
+        .fondo-img {
+            width: 100%;
+            background-color: #9f3647;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 20vh;
+            border-radius: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        img {
+            width: 15vw;
+            background-color: #9f3647;
+            border-radius: 1rem;
+        }
+
+        h1 {
+            color: var(--secondary-color);
+            text-align: center;
+            font-size: 2.5rem;
+        }
+
+        p {
+            color: var(--white-color);
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            width: 100%;
+
+
+            a {
+                color: var(--white-color);
+                text-decoration: none;
+                font-size: 1.1rem;
+                padding: 0.8rem 1.2rem;
+                border-radius: 1rem;
+                background-color: var(--primary-color);
+
+                &:hover {
+                    background-color: var(--primary-color-hover);
+                    transition: 0.2s;
+                }
+            }
+        }
+    }
+}

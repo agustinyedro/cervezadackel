@@ -1,3 +1,5 @@
+
+
 document.title = "Tienda Dackel";
 
 const $tienda = document.querySelector("#tienda-container");
@@ -186,6 +188,7 @@ filtroMobile.forEach((filtro) => {
     menuD.classList.toggle("menuD-open");
   });
 });
+
 
 const dropdowns = document.querySelectorAll(".dropdown");
 

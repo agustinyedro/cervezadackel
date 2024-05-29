@@ -46,7 +46,6 @@ body {
 
 .menu {
     position: absolute;
-    top: 1rem;
     left: 0;
     right: 0;
     display: flex;
@@ -56,12 +55,12 @@ body {
 
 .logo img {
     width: auto;
-    height: 5.5rem;
+    height: 4.5rem;
     transition: all 0.3s;
 }
 
 .logo img:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 .menu .nav-links ul li {
@@ -896,10 +895,6 @@ body {
     }
 }
 
-/**  Contacto  **/
-
-
-
 .contacto {
 
     .contacto__title {
@@ -958,8 +953,8 @@ body {
         .form {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: 30px 30px 100px 30px;
-            gap: 30px;
+            grid-template-rows: 1rem .2rem 1rem .2rem 7rem .2rem 2rem;
+            gap: 1.2rem;
             width: 80%;
             height: 60%;
             border-radius: 2vw;
@@ -968,6 +963,7 @@ body {
                 border-radius: 0.5vh;
                 border: none;
                 grid-column: 1/2;
+                grid-row: 1/2;
                 padding: 15px 10px;
                 color: #181419;
                 font-family: var(--primary-font);
@@ -982,15 +978,15 @@ body {
             }
 
             .name {
-                position: relative;
 
                 &.error {
+                    grid-column: 1/2;
+                    grid-row: 2/3;
                     color: #9f3647;
                     text-shadow: 0 0 0.8em var(--primary-color);
                     font-size: 0.75rem;
-                    position: absolute;
-                    top: 100%;
-                    transform: translate(-10%, 50%);
+                    padding: 0;
+                    text-align: left;
                 }
             }
 
@@ -999,6 +995,7 @@ body {
                 border-radius: 0.5vh;
                 border: none;
                 grid-column: 2/3;
+                grid-row: 1/2;
                 padding: 15px 10px;
                 color: #181419;
                 font-family: var(--primary-font);
@@ -1014,15 +1011,16 @@ body {
             }
 
             .email {
-                position: relative;
 
                 &.error {
                     color: #9f3647;
                     text-shadow: 0 0 0.8em var(--primary-color);
                     font-size: 0.75rem;
-                    position: absolute;
-                    top: 100%;
-                    transform: translate(160%, 50%);
+                    grid-column: 2/3;
+                    grid-row: 2/3;
+                    padding: 0;
+                    text-align: left;
+
                 }
 
                 &:focus,
@@ -1038,6 +1036,7 @@ body {
                 border-radius: 0.5vh;
                 border: none;
                 grid-column: 1/2;
+                grid-row: 3/4;
                 padding: 15px 10px;
                 color: #181419;
                 font-family: var(--primary-font);
@@ -1058,9 +1057,11 @@ body {
                     color: #9f3647;
                     text-shadow: 0 0 0.8em var(--primary-color);
                     font-size: 0.75rem;
-                    position: absolute;
-                    top: 100%;
-                    transform: translate(-10%, 160%);
+                    grid-column: 1/2;
+                    grid-row: 4/5;
+                    text-align: left;
+                    padding: 0;
+
                 }
 
                 &:focus,
@@ -1076,15 +1077,19 @@ body {
 
             .motivo {
                 position: relative;
-                min-width: 15rem;
+                grid-column: 2/3;
+                grid-row: 3/4;
 
                 &.error {
                     color: #9f3647;
                     text-shadow: 0 0 0.8em var(--primary-color);
                     font-size: 0.75rem;
-                    position: absolute;
-                    top: 100%;
-                    transform: translate(165%, 160%);
+                    grid-column: 2/3;
+                    grid-row: 4/5;
+                    padding: 0;
+                    text-align: left;
+
+
                 }
 
                 * {
@@ -1094,7 +1099,7 @@ body {
                 .select {
                     height: 30px;
                     background: #fff;
-                    color: #181419;
+                    color: #1814198f;
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
@@ -1110,9 +1115,9 @@ body {
                         box-shadow: 0 0 0.8em var(--secondary-color);
                     }
 
-                    .caret {
-                        width: 10px;
-                        height: 10px;
+                    .flecha {
+                        width: .5rem;
+                        height: .5rem;
                         border-right:
                             2px solid #181419;
                         border-bottom:
@@ -1173,6 +1178,7 @@ body {
                 border-radius: 0.5vh;
                 border: none;
                 grid-column: 1/3;
+                grid-row: 5/6;
                 padding: 15px 10px;
                 font-family: var(--primary-font);
                 font-size: 1rem;
@@ -1192,9 +1198,10 @@ body {
                     color: #9f3647;
                     text-shadow: 0 0 0.8em var(--primary-color);
                     font-size: 0.75rem;
-                    position: absolute;
-                    top: 100%;
-                    transform: translate(-10%, 405%);
+                    grid-column: 1/3;
+                    grid-row: 6/7;
+                    padding: 0;
+                    text-align: left;
                 }
             }
 
@@ -1207,6 +1214,8 @@ body {
                 border-radius: 0.4vw;
                 border: none;
                 font-weight: 600;
+                grid-column: 1/2;
+                grid-row: 7/8;
 
                 &:hover {
                     background-color: #ed6161;
@@ -1214,6 +1223,8 @@ body {
             }
 
             .whatsapp {
+                grid-column: 2/3;
+                grid-row: 7/8;
                 background-color: #07d773;
                 border-radius: 0.4vw;
                 display: flex;
@@ -1240,8 +1251,158 @@ body {
     }
 }
 
-@media (max-width: 760px) {
+@media screen and (max-width: 425px) {
+
     .contacto {
+
+        .contacto__title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 20vh;
+            position: relative;
+
+            h1 {
+                font-size: 4rem;
+                color: var(--secondary-color);
+                z-index: 1;
+            }
+
+            .contacto__fondo {
+                margin-top: 0;
+                position: absolute;
+                top: 0;
+                width: 100%;
+                background-image: url(../img/imageedit_1_3679396909.webp);
+                height: 100%;
+                background-size: cover;
+                filter: blur(2px);
+            }
+
+        }
+
+        .contacto__form {
+            height: fit-content;
+            padding: 5rem 0;
+
+            & h2 {
+                font-size: 2.5rem;
+            }
+
+            & p {
+                color: var(--white-color);
+                font-size: 1.8rem;
+                padding: 1rem 3rem;
+            }
+
+            .form {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(4, 2.5rem .5rem) 7rem .2rem 3.2rem;
+                gap: 2rem;
+                width: 80%;
+                height: 100%;
+                border-radius: 2vw;
+
+                & #name {
+                    grid-column: 1/-1;
+                    grid-row: 1/2;
+                    font-size: 1.3rem;
+                }
+
+                .name {
+
+                    &.error {
+                        font-size: 1.3rem;
+                        grid-row: 2/3;
+                    }
+                }
+
+                & #email {
+                    grid-column: 1/-1;
+                    grid-row: 3/4;
+                    font-size: 1.3rem;
+                }
+
+                .email {
+
+                    &.error {
+                        font-size: 1.3rem;
+                        grid-column: 1/-1;
+                        grid-row: 4/5;
+                    }
+                }
+
+                & #phone {
+                    grid-column: 1/-1;
+                    grid-row: 5/6;
+                    font-size: 1.3rem;
+                }
+
+                .phone {
+
+                    &.error {
+                        font-size: 1.3rem;
+                        grid-column: 1/-1;
+                        grid-row: 6/7;
+                    }
+                }
+
+                .motivo {
+                    grid-column: 1/-1;
+                    grid-row: 7/8;
+                    position: relative;
+                    font-size: 1.3rem;
+
+                    &.error {
+                        font-size: 1.3rem;
+                        grid-column: 1/-1;
+                        grid-row: 8/9;
+                    }
+
+                }
+
+                & #message {
+                    grid-column: 1/-1;
+                    grid-row: 9/10;
+                    font-size: 1.3rem;
+                }
+
+                .message {
+
+                    &.error {
+                        font-size: 1.3rem;
+                        grid-column: 1/-1;
+                        grid-row: 10/11;
+                    }
+                }
+
+                & input[type="submit"] {
+                    grid-column: span 1;
+                    grid-row: 11/12;
+                    font-size: 1.4rem;
+                }
+
+                .whatsapp {
+                    grid-column: span 1;
+                    grid-row: 11/12;
+                    font-size: 1.4rem;
+                    gap: 2px;
+
+                    svg {
+
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+@media screen and (min-width: 426px) and (max-width: 768px) {
+    .contacto {
+
         .contacto__title {
             display: flex;
             align-items: center;
@@ -1250,7 +1411,7 @@ body {
             position: relative;
 
             h1 {
-                font-size: 2rem;
+                font-size: 5rem;
                 color: var(--secondary-color);
                 z-index: 1;
             }
@@ -1268,59 +1429,114 @@ body {
         }
 
         .contacto__form {
-            height: 100vh;
+            height: fit-content;
+            padding: 5rem 0;
+
 
             & h2 {
-                font-size: 1.5rem;
+                font-size: 2rem;
             }
 
             & p {
                 color: var(--white-color);
                 text-align: center;
-                padding: 20px 20px;
+                padding: 20px 5rem;
                 margin-bottom: 50px;
+                font-size: 1.5rem;
+                text-wrap: stable;
             }
 
             .form {
-                display: grid;
-                grid-template-columns: 45% 45%;
-                grid-template-rows: 30px 30px 30px 30px 100px 30px;
-                gap: 30px;
+                grid-template-columns: 50% 50%;
+                grid-template-rows: repeat(4, 1rem .2rem) 7rem .2rem 3.2rem;
+                gap: 2rem;
                 width: 80%;
                 height: 100%;
                 border-radius: 2vw;
 
                 & #name {
                     grid-column: 1/-1;
+                    grid-row: 1/2;
+                    font-size: 1.3rem;
+                }
+
+                .name {
+
+                    &.error {
+                        font-size: 1.3rem;
+                        grid-row: 2/3;
+                    }
                 }
 
                 & #email {
                     grid-column: 1/-1;
+                    grid-row: 3/4;
+                    font-size: 1.3rem;
+                }
+
+                .email {
+
+                    &.error {
+                        font-size: 1.3rem;
+                        grid-column: 1/-1;
+                        grid-row: 4/5;
+                    }
                 }
 
                 & #phone {
                     grid-column: 1/-1;
+                    grid-row: 5/6;
+                    font-size: 1.3rem;
+                }
+
+                .phone {
+
+                    &.error {
+                        font-size: 1.3rem;
+                        grid-column: 1/-1;
+                        grid-row: 6/7;
+                    }
                 }
 
                 .motivo {
-
                     grid-column: 1/-1;
+                    grid-row: 7/8;
                     position: relative;
+                    font-size: 1.3rem;
+
+                    &.error {
+                        font-size: 1.3rem;
+                        grid-column: 1/-1;
+                        grid-row: 8/9;
+                    }
 
                 }
 
                 & #message {
                     grid-column: 1/-1;
+                    grid-row: 9/10;
+                    font-size: 1.3rem;
+                }
+
+                .message {
+
+                    &.error {
+                        font-size: 1.3rem;
+                        grid-column: 1/-1;
+                        grid-row: 10/11;
+                    }
                 }
 
                 & input[type="submit"] {
                     grid-column: span 1;
-                    font-size: 1.1rem;
-
+                    grid-row: 11/12;
+                    font-size: 1.4rem;
                 }
 
                 .whatsapp {
                     grid-column: span 1;
+                    grid-row: 11/12;
+                    font-size: 1.4rem;
                     gap: 2px;
 
                     svg {
