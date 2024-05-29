@@ -1,6 +1,6 @@
-import { crearImagenes } from "./imagenesProducto.js";
-import { crearDetallesProducto } from "./detallesProducto.js";
-import { crearCarusel } from "./carousel.js";
+import { crearImagenes } from "./crearProductos/imagenesProducto.js";
+import { crearDetallesProducto } from "./crearProductos/detallesProducto.js";
+import { crearCarusel } from "./crearProductos/carousel.js";
 
 document.addEventListener("DOMContentLoaded", async function () {
   // Obtener el ID de la tarjeta de la URL

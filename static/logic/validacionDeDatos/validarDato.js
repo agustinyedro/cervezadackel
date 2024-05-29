@@ -1,57 +1,37 @@
-export function validarDato(input, id) {
-  const inputs = [
-    { name: "name", message: "Por favor, ingrese su nombre." },
-    { name: "email", message: "Por favor, ingrese su correo electrónico." },
-    { name: "phone", message: "Por favor, ingrese su teléfono." },
-    { name: "motivo", message: "Por favor, seleccione un motivo." },
-    { name: "message", message: "Por favor, ingrese su mensaje." },
-    { name: "password", message: "Por favor, ingrese su contraseña." },
-  ];
+const mensajesError = {
+  name: "Por favor, ingrese su nombre.",
+  email: "Por favor, ingrese su correo electrónico.",
+  phone: "Por favor, ingrese su teléfono.",
+  motivo: "Por favor, seleccione un motivo.",
+  message: "Por favor, ingrese su mensaje.",
+  password: "Por favor, ingrese su contraseña."
+};
 
-  if (
-    input.value === "" ||
-    (input.id === "motivo" &&
-      document.querySelector(".selected").textContent === "Motivo")
-  ) {
-    // Remover el error existente, si hay
-    const existingError = document.querySelector(`.${input.id}.error`);
-    if (existingError) {
-      existingError.remove();
-    }
+const crearMensajeError = (mensaje, id) => {
+  const error = document.createElement("p");
+  error.textContent = mensaje;
+  error.classList.add(id, "error");
+  return error;
+};
 
-    if (
-      input.id === "motivo" &&
-      document.querySelector(".selected").textContent === "Motivo"
-    ) {
-      const existingError = document.querySelector(".motivo.error");
-      if (!existingError) {
-        const error = document.createElement("p");
-        error.textContent = "Por favor, seleccione un motivo.";
-        error.classList.add("motivo");
-        error.classList.add("error");
-        input.after(error);
-      }
-    } else {
-      inputs.forEach((value) => {
-        if (value.name === id) {
-          const existingError = document.querySelector(`.${value.name}.error`);
-          if (!existingError) {
-            const error = document.createElement("p");
-            error.textContent = value.message;
-            error.classList.add(value.name);
-            error.classList.add("error");
-            input.insertAdjacentElement("afterend", error);
-          }
-        }
-      });
-    }
-    return false;
-  } else {
-    // Remover el error existente si el campo es válido
-    const existingError = document.querySelector(`.${input.id}.error`);
-    if (existingError) {
-      existingError.remove();
-    }
-    return input;
+const removerMensajeError = (id) => {
+  const existingError = document.querySelector(`.${id}.error`);
+  if (existingError) {
+    existingError.remove();
   }
+};
+
+export function validarDato(input) {
+  const { id, value } = input;
+
+  removerMensajeError(id);
+
+  if (value === "" || (id === "motivo" && document.querySelector(".selected").textContent === "Motivo")) {
+    const mensaje = mensajesError[id];
+    const error = crearMensajeError(mensaje, id);
+    input.insertAdjacentElement("afterend", error);
+    return mensaje;
+  }
+
+  return true;
 }

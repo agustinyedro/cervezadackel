@@ -1,5 +1,5 @@
 import { validarDatos } from "./validacionDeDatos/validarDatos.js";
-
+import { focus } from "./validacionDeDatos/eliminarError.js";
 const $btnIngresar = document.getElementById("btn-ingresar");
 
 
@@ -17,20 +17,5 @@ $btnIngresar.addEventListener("click", (event) => {
     }
 })
 
-
-const $usuario = document.getElementById("name");
-const $contrasena = document.getElementById("password");
-
-function focus(input) {
-    console.log(input.classList);
-    input.addEventListener("focus", () => {
-        const error = document.querySelector(`.${input.classList}.error`);
-        if (error) {
-            error.remove();
-        }
-    })
-
-}
-
-focus($usuario);
-focus($contrasena)
+focus(document.getElementById("name"));
+focus(document.getElementById("password"))
