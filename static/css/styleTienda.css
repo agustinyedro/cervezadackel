@@ -905,7 +905,7 @@
         .title {
             grid-column: 1/-1;
             grid-row: 1/2;
-            font-size: 2rem;
+            font-size: 3rem;
             text-align: center;
         }
 
