@@ -528,7 +528,7 @@
 
     /************ CARD PRODUCTO ************/
 
-    #cardDetails {
+    #producto {
         padding: 2vw;
         border-radius: 5px;
         display: grid;
@@ -1115,7 +1115,7 @@
         padding: 0;
         margin: 0;
 
-        #cardDetails {
+        #producto {
             grid-template-columns: 1fr;
             grid-template-rows: repeat(2, auto);
             width: 100vw;
@@ -1237,7 +1237,7 @@
     /***** PRODUCTOS *****/
     .main-producto {
 
-        #cardDetails {
+        #producto {
             .card-producto-detalles {
                 width: 250px;
             }

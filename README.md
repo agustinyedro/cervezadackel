@@ -63,6 +63,8 @@ classDiagram
     class Producto{
      +String id
      +String titulo
+     +int precio
+     +int stock
     }
 
     class Compra{
