@@ -67,6 +67,6 @@ classDiagram
 
     class Compra{
     }
-    class Contacto{
+    class Consultas{
     }
 ```
