@@ -12,17 +12,33 @@ document.addEventListener("DOMContentLoaded", async function () {
   // console.log(cardData);
   document.title = cardData.name;
 
-  const $cardDetailsContainer = document.getElementById("cardDetails");
+  /******* ITEM NAV TIPO DE PRODUCTO  *********/
+  const $itemProducto = document.getElementById("item-producto");
 
-  //***** Imagenes ******/
+  switch (cardData.tipo) {
+    case "cervezas":
+      $itemProducto.textContent = "Cerveza";
+      break;
+    case "remeras":
+      $itemProducto.textContent = "Remeras";
+      break;
+    case "gorras":
+      $itemProducto.textContent = "Gorras";
+      break;
+    case "calcomanias":
+      $itemProducto.textContent = "Calcomanias";
+      break;
+  }
 
-  crearImagenes(cardData, $cardDetailsContainer);
+  const $cardDetailsContainer = document.getElementById("producto");
 
-  /*******************/
+  /***** Imagenes ******/
+
+  $cardDetailsContainer.innerHTML = crearImagenes(cardData);
 
   /********* descripción  *********/
 
-  crearDetallesProducto(cardData, $cardDetailsContainer);
+  $cardDetailsContainer.innerHTML += crearDetallesProducto(cardData);
 
   /********* CARD *********/
 
@@ -296,23 +312,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     // console.log(cantidad);
     alert(`Cervezas agregadas: ${cantidad}`);
   });
-
-  const $itemProducto = document.getElementById("item-producto");
-
-  switch (cardData.tipo) {
-    case "cervezas":
-      $itemProducto.textContent = "Cerveza";
-      break;
-    case "remeras":
-      $itemProducto.textContent = "Remeras";
-      break;
-    case "gorras":
-      $itemProducto.textContent = "Gorras";
-      break;
-    case "calcomanias":
-      $itemProducto.textContent = "Calcomanias";
-      break;
-  }
 });
 
 async function obtenerDatosDeLaTarjeta(cardId) {
@@ -325,12 +324,9 @@ async function obtenerDatosDeLaTarjeta(cardId) {
   try {
     const data = await fetchData();
     const producto = data.productos;
-    // console.log(producto);
+    // aqui ya tengo los datos de productos pero tengo que filtrarlos segun el id
     for (let element of producto) {
-      if (element.id == cardId) {
-        //  console.log(element);
-        return element;
-      }
+      return element.id == cardId ? element : null;
     }
   } catch (error) {
     console.error("Error al obtener datos:", error);
