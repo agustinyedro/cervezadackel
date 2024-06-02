@@ -6,19 +6,15 @@ El progreso cuidadoso y en pequeños pasos puede parecer lento, pero en realidad
 >
 > es decir, según Martin, avanzar con cuidado y con pequeños pasos es incluso la única manera de ser rápido.
 
-@mediasqueries de css
-
-### Código
+## @mediasqueries de css Código
 
 ```css
 /** el codigo que ya escribieron es el descktop o modo escritorio **/
 
 /************** RESPONSIVE ***************/
 /****** CELULAR *******/
-
 @media screen and (max-width: 425px) {
 }
-
 /****** CELULAR HORIZONTAL Y TABLET PEQUEÑAS *********/
 
 @media screen and (min-width: 426px) and (max-width: 768px) {
@@ -28,47 +24,122 @@ El progreso cuidadoso y en pequeños pasos puede parecer lento, pero en realidad
 }
 ```
 
----
-
-- [x] Definir arquitectura o estructura con Bootstrap
-- [x] Organizar carpetas con archivos de imágenes e iconos
-- [x] Explorar, Definir y Organizar paleta de colores y fuente, tamaño y estilo de textos
-- [x] Organizar barra navegación (nav) y registro de usuario
-- [x] Diseñar el formulario de contacto.
-- [x] Organizar la línea de vínculos entre las secciones y páginas ‘si se requiere’
-- [x] Diseñar sitio que muestre ubicación en un mapa y video ’si se requiere’.
-- [x] Diseñar el responsive para los diferentes formatos de ¿dispositivos?.
-
----
-
 ## BASE DE DATOS
 
 ```mermaid
-classDiagram
-    Cliente <|.. Usuario
-    class Cliente{
-     +String id
-     +String nombre
-     +String apellido
-     +String genero
-     +int edad
-     +String direccion
-     +Usuario datos
-    }
-    class Usuario{
-    +String email
-    +String password
+erDiagram
+    Producto {
+        int id PK
+        string name
+        int precio
+        string descripcion
+        string tipo
     }
 
-    class Producto{
-     +String id
-     +String titulo
-     +int precio
-     +int stock
+    Cerveza {
+        int id FK
+        string calibre
+        string estilo
+        string sabor
+        float alcohol
+        int IBU
+        int cantidad
     }
 
-    class Compra{
+    Cerveza_IMAGENES {
+        int cerveza_id FK
+        string imagen
     }
-    class Consultas{
+
+    Cerveza_PREMIOS {
+        int cerveza_id FK
+        string premio
     }
+
+    Remera {
+        int id FK
+        string material
+    }
+
+    Remera_VARIANTES {
+        int remera_id FK
+        string talla
+        string color
+        int cantidad
+    }
+
+    Remera_IMAGENES {
+        int remera_id FK
+        string imagen
+    }
+
+    Calcomania {
+        int id FK
+        string tamano
+        int cantidad
+    }
+
+    Calcomania_IMAGENES {
+        int calcomania_id FK
+        string imagen
+    }
+
+   Cliente {
+        int id PK
+        string nombre
+        string apellido
+        string genero
+        int edad
+        string direccion_envio
+        string direccion_facturacion
+        string telefono
+        date fecha_registro
+        string historial_pedidos
+        string preferencias_producto
+        string estado_cuenta
+        bool suscripcion_boletines
+        int usuario FK
+    }
+    Usuario {
+        int id PK
+        string email
+        string password
+    }
+
+    Pedido {
+        int id PK
+        string fecha
+        float total
+        int cliente_id FK
+    }
+
+    Pedido_Detalle {
+        int pedido_id FK
+        int producto_id FK
+        int cantidad
+        float precio
+    }
+
+    Consulta{
+        int id PK
+        string nombre
+        string email
+        string telefono
+        string motivo
+        string mensage
+        string medio
+    }
+
+    Producto ||--o{ Cerveza : "is a"
+    Cerveza ||--o{ Cerveza_IMAGENES : "has"
+    Cerveza ||--o{ Cerveza_PREMIOS : "has"
+    Producto ||--o{ Remera : "is a"
+    Remera ||--o{ Remera_VARIANTES : "has"
+    Remera ||--o{ Remera_IMAGENES : "has"
+    Producto ||--o{ Calcomania : "is a"
+    Calcomania ||--o{ Calcomania_IMAGENES : "has"
+    Cliente ||--o{ Pedido : "makes"
+    Pedido ||--o{ Pedido_Detalle : "contains"
+    Pedido_Detalle ||--|| Producto : "references"
+    Cliente ||--|| Usuario : "has"
 ```
