@@ -104,6 +104,7 @@ erDiagram
         int id PK
         string email
         string password
+        string tipo
     }
 
     Pedido {

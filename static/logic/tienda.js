@@ -1,5 +1,6 @@
 
 
+
 document.title = "Tienda Dackel";
 
 const $tienda = document.querySelector("#tienda-container");
