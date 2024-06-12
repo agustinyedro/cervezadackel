@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     const urlParams = new URLSearchParams(window.location.search);
     const cardId = urlParams.get("id");
 
+    console.log(cardId);
+
     // Obtener los datos de la tarjeta según el ID
     const cardData = await obtenerDatosDeLaTarjeta(cardId);
     // console.log(cardData);
@@ -136,7 +138,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     async function obtenerDatosDeLaTarjeta(cardId) {
         const fetchData = async () => {
-            const response = await fetch("../static/data/tienda.json");
+            const response = await fetch("/data/tienda.json");
             const data = await response.json();
             return data;
         };

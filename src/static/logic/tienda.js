@@ -1,12 +1,10 @@
 
-
-
 document.title = "Tienda Dackel";
 
 const $tienda = document.querySelector("#tienda-container");
 
 const fetchData = async () => {
-  const response = await fetch("../static/data/tienda.json");
+  const response = await fetch("/data/tienda.json");
   const data = await response.json();
   return data;
 };
@@ -109,7 +107,7 @@ const renderCards = (productos) => {
         return;
       }
       const productoId = producto.id;
-      window.location.href = `producto.html?id=${productoId}`;
+      window.location.href = `/producto/id=${productoId}`;
     });
 
     $tienda.appendChild(card);

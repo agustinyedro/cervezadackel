@@ -10,10 +10,7 @@
       "alcohol": 5.5,
       "IBU": 46,
       "descripcion": "Entrelaza notas a caramelo y frutos secos característico de las maltas especiales utilizadas con un lupulado intenso en aroma y firme en sabor. De color rojo, balanceada hacia el lúpulo, una cerveza fácil de tomar, armónica y refrescante.",
-      "imagen": [
-        "../static/img/cervezas/ipaRed.webp",
-        "../static/img/cervezas/ipaRed2.webp"
-      ],
+      "imagen": ["/img/cervezas/ipaRed.webp", "/img/cervezas/ipaRed2.webp"],
       "cantidad": 100,
       "tipo": "cervezas"
     },
@@ -28,8 +25,8 @@
       "IBU": 40,
       "descripcion": "Cerveza negra con espuma cremosa, en aroma notas dulces a malta tostada, café y chocolate amargo. Balanceada de cuerpo medio, sedosa en paladar, final seco y refrescante. Complejas combinaciones de sabores y sensaciones se amalgaman en un todo.",
       "imagen": [
-        "../static/img/cervezas/irishStout.webp",
-        "../static/img/cervezas/irishStout2.webp"
+        "/img/cervezas/irishStout.webp",
+        "/img/cervezas/irishStout2.webp"
       ],
       "cantidad": 100,
       "premios": [
@@ -50,10 +47,7 @@
       "alcohol": 5.5,
       "IBU": 46,
       "descripcion": "Una expresión extrema del lúpulo en todos los sentidos. Color dorado, de aroma frutal proveniente de los lúpulos. En sabor más lúpulo de amable amargor y final seco. ",
-      "imagen": [
-        "../static/img/cervezas/ipa.webp",
-        "../static/img/cervezas/ipa2.webp"
-      ],
+      "imagen": ["/img/cervezas/ipa.webp", "/img/cervezas/ipa2.webp"],
       "cantidad": 100,
       "tipo": "cervezas"
     },
@@ -67,10 +61,7 @@
       "alcohol": 4.5,
       "IBU": 30,
       "descripcion": "Cerveza rubia refrescante y lupulada, de amargor moderado. Una experiencia de lupulación cauta y con gran soporte de maltas.",
-      "imagen": [
-        "../static/img/cervezas/apa.webp",
-        "../static/img/cervezas/apa2.webp"
-      ],
+      "imagen": ["/img/cervezas/apa.webp", "/img/cervezas/apa2.webp"],
       "cantidad": 100,
       "tipo": "cervezas"
     },
@@ -85,8 +76,8 @@
       "IBU": 60,
       "descripcion": "De aroma a maltas caramelo, guindas y suave lupulado. Una English Barley Wine que esconde sus 9 grados de alcohol detrás de un final entre dulce y seco con notas licorosas que se balancean con los 60 IBU de amargor.",
       "imagen": [
-        "../static/img/cervezas/barleyWine.webp",
-        "../static/img/cervezas/barleyWine2.webp"
+        "/img/cervezas/barleyWine.webp",
+        "/img/cervezas/barleyWine2.webp"
       ],
       "cantidad": 100,
       "tipo": "cervezas"
@@ -102,8 +93,8 @@
       "IBU": 20,
       "descripcion": "Rubia y brillante, la honey de Dackel con aroma a maltas y un suave lupulado floral.  La miel y el lúpulo se suman en un complejo equilibrio de dulzor y amargo logrando un estilo auténtico inequívocamente descripto por su nombre Bee Flower.",
       "imagen": [
-        "../static/img/cervezas/beeFlower.webp",
-        "../static/img/cervezas/beeFlower2.webp"
+        "/img/cervezas/beeFlower.webp",
+        "/img/cervezas/beeFlower2.webp"
       ],
       "cantidad": 100,
       "tipo": "cervezas"
@@ -118,10 +109,7 @@
       "alcohol": 5,
       "IBU": 28,
       "descripcion": "Rojo fuego, una liberación de sensaciones. Las maltas en primer plano con carameros y notas tostadas. De espuma blanca, con moderado dulzor, de amargor medio y final seco límpido y suave. Altamente refrescante.",
-      "imagen": [
-        "../static/img/cervezas/ira.webp",
-        "../static/img/cervezas/ira2.webp"
-      ],
+      "imagen": ["/img/cervezas/ira.webp", "/img/cervezas/ira2.webp"],
       "cantidad": 100,
       "premios": [
         "Medalla de Bronce South Beer Cup 2022",
@@ -139,10 +127,7 @@
       "alcohol": 5,
       "IBU": 28,
       "descripcion": "Cerveza dorada, de aroma dulce y carácter suave a malta. Sabor a lúpulo moderado y bajo amargor. Una experiencia suave y grata donde la malta se expresa con simpleza y frescura",
-      "imagen": [
-        "../static/img/cervezas/golden1.webp",
-        "../static/img/cervezas/golden2.webp"
-      ],
+      "imagen": ["/img/cervezas/golden1.webp", "/img/cervezas/golden2.webp"],
       "cantidad": 100,
       "premios": ["Medalla de Plata Copa Argentina 2016 "],
       "tipo": "cervezas"
@@ -180,7 +165,7 @@
       ],
       "material": "Algodón",
       "descripcion": "Remera de algodón negro con cuello redondo y manga corta.",
-      "imagen": ["../static/img/remeras/remeraNegra1.webp"],
+      "imagen": ["/img/remeras/remeraNegra1.webp"],
       "tipo": "remeras"
     },
     {
@@ -189,7 +174,7 @@
       "precio": 100,
       "tamano": "10x10 cm",
       "descripcion": "Calcomanía del logo de la marca en vinilo resistente al agua y al sol.",
-      "imagen": ["../static/img/calcomanias/Recurso 1.webp"],
+      "imagen": ["/img/calcomanias/Recurso 1.webp"],
       "cantidad": 10,
       "tipo": "calcomanias"
     }
