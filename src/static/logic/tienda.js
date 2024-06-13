@@ -4,132 +4,93 @@ document.title = "Tienda Dackel";
 const $tienda = document.querySelector("#tienda-container");
 
 const fetchData = async () => {
-  const response = await fetch("/data/tienda.json");
+  const response = await fetch("/productos");
   const data = await response.json();
   return data;
 };
 
 fetchData().then((data) => {
-  const productos = data.productos;
+  // console.log(data);
 
-  renderCards(productos);
+  renderCards(data);
 });
 
 const renderCards = (productos) => {
+  const $tienda = document.getElementById("tienda-container");
+
+  let cardsHTML = '';
+
   productos.forEach((producto, index) => {
-    const card = document.createElement("div");
-    card.classList.add("card-tienda");
-    card.id = `producto-${producto.id}`;
 
-    const img = document.createElement("img");
-    img.classList.add("card-tienda-img");
-    img.src = producto.imagen[0];
-    img.alt = producto.name;
-    card.appendChild(img);
-
-    const titulo = document.createElement("h2");
-    titulo.textContent = producto.name;
-    titulo.classList.add("card-tienda-titulo");
-    card.appendChild(titulo);
+    // se crean los detalles según características
+    let detallesHtml = '';
 
     if (producto.alcohol != null && producto.IBU != null) {
-      const detallesAlcohol = document.createElement("p");
-      detallesAlcohol.classList.add("detalles");
-      detallesAlcohol.textContent = `alc ${producto.alcohol}%  - IBU:${producto.IBU}`;
-      card.appendChild(detallesAlcohol);
+      detallesHtml = `<p class="detalles">alc ${producto.alcohol}%  - IBU:${producto.IBU}</p>`;
     } else if (producto.tipo === "remeras") {
-      const detallesTalla = document.createElement("p");
-      detallesTalla.classList.add("detalles");
-
-      const tallasUnicas = new Set(
-        producto.variantes.map((variante) => variante.talla)
-      );
-
-      detallesTalla.textContent = `Tallas: ${[...tallasUnicas].join(", ")}`;
-      card.appendChild(detallesTalla);
+      const tallasUnicas = new Set(producto.variantes.map(variante => variante.talla));
+      detallesHtml = `<p class="detalles">Tallas: ${[...tallasUnicas].join(", ")}</p>`;
     } else if (producto.tamano != null) {
-      const detallesTamanio = document.createElement("p");
-      detallesTamanio.classList.add("detalles");
-      detallesTamanio.textContent = `Tamanio: ${producto.tamano}`;
-      card.appendChild(detallesTamanio);
+      detallesHtml = `<p class="detalles">Tamaño: ${producto.tamano}</p>`;
     }
 
-    const precio = document.createElement("p");
-    precio.classList.add("precio");
-    precio.textContent = `$ ${producto.precio}`;
-    card.appendChild(precio);
+    // se crea la card con toda la info para luego renderizarla
 
-    const btnStock = document.createElement("div");
-    btnStock.classList.add("btn-stock");
+    cardsHTML += /* HTML */ `
+          <div class="card-tienda" id="producto-${producto.id}">
+              <img class="card-tienda-img" src="${producto.imagen[0]}" alt="${producto.name}">
+              <h2 class="card-tienda-titulo">${producto.name}</h2>
+              ${detallesHtml}
+              <p class="precio">$ ${producto.precio}</p>
+              <div class="btn-stock">
+                  <div class="stock">
+                      <button class="restar" id="restar-${index}">-</button>
+                      <input class="cantidad" type="number" id="cantidad-${index}" value="0">
+                      <button class="sumar" id="sumar-${index}">+</button>
+                  </div>
+                  <button class="btn-agregar" id="btn-agregar-${index}">Agregar</button>
+              </div>
+          </div>
+      `;
+  });
 
-    const stock = document.createElement("div");
-    stock.classList.add("stock");
+  $tienda.innerHTML = cardsHTML;
 
-    const btnRestar = document.createElement("button");
-    btnRestar.classList.add("restar");
-    btnRestar.id = `restar-${index}`;
-    btnRestar.textContent = "-";
+  // Agregar event listeners después de renderizar las tarjetas
+  productos.forEach((producto, index) => {
+    const card = document.getElementById(`producto-${producto.id}`);
+    const botonSumar = document.getElementById(`sumar-${index}`);
+    const botonRestar = document.getElementById(`restar-${index}`);
+    const botonAgregar = document.getElementById(`btn-agregar-${index}`);
+    const cantidadElemento = document.getElementById(`cantidad-${index}`);
 
-    const btnSumar = document.createElement("button");
-    btnSumar.classList.add("sumar");
-    btnSumar.id = `sumar-${index}`;
-    btnSumar.textContent = "+";
-
-    const input = document.createElement("input");
-    input.classList.add("cantidad");
-    input.type = "number";
-    input.id = `cantidad-${index}`;
-    input.value = 0;
-    stock.appendChild(btnRestar);
-    stock.appendChild(input);
-    stock.appendChild(btnSumar);
-
-    const btnAgregar = document.createElement("button");
-    btnAgregar.classList.add("btn-agregar");
-    btnAgregar.id = `btn-agregar-${index}`;
-    btnAgregar.textContent = "Agregar";
-
-    btnStock.appendChild(stock);
-    btnStock.appendChild(btnAgregar);
-
-    card.appendChild(btnStock);
-
-    // codigo para redirigir a la pagina de detalles
     card.addEventListener("click", (event) => {
+      const clickedElement = event.target;
       if (
-        event.target.classList.contains("btn-agregar") ||
-        event.target.classList.contains("sumar") ||
-        event.target.classList.contains("restar") ||
-        event.target.classList.contains("btn-stock") ||
-        event.target.classList.contains("cantidad")
+        clickedElement.classList.contains("btn-agregar") ||
+        clickedElement.classList.contains("sumar") ||
+        clickedElement.classList.contains("restar") ||
+        clickedElement.classList.contains("btn-stock") ||
+        clickedElement.classList.contains("cantidad")
       ) {
-        // Si fue en un botón, no redireccionar
+        // Evitar redireccionamiento si se hizo clic en un área interactiva
         return;
       }
       const productoId = producto.id;
-      window.location.href = `/producto/id=${productoId}`;
+      window.location.href = `/tienda/${productoId}`;
     });
 
-    $tienda.appendChild(card);
-
-    const botonSumar = document.querySelector(`#sumar-${index}`);
-    const botonRestar = document.querySelector(`#restar-${index}`);
-    const $btnAgregar = document.querySelector(`#btn-agregar-${index}`);
-
     botonSumar.addEventListener("click", () => {
-      const cantidadElemento = document.querySelector(`#cantidad-${index}`);
       let cantidad = parseInt(cantidadElemento.value);
-
       if (cantidad < producto.cantidad) {
         cantidad++;
         cantidadElemento.value = cantidad;
       } else {
-        alert("no hay stock");
+        alert("No hay suficiente stock disponible.");
       }
     });
 
     botonRestar.addEventListener("click", () => {
-      const cantidadElemento = document.querySelector(`#cantidad-${index}`);
       let cantidad = parseInt(cantidadElemento.value);
       if (cantidad > 0) {
         cantidad--;
@@ -137,44 +98,14 @@ const renderCards = (productos) => {
       }
     });
 
-    $btnAgregar.addEventListener("click", () => {
-      const cantidadElemento = document.querySelector(`#cantidad-${index}`);
+    botonAgregar.addEventListener("click", () => {
       let cantidad = parseInt(cantidadElemento.value);
-      console.log(cantidad);
-      alert(`Cervezas agregadas: ${cantidad}`);
+      alert(`Se han agregado ${cantidad} unidades de ${producto.name} a la compra.`);
     });
   });
 };
 
-// const dropdown = document.querySelectorAll(".dropdown");
-
-// dropdown.forEach((dropdown) => {
-//   const select = dropdown.querySelector(".select");
-//   const caret = dropdown.querySelector(".caret");
-//   const menu = dropdown.querySelector(".menu");
-//   const options = dropdown.querySelectorAll(".menu li");
-//   const selected = dropdown.querySelector(".selected");
-
-//   select.addEventListener("click", () => {
-//     select.classList.toggle("select-clicked");
-//     caret.classList.toggle("caret-rotate");
-//     menu.classList.toggle("menu-open");
-//   });
-
-//   options.forEach((option) => {
-//     option.addEventListener("click", () => {
-//       console.log(option.innerText);
-//       selected.innerText = option.innerText;
-//       select.classList.remove("select-clicked");
-//       caret.classList.remove("caret-rotate");
-//       menu.classList.remove("menu-open");
-//       options.forEach((option) => {
-//         option.classList.remove("active");
-//       });
-//       option.classList.add("active");
-//     });
-//   });
-// });
+// Filtros
 const filtroMobile = document.querySelectorAll(".filtro-mobile");
 filtroMobile.forEach((filtro) => {
   const btnS = filtro.querySelector(".btn");

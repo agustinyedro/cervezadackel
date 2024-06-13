@@ -28,7 +28,7 @@ app.use('/contacto', contactoRoute);
 app.use('/gracias', graciasRoute);
 app.use('/micuenta', micuentaRoute);
 app.use('/nosotros', nosotrosRoute);
-app.use('/producto', productoRoute);
+app.use('/productos', productoRoute);
 app.use('/register', registerRoute);
 app.use('/tienda', tiendaRoute);
 

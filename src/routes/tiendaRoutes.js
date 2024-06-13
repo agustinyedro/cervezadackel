@@ -7,4 +7,7 @@ router.get('/', (req, res) => {
     res.sendFile('tienda.html', { root: path.join(__dirname, '../views') });
 });
 
+router.route('/:id').get((req, res) => {
+    res.sendFile(`producto.html`, { root: path.join(__dirname, '../views') });
+});
 module.exports = router;

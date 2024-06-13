@@ -1,17 +1,14 @@
-// src/routes/producto.js
 const express = require('express');
+const ProductoController = require('../controllers/productoController');
 const router = express.Router();
 
-const path = require('path');
-router.get('/', (req, res) => {
-    res.sendFile('producto.html', { root: path.join(__dirname, '../views') });
-});
+router.get('/', ProductoController.getAll);
+router.post('/', ProductoController.create);
 
-router.get('/:id', (req, res) => {
-
-
-    res.sendFile('producto.html', { root: path.join(__dirname, '../views') });
-
-});
+router.route('/:id')
+    .get(ProductoController.getById)
+    .delete(ProductoController.delete)
+    .put(ProductoController.update);
 
 module.exports = router;
+

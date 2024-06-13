@@ -4,15 +4,21 @@ import { crearDetallesProducto } from "./crearProductos/detallesProducto.js";
 
 import { crearCards } from "./crearProductos/cards.js";
 
+const fetchData = async (cardId) => {
+    const response = await fetch(`/productos/${cardId}`);
+    const data = await response.json();
+    return data;
+};
+
+
 document.addEventListener("DOMContentLoaded", async function () {
     // Obtener el ID de la tarjeta de la URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const cardId = urlParams.get("id");
+    const id = window.location.pathname.split('/').pop();
 
-    console.log(cardId);
 
-    // Obtener los datos de la tarjeta según el ID
-    const cardData = await obtenerDatosDeLaTarjeta(cardId);
+    //llamo a la api
+
+    const cardData = await fetchData(id);
     // console.log(cardData);
     document.title = cardData.name;
 
@@ -134,27 +140,6 @@ document.addEventListener("DOMContentLoaded", async function () {
             detallesTalla.appendChild(btnTalla);
         });
         cardDetalles.appendChild(detallesTalla);
-    }
-
-    async function obtenerDatosDeLaTarjeta(cardId) {
-        const fetchData = async () => {
-            const response = await fetch("/data/tienda.json");
-            const data = await response.json();
-            return data;
-        };
-
-        try {
-            const data = await fetchData();
-            const producto = data.productos;
-            // aqui ya tengo los datos de productos pero tengo que filtrarlos segun el id
-            for (let element of producto) {
-                return element.id == cardId ? element : null;
-            }
-        } catch (error) {
-            console.error("Error al obtener datos:", error);
-            return null;
-        }
-        return null;
     }
 
 });
