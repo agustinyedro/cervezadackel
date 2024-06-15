@@ -16,12 +16,12 @@ class ProductoController {
     }
 
     static async create(req, res) {
-        const result = validateMovie(req.body);
+        // const result = validateMovie(req.body);
 
-        if (!result.success) {
-            // 422 Unprocessable Entity
-            return res.status(400).json({ error: JSON.parse(result.error.message) });
-        }
+        // if (!result.success) {
+        //     // 422 Unprocessable Entity
+        //     return res.status(400).json({ error: JSON.parse(result.error.message) });
+        // }
 
         const newProducto = await ProductoModel.create({ input: result.data });
 

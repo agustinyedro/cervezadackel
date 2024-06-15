@@ -1,5 +1,5 @@
 const randomUUID = require('node:crypto')
-const { readJSON } = require('../utils.js')
+const readJSON = require('../utils.js')
 
 const productos = readJSON('./database/tienda.json')
 
