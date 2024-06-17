@@ -1,7 +1,23 @@
-const randomUUID = require('node:crypto')
-const readJSON = require('../utils.js')
+// const randomUUID = require('node:crypto')
+// const readJSON = require('../utils.js')
 
-const productos = readJSON('./database/tienda.json')
+
+const fs = require('fs');
+const path = require('path');
+
+// Ruta relativa al archivo JSON
+const filePath = path.join(__dirname, '../database/tienda.json');
+
+// Leer el archivo JSON
+let productos;
+
+try {
+    const data = fs.readFileSync(filePath, 'utf8');
+    productos = JSON.parse(data);
+    console.log(productos);
+} catch (err) {
+    console.error('Error al leer o parsear el archivo:', err);
+}
 
 class ProductoModel {
     static async getAll({ genre }) {

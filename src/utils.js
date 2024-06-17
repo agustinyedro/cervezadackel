@@ -4,6 +4,4 @@ const readJSON = (filePath) => {
     return require(filePath);
 };
 
-module.exports = {
-    readJSON
-};
+

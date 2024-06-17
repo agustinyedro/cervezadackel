@@ -4,13 +4,22 @@ const path = require("path");
 
 const PORT = process.env.PORT || 3000;
 
-app.use(express.static(path.join(__dirname, 'static')));
+
+/* enlazo todo lo que esté en la carpeta static
+*
+*para llamar desde cualquier lugar del servidor /css o /img o /logic
+*
+*
+*/
 
 app.use(express.static(path.join(__dirname, 'static')));
+
+
+
 
 // Configuración del motor de plantillas para servir vistas
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+// app.set('view engine', 'ejs');
 
 // Importar rutas
 const indexRoute = require('./routes/indexRoutes');
