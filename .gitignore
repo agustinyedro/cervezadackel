@@ -1,6 +1,9 @@
 /node_modules
-package-lock.json
+/apis
 
 .env
-app.http
+package-lock.json
+producto.http
+estructura.txt
+
 

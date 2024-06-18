@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "nombre": "Juan Pérez",
+    "email": "juan.perez@example.com",
+    "telefono": "1234567890",
+    "motivo": "ventas",
+    "mensaje": "Estoy interesado en comprar el producto X.",
+    "medio": "correo electrónico"
+  },
+  {
+    "id": 2,
+    "nombre": "María López",
+    "email": "maria.lopez@example.com",
+    "telefono": "0987654321",
+    "motivo": "administración",
+    "mensaje": "Necesito información sobre mi factura.",
+    "medio": "whatsapp"
+  },
+  {
+    "id": 3,
+    "nombre": "Carlos García",
+    "email": "carlos.garcia@example.com",
+    "telefono": "1122334455",
+    "motivo": "atención al cliente",
+    "mensaje": "Tengo un problema con mi pedido.",
+    "medio": "correo electrónico"
+  },
+  {
+    "id": 4,
+    "nombre": "Ana Martínez",
+    "email": "ana.martinez@example.com",
+    "telefono": "2233445566",
+    "motivo": "reclamos de calidad",
+    "mensaje": "El producto que recibí está defectuoso.",
+    "medio": "whatsapp"
+  },
+  {
+    "id": 5,
+    "nombre": "Luis Fernández",
+    "email": "luis.fernandez@example.com",
+    "telefono": "3344556677",
+    "motivo": "eventos",
+    "mensaje": "Quisiera más información sobre el próximo evento.",
+    "medio": "correo electrónico"
+  },
+  {
+    "id": 6,
+    "nombre": "Marta Jiménez",
+    "email": "marta.jimenez@example.com",
+    "telefono": "4455667788",
+    "motivo": "ventas",
+    "mensaje": "¿Tienen descuentos para compras al por mayor?",
+    "medio": "whatsapp"
+  },
+  {
+    "id": 7,
+    "nombre": "Pedro Rodríguez",
+    "email": "pedro.rodriguez@example.com",
+    "telefono": "5566778899",
+    "motivo": "administración",
+    "mensaje": "Quisiera actualizar mis datos de contacto.",
+    "medio": "correo electrónico"
+  },
+  {
+    "id": 8,
+    "nombre": "Elena Gómez",
+    "email": "elena.gomez@example.com",
+    "telefono": "6677889900",
+    "motivo": "atención al cliente",
+    "mensaje": "Mi pedido no ha llegado a tiempo.",
+    "medio": "whatsapp"
+  },
+  {
+    "id": 9,
+    "nombre": "Roberto Díaz",
+    "email": "roberto.diaz@example.com",
+    "telefono": "7788990011",
+    "motivo": "reclamos de calidad",
+    "mensaje": "El producto llegó en mal estado.",
+    "medio": "correo electrónico"
+  },
+  {
+    "id": 10,
+    "nombre": "Laura Torres",
+    "email": "laura.torres@example.com",
+    "telefono": "8899001122",
+    "motivo": "eventos",
+    "mensaje": "¿Cuál es el costo de asistir al evento?",
+    "medio": "whatsapp"
+  }
+]

@@ -1,4 +1,4 @@
-const { randomUUID } = require("node:crypto");
+// const { randomUUID } = require("node:crypto");
 // const readJSON = require('../utils.js')
 
 const fs = require("fs");
@@ -43,7 +43,7 @@ class ProductoModel {
 
   static async create({ input }) {
     const newproducto = {
-      id: randomUUID(),
+      id: productos.length + 1,
       ...input,
     };
 

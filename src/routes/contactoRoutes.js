@@ -2,13 +2,13 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
+const contactoController = require('../controllers/contactoController');
 
-router.get('/', (req, res) => {
-    res.sendFile('contacto.html', { root: path.join(__dirname, '../views') });
-});
+router.get('/', contactoController.getAll);
+router.post('/', contactoController.create);
 
-router.post('/', (req, res) => {
-    res.sendFile('gracias.html', { root: path.join(__dirname, '../views') });
-});
+router.route('/:id')
+    .get(contactoController.getById)
+    .delete(contactoController.delete);
 
 module.exports = router;
