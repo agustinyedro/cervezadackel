@@ -1,5 +1,7 @@
-const contactoModel = require("../models/local-json/contactoModel");
+// const contactoModel = require("../models/local-json/contactoModel");
 // const { validateMovie, validatePartialMovie } = require('../schemas/producto');
+const contactoModel = require("../models/mysql/contactoModel");
+
 
 const path = require('path');
 
