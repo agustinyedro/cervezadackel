@@ -13,6 +13,12 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "static")));
 
+app.use('/data', express.static(path.join(__dirname + '/database')));
+app.use('/css', express.static(path.join(__dirname + '/css')));
+app.use('/logic', express.static(path.join(__dirname + '/logic')));
+
+
+
 app.use(express.urlencoded({ extended: true }));
 
 // Configuración del motor de plantillas para servir vistas
@@ -41,4 +47,5 @@ app.use("/tienda", tiendaRoute);
 
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en http://localhost:${PORT}`);
+
 });

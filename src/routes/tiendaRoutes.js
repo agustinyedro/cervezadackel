@@ -1,13 +1,12 @@
 // src/routes/tienda.js
 const express = require('express');
 const router = express.Router();
+const tiendaController = require('../controllers/tiendaController');
 
-const path = require('path');
-router.get('/', (req, res) => {
-    res.sendFile('tienda.html', { root: path.join(__dirname, '../views') });
-});
 
-router.route('/:id').get((req, res) => {
-    res.sendFile(`producto.html`, { root: path.join(__dirname, '../views') });
-});
+router.get('/', tiendaController.obtenerTienda);
+
+router.route('/:id')
+    .get(tiendaController.obtenerDetalles);
+
 module.exports = router;

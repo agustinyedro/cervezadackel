@@ -5,7 +5,7 @@ const fs = require("fs");
 const path = require("path");
 
 // Ruta relativa al archivo JSON
-const filePath = path.join(__dirname, "../database/tienda.json");
+const filePath = path.join(__dirname, "../../database/tienda.json");
 
 // Leer el archivo JSON
 let productos;

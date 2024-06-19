@@ -1,4 +1,4 @@
-const ProductoModel = require("../models/productos");
+const ProductoModel = require("../models/local-json/productos");
 // const { validateMovie, validatePartialMovie } = require('../schemas/producto');
 
 class ProductoController {

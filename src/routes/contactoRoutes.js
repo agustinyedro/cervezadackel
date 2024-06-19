@@ -4,10 +4,12 @@ const router = express.Router();
 const path = require('path');
 const contactoController = require('../controllers/contactoController');
 
-router.get('/', contactoController.getAll);
+
+router.get('/', contactoController.ingresar);
+router.get('/contactos', contactoController.getAll);
 router.post('/', contactoController.create);
 
-router.route('/:id')
+router.route('/contactos/:id')
     .get(contactoController.getById)
     .delete(contactoController.delete);
 

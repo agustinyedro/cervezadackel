@@ -1,9 +1,13 @@
-const contactoModel = require("../models/contactoModel");
+const contactoModel = require("../models/local-json/contactoModel");
 // const { validateMovie, validatePartialMovie } = require('../schemas/producto');
 
 const path = require('path');
 
 class contactoController {
+
+    static async ingresar(req, res) {
+        res.sendFile('contacto.html', { root: path.join(__dirname, '../views') });
+    }
     static async getAll(req, res) {
         const { medio, motivo } = req.query;
 

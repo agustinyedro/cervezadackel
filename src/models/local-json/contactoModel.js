@@ -5,7 +5,7 @@ const fs = require("fs");
 const path = require("path");
 
 // Ruta relativa al archivo JSON
-const filePath = path.join(__dirname, "../database/consultas.json");
+const filePath = path.join(__dirname, '../../database/consultas.json');
 
 // Leer el archivo JSON
 let contactos;
@@ -15,7 +15,8 @@ try {
     contactos = JSON.parse(data);
     // console.log(productos);
 } catch (err) {
-    console.error("Error al leer o parsear el archivo:", err);
+    console.error("Error al leer o parsear el archivo");
+    // console.log(filePath);
 }
 
 class contactoModel {
@@ -49,7 +50,7 @@ class contactoModel {
 
         // Encontrar el producto por id
         const producto = contactos.find(
-            (producto) => String(producto.id) === parsedId
+            (contacto) => String(contacto.id) === parsedId
         );
 
         return producto;
