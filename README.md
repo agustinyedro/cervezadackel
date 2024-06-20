@@ -26,6 +26,12 @@ El progreso cuidadoso y en pequeños pasos puede parecer lento, pero en realidad
 
 ## BASE DE DATOS
 
+código para conocer el peso de la BD
+
+```slq
+SELECT table_schema AS "Database", ROUND(SUM(data_length + index_length) / 1024 / 1024, 2) AS "Size (MB)" FROM information_schema.tables WHERE table_schema = 'bwjmdpdj9q7rrxqh1rfb' GROUP BY table_schema;
+```
+
 ```mermaid
 erDiagram
     Producto {
@@ -97,7 +103,7 @@ erDiagram
         string historial_pedidos
         string preferencias_producto
         string estado_cuenta
-        bool suscripcion_boletines
+
         int usuario FK
     }
     Usuario {

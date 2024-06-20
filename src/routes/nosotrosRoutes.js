@@ -1,10 +1,10 @@
 // src/routes/nosotros.js
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-const path = require('path');
-router.get('/', (req, res) => {
-    res.sendFile('nosotros.html', { root: path.join(__dirname, '../views') });
-});
+const nosotrosController = require("../controllers/nosotrosController");
+
+const path = require("path");
+router.get("/", nosotrosController.getAll);
 
 module.exports = router;
