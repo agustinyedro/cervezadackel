@@ -22,6 +22,7 @@ class contactoController {
   }
 
   static async create(req, res) {
+    // console.log("req.body", req.body);
     try {
       const newContacto = await contactoModel.create({ input: req.body });
       // console.log(req.body);
