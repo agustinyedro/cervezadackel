@@ -1,14 +1,16 @@
 // src/routes/micuenta.js
-const express = require('express');
+const express = require("express");
 const router = express.Router();
+const micuentaController = require("../controllers/micuentaController");
+const path = require("path");
 
-const path = require('path');
-router.get('/', (req, res) => {
-    res.sendFile('micuenta.html', { root: path.join(__dirname, '../views') });
-});
+router.get("/", micuentaController.ingresar);
+router.get("/usuarios", micuentaController.getAll);
 
-router.get('/2', (req, res) => {
-    res.sendFile('micuenta2.html', { root: path.join(__dirname, '../views') });
-});
+router
+  .route("/:id")
+  .get(micuentaController.getById)
+  .delete(micuentaController.delete)
+  .patch(micuentaController.update);
 
 module.exports = router;

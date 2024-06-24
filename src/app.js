@@ -42,5 +42,4 @@ app.use("/tienda", tiendaRoute);
 
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en http://localhost:${PORT}`);
-  console.log(path.join(__dirname, "views"));
 });

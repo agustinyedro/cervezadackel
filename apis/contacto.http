@@ -1,0 +1,32 @@
+### get contacto
+GET http://localhost:3000/contacto/contactos
+
+### get contacto filtrado por motivo
+GET http://localhost:3000/contacto/contactos/?motivo=ventas
+
+### get contacto filtrado por medio
+GET http://localhost:3000/contacto/contactos/?medio=whatsapp
+
+### filtrado por motivo y medio
+GET http://localhost:3000/contacto/contactos/?medio=whatsapp&motivo=ventas
+
+### get por id 
+GET http://localhost:3000/contacto/contactos/32
+
+### post 
+
+POST http://localhost:3000/contacto
+Content-Type: application/json
+
+{
+  "nombre": "Agustin Yedro",
+  "email": "agustin.yedro@example.com",
+  "telefono": "2525252525",
+  "motivo": "ventas",
+  "mensage": "Tengo un problema con mi pedido",
+  "medio": "whatsapp"
+}
+
+### borrar 
+
+DELETE http://localhost:3000/contacto/contactos/42
