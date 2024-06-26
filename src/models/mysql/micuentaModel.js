@@ -37,7 +37,6 @@ class micuentaModel {
     const [result] = await connection.query(sql, queryParams);
     return result;
   }
-
   static async getById({ id }) {
     await initializeConnection();
     const [result] = await connection.query(

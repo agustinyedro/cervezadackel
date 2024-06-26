@@ -19,7 +19,7 @@ $btnIngresar.addEventListener("click", async (event) => {
   })
     .then((res) => {
       if (res.ok) {
-        window.location.href = "/micuenta/protegido";
+        window.location = "/micuenta/protegido";
       } else {
         return res.json().then((data) => {
           alert(data.message || "Usuario o contraseña incorrectos");

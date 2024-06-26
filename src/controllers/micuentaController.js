@@ -110,10 +110,14 @@ class micuentaController {
     }
   }
 
-  static async protected(req, res) {
-    console.log(req);
-    const { username } = req.session;
-    if (!username) return res.status(403).send({ error: "Unauthorized" });
+  static protected(req, res) {
+    console.log("Ingresando a la ruta protegida"); // Log para verificar que se ingresa al método
+    console.log(req.session); // Verifica el contenido de la sesión
+    const { user } = req.session;
+    if (!user) {
+      console.log("Usuario no autorizado"); // Log para verificar autorización
+      return res.status(403).sendFile("unauthorized.html", { root: path.join(__dirname, "../views") }); // Enviar una página de error si es necesario
+    }
 
     res.sendFile("micuenta2.html", { root: path.join(__dirname, "../views") });
   }
