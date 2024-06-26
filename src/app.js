@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
+const jwt = require("jsonwebtoken");
 const path = require("path");
-
-const PORT = process.env.PORT || 3000;
+const cookieParser = require("cookie-parser");
+const authMiddleware = require("./middlewares/authMiddleware");
+const { PORT } = require("./utils/config");
 
 /* enlazo todo lo que esté en la carpeta static
  *
@@ -11,9 +13,9 @@ const PORT = process.env.PORT || 3000;
  *
  */
 app.use(express.json());
+app.use(cookieParser());
+app.use(authMiddleware);
 app.use(express.static(path.join(__dirname, "static")));
-
-
 app.use(express.urlencoded({ extended: true }));
 
 // Configuración del motor de plantillas para servir vistas
@@ -29,6 +31,7 @@ const nosotrosRoute = require("./routes/nosotrosRoutes");
 const productoRoute = require("./routes/productoRoutes");
 const registerRoute = require("./routes/registerRoutes");
 const tiendaRoute = require("./routes/tiendaRoutes");
+const micuenta2Route = require("./routes/usuario");
 
 // Rutas
 app.use("/", indexRoute);
@@ -39,6 +42,7 @@ app.use("/nosotros", nosotrosRoute);
 app.use("/productos", productoRoute);
 app.use("/register", registerRoute);
 app.use("/tienda", tiendaRoute);
+app.use("/micuenta2", micuenta2Route);
 
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en http://localhost:${PORT}`);

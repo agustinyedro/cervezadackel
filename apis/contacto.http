@@ -11,7 +11,7 @@ GET http://localhost:3000/contacto/contactos/?medio=whatsapp
 GET http://localhost:3000/contacto/contactos/?medio=whatsapp&motivo=ventas
 
 ### get por id 
-GET http://localhost:3000/contacto/contactos/32
+GET http://localhost:3000/contacto/contactos/42
 
 ### post 
 
@@ -29,4 +29,4 @@ Content-Type: application/json
 
 ### borrar 
 
-DELETE http://localhost:3000/contacto/contactos/42
+DELETE http://localhost:3000/contacto/contactos/46

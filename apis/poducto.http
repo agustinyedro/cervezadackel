@@ -1,3 +1,5 @@
+
+
 ### Recuperar todos los productos
 GET http://localhost:3000/productos
 
@@ -6,6 +8,7 @@ GET http://localhost:3000/productos/6
 
 ### Recuperar todos los productos por su tipo
 GET http://localhost:3000/productos?tipo=remeras
+
 
 ### Crear un produto con POST
 POST http://localhost:3000/productos

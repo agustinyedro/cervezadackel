@@ -35,7 +35,7 @@ btnWhatsapp.addEventListener("click", (event) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ nombre, email,telefono, motivo, mensage, medio }),
+      body: JSON.stringify({ nombre, email, telefono, motivo, mensage, medio }),
     })
       .then((res) => {
         if (res.ok) {
