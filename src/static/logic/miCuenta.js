@@ -1,6 +1,36 @@
 import { validarDatos } from "./validacionDeDatos/validarDatos.js";
 import { focus } from "./validacionDeDatos/eliminarError.js";
-import { usuariosData } from "./usuarios/usuariosData.js";
+// import { usuariosData } from "./usuarios/usuariosData.js";
+
+
+async function getUserInfo() {
+  try {
+      const response = await fetch('/micuenta2/api/user', {
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          credentials: 'include' // Incluir las cookies en la solicitud
+      });
+
+      if (!response.ok) {
+          throw new Error('Network response was not ok');
+      }
+
+      const user = await response.json();
+      return user;
+  } catch (error) {
+      console.error('There was a problem with your fetch operation:', error);
+      return null;
+  }
+}
+
+
+const userInfo = await getUserInfo();
+
+if (userInfo) {
+  window.location = "/micuenta2";
+}
 
 const $btnIngresar = document.getElementById("btn-ingresar");
 

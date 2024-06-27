@@ -4,11 +4,11 @@ GET http://localhost:3000/micuenta/usuarios
 
 ### getbyID
 
-GET http://localhost:3000/micuenta/407a6a10-3322-11ef-9404-cecd028ee826
+GET http://localhost:3000/micuenta/01c523ac-32f2-11ef-9404-cecd028ee826
 
 ### getbyUsuarios
 
-GET http://localhost:3000/micuenta/usuario2
+GET http://localhost:3000/micuenta/usuarios/usuario2
 
 ### crear
 

@@ -44,6 +44,8 @@ app.use("/register", registerRoute);
 app.use("/tienda", tiendaRoute);
 app.use("/micuenta2", micuenta2Route);
 
+app.use("/", (req, res) => res.status(404).json({ message: "Ruta no encontrada" }));
+
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en http://localhost:${PORT}`);
 });

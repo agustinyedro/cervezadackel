@@ -37,9 +37,10 @@ class micuentaController {
 
     try {
       const user = await micuentaModel.login({ username, password });
+        // console.log(user);
 
       const token = jwt.sign(
-        { id: user._id, username: user.username },
+        { id: user.id, username: user.username, rol: user.rol },
         SECRET_JWT_KEY,
         { expiresIn: "1h" }
       );
@@ -111,15 +112,15 @@ class micuentaController {
   }
 
   static protected(req, res) {
-    console.log("Ingresando a la ruta protegida"); // Log para verificar que se ingresa al método
-    console.log(req.session); // Verifica el contenido de la sesión
+    // console.log("Ingresando a la ruta protegida"); // Log para verificar que se ingresa al método
+    // console.log(req.session); // Verifica el contenido de la sesión
     const { user } = req.session;
     if (!user) {
       console.log("Usuario no autorizado"); // Log para verificar autorización
       return res.status(403).sendFile("unauthorized.html", { root: path.join(__dirname, "../views") }); // Enviar una página de error si es necesario
     }
 
-    res.sendFile("micuenta2.html", { root: path.join(__dirname, "../views") });
+    res.redirect("/micuenta2");
   }
 }
 

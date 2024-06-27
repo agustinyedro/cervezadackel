@@ -10,7 +10,7 @@ const authMiddleware = (req, res, next) => {
     try {
       const data = jwt.verify(token, SECRET_JWT_KEY);
       req.session.user = data;
-      // console.log(req.session.user); // Establece el nombre de usuario en la sesión si el token es válido
+        // console.log(data); // Establece el nombre de usuario en la sesión si el token es válido
     } catch (error) {
       console.error("Error al verificar el token JWT:", error.message);
       // Puedes manejar el error de manera específica, por ejemplo, redirigir a una página de inicio de sesión
