@@ -19,7 +19,7 @@ router
   .route("/:id")
   .get( micuentaController.getById)
   .delete(micuentaController.delete)
-  .put(micuentaController.update);
+  .patch(micuentaController.update);
 
 // .delete(micuentaController.delete)
 // .patch(micuentaController.update);
