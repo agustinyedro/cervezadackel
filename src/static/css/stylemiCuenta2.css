@@ -8,6 +8,7 @@
     --third-bis-color: #db4648f2;
     --bg-input-color: #4f31572c;
     --white-color: #fdf5ef;
+    --btn-hover-color: #ed6161;
 }
 
 * {
@@ -47,8 +48,16 @@ body {
 
                     a {
                         color: var(--bg-color);
+                        display: flex;
+                        align-items: center;
+
 
                         &:hover {
+
+                            svg {
+                                fill: var(--secondary-color);
+                            }
+
                             color: var(--secondary-color);
                             text-shadow: 0 0 0.8em var(--secondary-color);
                         }
@@ -56,6 +65,85 @@ body {
                 }
             }
         }
+    }
+
+    #templates {
+        min-height: 50vh;
+
+        .inicio-mi-cuenta {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+
+            h3 {
+                color: var(--bg-color);
+            }
+        }
+    }
+
+    .direcciones {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-gap: 2rem;
+        margin: 50px auto;
+        width: 70%;
+        height: 30vh;
+
+        .title-direcciones {
+            grid-column: span 2;
+            grid-row: 1/2;
+            font-size: 1.2rem;
+            color: var(--bg-color);
+            font-weight: 500;
+        }
+
+        .direccion-facturacion {
+            grid-column: span 1;
+            grid-row: 2/3;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-evenly;
+            width: 80%;
+            height: 25vh;
+            padding: 20px 10px;
+
+            .a-linea {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+
+                svg {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .direccion-envio {
+            grid-column: span 1;
+            grid-row: 2/3;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-evenly;
+            width: 80%;
+            height: 25vh;
+            padding: 20px 10px;
+
+            .a-linea {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+
+                svg {
+                    cursor: pointer;
+                }
+            }
+        }
+
     }
 
     .compras-sin-datos {
@@ -88,9 +176,114 @@ body {
             transition: transform 0.5s ease-in-out;
 
             &:hover {
-                color: var(--secondary-color);
-                text-shadow: 0 0 0.8em var(--secondary-color);
+                text-shadow: 0 0 0.8em var(--secondary-color), 0 0 0.8em var(--secondary-color), 0 0 0.8em var(--secondary-color);
                 transform: scale(1.1);
+            }
+        }
+    }
+
+    .form-mi-cuenta {
+        margin: 50px auto;
+        width: 70%;
+        height: fit-content;
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+        gap: 1.3rem;
+
+        h3 {
+            grid-column: span 2;
+            color: var(--bg-color);
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .span1 {
+            position: relative;
+            grid-column: span 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            width: 100%;
+
+            input {
+                width: 100%;
+                height: 2rem;
+                border: 1px solid var(--bg-color);
+                border-radius: 5px;
+                padding: 0 10px;
+                background-color: var(--bg-input-color);
+                font-family: var(--primary-font);
+            }
+
+            .suggestions {
+                position: absolute;
+                top: 3.5rem;
+                left: 0;
+                right: 0;
+                max-height: 25vh;
+                overflow-y: scroll;
+                width: 100%;
+                border-radius: 5px;
+                background-color: #fff;
+                font-family: var(--primary-font);
+                z-index: 1;
+                cursor: pointer;
+
+                .suggestion-item {
+
+                    padding-left: 0.5rem;
+                    height: 2rem;
+                    width: 100%;
+                    line-height: 2rem;
+
+
+                    &:hover {
+                        color: var(--primary-color);
+                        background-color: rgba(187, 147, 88, 0.24);
+                        border-left: 1px solid var(--primary-color);
+                    }
+                }
+            }
+
+        }
+
+        .span2 {
+            grid-column: span 2;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            width: 100%;
+
+            input {
+                width: 100%;
+                height: 2rem;
+                border: 1px solid var(--bg-color);
+                border-radius: 5px;
+                padding: 0 10px;
+                background-color: var(--bg-input-color);
+                font-family: var(--primary-font);
+            }
+        }
+
+        .btn-mi-cuenta-enviar {
+            margin-top: 1rem;
+            grid-column: span 2;
+            width: 100%;
+            height: 3rem;
+            border: none;
+            border-radius: 5px;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            font-family: var(--primary-font);
+            font-size: 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.3s ease-in-out;
+
+            &:hover {
+                background-color: var(--btn-hover-color);
             }
         }
     }
@@ -114,20 +307,23 @@ body {
 
             a {
                 cursor: pointer;
+                transition: border-bottom 0.3s ease-in-out;
 
                 &:hover {
                     color: var(--secondary-color);
                     text-shadow: 0 0 0.8em var(--secondary-color);
+                    border-bottom: 1px solid #BB9458;
                 }
             }
         }
 
-        .a-pedidos {
+        a {
             cursor: pointer;
 
             &:hover {
                 color: var(--secondary-color);
                 text-shadow: 0 0 0.8em var(--secondary-color);
+                border-bottom: 1px solid #BB9458;
             }
         }
     }

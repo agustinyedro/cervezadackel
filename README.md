@@ -52,7 +52,7 @@ erDiagram
         int cantidad
     }
 
-    Cerveza_IMAGENES {
+    Producto_IMAGENES {
         int cerveza_id FK
         string imagen
     }
@@ -74,10 +74,7 @@ erDiagram
         int cantidad
     }
 
-    Remera_IMAGENES {
-        int remera_id FK
-        string imagen
-    }
+
 
     Calcomania {
         int id FK
@@ -85,10 +82,7 @@ erDiagram
         int cantidad
     }
 
-    Calcomania_IMAGENES {
-        int calcomania_id FK
-        string imagen
-    }
+
 
    Cliente {
         int id PK

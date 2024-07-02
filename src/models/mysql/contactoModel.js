@@ -1,25 +1,7 @@
-const mysql = require("mysql2/promise");
-
-const config = require("../../utils/configDB");
-
-let connection;
-
-async function initializeConnection() {
-  if (!connection) {
-    try {
-      connection = await mysql.createConnection(config);
-      console.log("Base de datos conectada");
-    } catch (error) {
-      console.error("Error al conectar a la base de datos:", error);
-      throw error; // Re-throw the error after logging it
-    }
-  }
-}
+const pool = require("../../utils/dbPool");
 
 class contactoModel {
   static async getAll({ motivo, medio } = {}) {
-    await initializeConnection();
-
     // Construir la consulta base
     let sql =
       "SELECT id_consulta, nombre, email, telefono, motivo, mensage, medio FROM Consulta";
@@ -42,13 +24,12 @@ class contactoModel {
     }
 
     // Ejecutar la consulta
-    const [result] = await connection.query(sql, queryParams);
+    const [result] = await pool.query(sql, queryParams);
     return result;
   }
   static async getById({ id }) {
-    await initializeConnection();
-
-    const [result] = await connection.query(
+    
+    const [result] = await pool.query(
       "SELECT * FROM Consulta WHERE id_consulta = ?",
       [id]
     );
@@ -60,9 +41,9 @@ class contactoModel {
   }
 
   static async create({ input }) {
-    await initializeConnection();
+    
     const { nombre, email, telefono, motivo, mensage, medio } = input;
-    const [result] = await connection.query(
+    const [result] = await pool.query(
       "INSERT INTO Consulta ( nombre, email, telefono, motivo, mensage, medio) VALUES ( ?, ?, ?, ?, ?, ?)",
       [nombre, email, telefono, motivo, mensage, medio]
     );
@@ -70,8 +51,7 @@ class contactoModel {
   }
 
   static async delete({ id }) {
-    await initializeConnection();
-    const [result] = await connection.query(
+    const [result] = await pool.query(
       "DELETE FROM Consulta WHERE id_consulta = ?",
       [id]
     );

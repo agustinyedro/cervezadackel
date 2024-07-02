@@ -26,10 +26,12 @@ export function validarDato(input) {
 
   removerMensajeError(id);
 
+  const container = input.closest('.field-container') || input;
+
   if (value === "" || (id === "motivo" && document.querySelector(".selected").textContent === "Motivo")) {
     const mensaje = mensajesError[id];
     const error = crearMensajeError(mensaje, id);
-    input.insertAdjacentElement("afterend", error);
+    container.insertAdjacentElement("afterend", error);
     return mensaje;
   }
 

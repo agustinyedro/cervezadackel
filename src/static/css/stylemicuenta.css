@@ -73,7 +73,6 @@
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: repeat(4, 1.5rem);
             gap: 1rem;
-            width: 80%;
             border-radius: 2rem;
 
             #name {
@@ -106,14 +105,15 @@
                 }
             }
 
-            #password {
-                width: 100%;
+            .div-password {
+                display: flex;
+                align-items: center;
+                gap: 0;
+                height: 2.5rem;
                 border-radius: 0.5rem;
-                border: none;
-                padding: 1.2rem 1.5rem;
                 color: #181419;
-                font-family: var(--primary-font);
-                font-size: 1.2rem;
+                padding: 0 1.2rem;
+                background-color: #fff;
                 grid-column: 2/3;
                 grid-row: 1/2;
 
@@ -123,11 +123,36 @@
                     outline: 2px solid var(--secondary-color);
                     box-shadow: 0 0 0.8em var(--secondary-color);
                 }
+
+                i {
+                    cursor: pointer;
+                    width: 0.5rem;
+                    height: 1rem;
+                }
+
+                #password {
+                    border-radius: 0.5rem;
+                    border: none;
+
+                    height: 100%;
+                    background-color: transparent;
+                    font-family: var(--primary-font);
+                    font-size: 1.2rem;
+
+                    &:focus,
+                    &:active,
+                    &:hover {
+                        border: transparent;
+                        outline: none;
+                    }
+                }
             }
 
             .password {
-                grid-column: 2/-1;
+
+                grid-column: 2/3;
                 grid-row: 2/3;
+
 
                 &.error {
                     color: #9f3647;

@@ -1,55 +1,94 @@
-const ProductoModel = require("../models/local-json/productos");
-// const { validateMovie, validatePartialMovie } = require('../schemas/producto');
+const ProductoModel = require("../models/mysql/productosModel");
 
 class ProductoController {
   static async getAll(req, res) {
-    const { tipo } = req.query;
-    const productos = await ProductoModel.getAll({ tipo });
-    res.json(productos);
+    try {
+      const { tipo } = req.query;
+      const productos = await ProductoModel.getAll({ tipo });
+      res.json(productos);
+    } catch (error) {
+      console.error("Error al obtener los productos:", error);
+      res.status(500).json({ message: "Error al obtener los productos" });
+    }
   }
 
   static async getById(req, res) {
     const { id } = req.params;
-    const producto = await ProductoModel.getById({ id });
-    if (producto) return res.json(producto);
-    res.status(404).json({ message: "Producto no encontrado" });
+    try {
+      const producto = await ProductoModel.getById(id);
+      if (producto) return res.json(producto);
+      res.status(404).json({ message: "Producto no encontrado" });
+    } catch (error) {
+      console.error("Error al obtener el producto:", error);
+      res.status(500).json({ message: "Error al obtener el producto" });
+    }
   }
 
   static async create(req, res) {
-    // const result = validateMovie(req.body);
+    try {
+      const { tipo, ...datos } = req.body;
+      let newProducto;
 
-    // if (!result.success) {
-    //     // 422 Unprocessable Entity
-    //     return res.status(400).json({ error: JSON.parse(result.error.message) });
-    // }
+      switch (tipo) {
+        case 'calcomania':
+          newProducto = await CalcomaniaModel.create(datos);
+          break;
+        case 'remera':
+          newProducto = await RemeraModel.create(datos);
+          break;
+        case 'cerveza':
+          newProducto = await CervezaModel.create(datos);
+          break;
+        default:
+          newProducto = await ProductoModel.create(datos);
+      }
 
-    // console.log(req.body);
-    const newProducto = await ProductoModel.create({ input: req.body });
-
-    res.status(201).json(newProducto);
+      res.status(201).json(newProducto);
+    } catch (error) {
+      console.error("Error al crear el producto:", error);
+      res.status(500).json({ message: "Error al crear el producto" });
+    }
   }
 
   static async delete(req, res) {
     const { id } = req.params;
-    console.log(id);
-    const result = await ProductoModel.delete({ id });
-    // console.log(result);
-    if (result === false) {
-      return res.status(404).json({ message: "Producto no encontrado" });
+    try {
+      const result = await ProductoModel.delete(id);
+      if (!result) {
+        return res.status(404).json({ message: "Producto no encontrado" });
+      }
+      res.json({ message: "Producto eliminado" });
+    } catch (error) {
+      console.error("Error al eliminar el producto:", error);
+      res.status(500).json({ message: "Error al eliminar el producto" });
     }
-
-    return res.json({ message: "Producto eliminado" });
   }
 
   static async update(req, res) {
     const { id } = req.params;
+    const { tipo, ...datos } = req.body;
+    try {
+      let updatedProducto;
 
-    const updatedProducto = await ProductoModel.update({
-      id,
-      input: req.body,
-    });
+      switch (tipo) {
+        case 'calcomania':
+          updatedProducto = await CalcomaniaModel.update(id, datos);
+          break;
+        case 'remera':
+          updatedProducto = await RemeraModel.update(id, datos);
+          break;
+        case 'cerveza':
+          updatedProducto = await CervezaModel.update(id, datos);
+          break;
+        default:
+          updatedProducto = await ProductoModel.update(id, datos);
+      }
 
-    return res.json(updatedProducto);
+      res.json(updatedProducto);
+    } catch (error) {
+      console.error("Error al actualizar el producto:", error);
+      res.status(500).json({ message: "Error al actualizar el producto" });
+    }
   }
 }
 

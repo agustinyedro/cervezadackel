@@ -1,27 +1,10 @@
-const mysql = require("mysql2/promise");
-const crypto = require("node:crypto");
+const pool = require("../../utils/dbPool");
 const bcrypt = require("bcrypt");
 const { SALT_ROUNDS } = require("../../utils/config");
 
-const config = require("../../utils/configDB");
-
-let connection;
-
-async function initializeConnection() {
-  if (!connection) {
-    try {
-      connection = await mysql.createConnection(config);
-      console.log("Base de datos conectada");
-    } catch (error) {
-      console.error("Error al conectar a la base de datos:", error);
-      throw error; // Re-throw the error after logging it
-    }
-  }
-}
 
 class micuentaModel {
   static async getAll({ rol } = {}) {
-    await initializeConnection();
 
     // Construir la consulta base
     let sql = "SELECT BIN_TO_UUID(usuario_id) id, username, rol FROM Usuario";
@@ -34,12 +17,11 @@ class micuentaModel {
     }
 
     // Ejecutar la consulta
-    const [result] = await connection.query(sql, queryParams);
+    const [result] = await pool.query(sql, queryParams);
     return result;
   }
   static async getById({ id }) {
-    await initializeConnection();
-    const [result] = await connection.query(
+    const [result] = await pool.query(
       "SELECT BIN_TO_UUID(usuario_id) id, username, rol FROM Usuario WHERE usuario_id = UUID_TO_BIN(?)",
       [id]
     );
@@ -49,8 +31,7 @@ class micuentaModel {
     return result[0];
   }
   static async getByUsuario({ username }) {
-    await initializeConnection();
-    const [result] = await connection.query(
+    const [result] = await pool.query(
       "SELECT BIN_TO_UUID(usuario_id) id, username, password, rol FROM Usuario WHERE username = ?",
       [username]
     );
@@ -60,7 +41,6 @@ class micuentaModel {
     return result[0];
   }
   static async login({ username, password }) {
-    await initializeConnection();
     // buscar el usuario
     const user = await this.getByUsuario({ username });
 
@@ -74,19 +54,18 @@ class micuentaModel {
     return publicUser;
   }
   static async create({ username, password, rol }) {
-    await initializeConnection();
     // 2. asegurar que el usuario no exista
 
     const user = await this.getByUsuario({ username });
     if (user) throw new Error("User already exists");
-    const [uuidResult] = await connection.query("SELECT UUID() uuid;");
+    const [uuidResult] = await pool.query("SELECT UUID() uuid;");
     const [{ uuid }] = uuidResult;
     console.log(uuid);
     const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
 
     // 3. Crear el usuario
     try {
-      await connection.query(
+      await pool.query(
         `INSERT INTO Usuario (usuario_id, username, password, rol) VALUES (UUID_TO_BIN("${uuid}"),?, ?, ?)`,
         [username, hashedPassword, rol]
       );
@@ -94,7 +73,7 @@ class micuentaModel {
       throw new Error("Error al crear el usuario");
     }
 
-    const [result] = await connection.query(
+    const [result] = await pool.query(
       "SELECT BIN_TO_UUID(usuario_id) id, username, rol FROM Usuario WHERE usuario_id = UUID_TO_BIN(?)",
       [uuid]
     );
@@ -102,15 +81,13 @@ class micuentaModel {
     return result;
   }
   static async delete({ id }) {
-    await initializeConnection();
-    const [result] = await connection.query(
+    const [result] = await pool.query(
       "DELETE FROM Usuario WHERE usuario_id = UUID_TO_BIN(?)",
       [id]
     );
     return result.affectedRows > 0;
   }
   static async update({ id, username, password, rol }) {
-    await initializeConnection();
 
     const updates = [];
     const values = [];
@@ -140,7 +117,7 @@ class micuentaModel {
     )} WHERE usuario_id = UUID_TO_BIN(?)`;
 
     try {
-      const [result] = await connection.query(query, values);
+      const [result] = await pool.query(query, values);
       return result.affectedRows > 0;
     } catch (error) {
       // console.error("Error during update:", error);

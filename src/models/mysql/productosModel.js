@@ -1,81 +1,152 @@
-const mysql = require("mysql2/promise");
-const config = require("../../utils/configDB");
-
-let connection;
-
-async function initializeConnection() {
-  if (!connection) {
-    try {
-      connection = await mysql.createConnection(config);
-      console.log("Base de datos conectada");
-    } catch (error) {
-      console.error("Error al conectar a la base de datos:", error);
-      throw error; // Re-throw the error after logging it
-    }
-  }
-}
+const pool = require("../../utils/dbPool");
 
 class ProductoModel {
-  static async getAll({ tipo }) {
-    await initializeConnection();
+  static async getAll({ tipo } = {}) {
     if (tipo) {
-      return productos.filter(
-        (producto) => producto.tipo === tipo.toLowerCase()
-      );
-    }
+      switch (tipo) {
+        case "calcomanias":
+          return await require("./calcomaniaModel").getAll();
+        case "remeras":
+          return await require("./remeraModel").getAll();
+        case "cervezas":
+          return await require("./cervezasModel").getAll();
+        default:
+          return [];
+      }
+    } else {
+      // const productosGenerales = await this.getGeneralProducts();
+      const calcomanias = await require("./calcomaniaModel").getAll();
+      // console.log(calcomanias);
+      const remeras = await require("./remeraModel").getAll();
+      // console.log(remeras);
+      const cervezas = await require("./cervezasModel").getAll();
 
-    return productos;
+      // console.log(cervezas);
+
+      return [...cervezas, ...remeras, ...calcomanias];
+    }
   }
 
-  static async getById({ id }) {
-    // Convertir id a string para asegurarse de que ambos id son del mismo tipo
-    const parsedId = typeof id === "string" ? id : String(id);
+  static async getById(id) {
+    const CalcomaniaModel = require("./calcomaniaModel");
+    const RemeraModel = require("./remeraModel");
+    const CervezaModel = require("./cervezasModel");
 
-    // Encontrar el producto por id
-    const producto = productos.find(
-      (producto) => String(producto.id) === parsedId
-    );
+    const tipoProducto = await this.getTipoProductoById(id);
+
+    // Declarar la variable para almacenar el resultado
+    let producto;
+
+    // Según el tipo de producto, realizar la consulta correspondiente
+    switch (tipoProducto) {
+      case 'calcomanias':
+        producto = await CalcomaniaModel.getById(id);
+        break;
+      case 'remeras':
+        producto = await RemeraModel.getById(id);
+        break;
+      case 'cervezas':
+        producto = await CervezaModel.getById(id);
+        break;
+      default:
+        throw new Error("Tipo de producto no válido");
+    }
+
+    // Si el producto no se encontró, lanzar un error
+    if (!producto) {
+      throw new Error("Producto no encontrado");
+    }
 
     return producto;
   }
 
-  static async create({ input }) {
-    const newproducto = {
-      id: productos.length + 1,
-      ...input,
-    };
+  static async getTipoProductoById(id) {
+    const [rows] = await pool.execute(
+      "SELECT tipo FROM Producto WHERE id = ?",
+      [id]
+    );
 
-    productos.push(newproducto);
+    if (rows.length === 0) {
+      throw new Error("Producto no encontrado");
+    }
 
-    return newproducto;
+    return rows[0].tipo;
   }
 
-  static async delete({ id }) {
-    const parsedId = typeof id === "string" ? id : String(id);
+  static async create({ nombre, precio, descripcion, tipo, imagenes }) {
+    // await initializepool();
+    const sql = `
+      INSERT INTO Producto (nombre, precio, descripción, tipo)
+      VALUES (?, ?, ?, ?)
+    `;
+    const [result] = await pool.query(sql, [
+      nombre,
+      precio,
+      descripcion,
+      tipo,
+    ]);
+    const producto_id = result.insertId;
 
-    const productoIndex = productos.findIndex(
-      (producto) => String(producto.id) === id
-    );
-    // console.log(productoIndex);
-    if (productoIndex === -1) return false;
+    if (imagenes && imagenes.length > 0) {
+      const imagenesSql = `
+        INSERT INTO Productos_imagenes (producto_id, imagen)
+        VALUES ${imagenes.map(() => "(?, ?)").join(", ")}
+      `;
+      const imagenesParams = [];
+      imagenes.forEach((imagen) => {
+        imagenesParams.push(producto_id, imagen);
+      });
+      await pool.query(imagenesSql, imagenesParams);
+    }
 
-    productos.splice(productoIndex, 1);
+    return this.getById(producto_id);
+  }
+
+  static async update(id, { nombre, precio, descripcion, tipo, imagenes }) {
+    // await initializepool();
+    const sql = `
+      UPDATE Producto
+      SET nombre = ?, precio = ?, descripcion = ?, tipo = ?
+      WHERE id = ?
+    `;
+    await pool.query(sql, [nombre, precio, descripcion, tipo, id]);
+
+    if (imagenes && imagenes.length > 0) {
+      const deleteImagenesSql = `
+        DELETE FROM Productos_imagenes
+        WHERE producto_id = ?
+      `;
+      await pool.query(deleteImagenesSql, [id]);
+
+      const insertImagenesSql = `
+        INSERT INTO Productos_imagenes (producto_id, imagen)
+        VALUES ${imagenes.map(() => "(?, ?)").join(", ")}
+      `;
+      const imagenesParams = [];
+      imagenes.forEach((imagen) => {
+        imagenesParams.push(id, imagen);
+      });
+      await pool.query(insertImagenesSql, imagenesParams);
+    }
+
+    return this.getById(id);
+  }
+
+  static async delete(id) {
+    // await initializepool();
+    const sql = `
+      DELETE FROM Producto
+      WHERE id = ?
+    `;
+    await pool.query(sql, [id]);
+
+    const deleteImagenesSql = `
+      DELETE FROM Productos_imagenes
+      WHERE producto_id = ?
+    `;
+    await pool.query(deleteImagenesSql, [id]);
+
     return true;
-  }
-
-  static async update({ id, input }) {
-    const parsedId = typeof id === "string" ? id : String(id);
-
-    const productoIndex = productos.findIndex(
-      (producto) => String(producto.id) === id
-    );
-
-    productos[productoIndex] = {
-      ...productos[productoIndex],
-      ...input,
-    };
-
-    return productos[productoIndex];
   }
 }
 

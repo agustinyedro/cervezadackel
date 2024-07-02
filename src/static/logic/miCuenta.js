@@ -13,8 +13,9 @@ async function getUserInfo() {
           credentials: 'include' // Incluir las cookies en la solicitud
       });
 
-      if (!response.ok) {
-          throw new Error('Network response was not ok');
+    if (!response.ok) {
+        return null
+          throw new Error('No hay usuario');
       }
 
       const user = await response.json();
@@ -34,34 +35,61 @@ if (userInfo) {
 
 const $btnIngresar = document.getElementById("btn-ingresar");
 
+
 $btnIngresar.addEventListener("click", async (event) => {
   event.preventDefault();
 
+  const $form = document.querySelector("form");
   const name = document.getElementById("name").value;
   const password = document.getElementById("password").value;
 
-  fetch("/micuenta/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ username: name, password: password }),
-  })
-    .then((res) => {
-      if (res.ok) {
+  // Asegúrate de que la función validarDatos no esté causando problemas
+  console.log("Validando datos del formulario...");
+  if(validarDatos($form) !== false){ 
+    try {
+      const response = await fetch("/micuenta/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username: name, password: password }),
+      });
+
+      if (response.ok) {
         window.location = "/micuenta/protegido";
       } else {
-        return res.json().then((data) => {
-          alert(data.message || "Usuario o contraseña incorrectos");
-        });
+        const data = await response.json();
+        alert(data.message || "Usuario o contraseña incorrectos");
       }
-    })
-    .catch((error) => {
-      console.error(error.message);
-      // alert("Error en la solicitud");
-    });
+    } catch (error) {
+      console.error("Error en la solicitud:", error.message);
+      alert("Error en la solicitud");
+    }
+  } else {
+    console.log("Datos del formulario no válidos");
+  }
 });
+
 
 focus(document.getElementById("name"));
 focus(document.getElementById("password"));
 // let usuariosA = [];
+
+
+/* funcion para el ojo de contraseña */
+const togglePassword = document.querySelectorAll('.toggle-password');
+
+  togglePassword.forEach(icon => {
+    icon.addEventListener('click', () => {
+      const input = document.querySelector(icon.getAttribute('data-toggle'));
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+      } else {
+        input.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+      }
+    });
+  });
