@@ -6,6 +6,10 @@ El progreso cuidadoso y en pequeños pasos puede parecer lento, pero en realidad
 >
 > es decir, según Martin, avanzar con cuidado y con pequeños pasos es incluso la única manera de ser rápido.
 
+## Recordatorio
+Se debe modificar el .env.back a .env para configurar los datos de la Base de Datos y puerto del servidor.
+Se debe configurar las tablas de Base de Datos ya que se debe tener en cuenta los CREATE TABLE.
+
 ## @mediasqueries de css Código
 
 ```css
