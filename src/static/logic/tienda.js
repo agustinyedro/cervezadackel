@@ -3,17 +3,93 @@ document.title = "Tienda Dackel";
 
 const $tienda = document.querySelector("#tienda-container");
 
-const fetchData = async () => {
-  const response = await fetch("/productos");
-  const data = await response.json();
-  return data;
+/* Obtener todos los productos al inicio de la pagina */
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const data = await fetchData([]);
+    renderCards(data); // Renderizar todos los productos inicialmente
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+});
+
+// Función para obtener todos los productos y segurnos filtrados
+const fetchData = async (tipos) => {
+  let url = '/productos';
+  
+  // Construir la URL de solicitud basada en los tipos seleccionados
+  if (tipos.length > 0) {
+    url += `?tipos=${tipos.join(',')}`;
+  }
+  
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    throw error;
+  }
 };
 
-fetchData().then((data) => {
-  // console.log(data);
 
-  renderCards(data);
+// Manejar cambios en los checkboxes
+const checkboxes = document.querySelectorAll('.filtros-lista input[type="checkbox"]');
+
+checkboxes.forEach((checkbox) => {
+  checkbox.addEventListener('change', async () => {
+    // Obtener tipos seleccionados
+    const tiposSeleccionados = [];
+    checkboxes.forEach((cb) => {
+      if (cb.checked) {
+        tiposSeleccionados.push(cb.value);
+      }
+    });
+
+    // Si no hay ningún tipo seleccionado, obtener todos los productos
+    if (tiposSeleccionados.length === 0) {
+      try {
+        const data = await fetchData([]);
+        renderCards(data); // Renderizar todos los productos
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    } else {
+      // Llamar fetchData con los tipos seleccionados
+      try {
+        const data = await fetchData(tiposSeleccionados);
+        renderCards(data); // Renderizar productos filtrados
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+  });
 });
+
+/* Funciones para limpiar los filtros */
+
+const limpiarBtn = document.getElementById('limpiar-filtros');
+
+// Función para limpiar los checkboxes seleccionados
+const limpiarFiltros = () => {
+  const checkboxes = document.querySelectorAll('.filtros-lista input[type="checkbox"]');
+  checkboxes.forEach((checkbox) => {
+    checkbox.checked = false; // Deseleccionar cada checkbox
+  });
+
+  // Llamar fetchData sin filtros para obtener todos los productos
+  fetchData([]).then((data) => {
+    renderCards(data); // Renderizar todos los productos
+  }).catch((error) => {
+    console.error('Error fetching data:', error);
+  });
+};
+
+// Agregar evento de clic al botón "Limpiar filtros"
+limpiarBtn.addEventListener('click', limpiarFiltros);
+
+
+// Función para renderizar las tarjetas de productos
 
 const renderCards = (productos) => {
   const $tienda = document.getElementById("tienda-container");
@@ -21,25 +97,53 @@ const renderCards = (productos) => {
   let cardsHTML = '';
 
   productos.forEach((producto, index) => {
-
+    
     // se crean los detalles según características
     let detallesHtml = '';
+    // console.log(producto);
 
-    if (producto.alcohol != null && producto.IBU != null) {
-      detallesHtml = `<p class="detalles">alc ${producto.alcohol}%  - IBU:${producto.IBU}</p>`;
-    } else if (producto.tipo === "remeras") {
-      const tallasUnicas = new Set(producto.variantes.map(variante => variante.talla));
-      detallesHtml = `<p class="detalles">Tallas: ${[...tallasUnicas].join(", ")}</p>`;
-    } else if (producto.tamano != null) {
-      detallesHtml = `<p class="detalles">Tamaño: ${producto.tamano}</p>`;
+
+    switch (producto.tipo) {
+      case 'remeras': 
+      const variantesString = producto.variantes;
+
+      // Paso 1: Dividir la cadena por comas para obtener cada variante
+      const variantesArray = variantesString.split(",");
+      
+      // Paso 2: Iterar sobre cada parte para crear un objeto por cada variante
+      const variantes = variantesArray.map((variante) => {
+        const [tamaño, color, cantidad] = variante.split(":");
+        return {
+          tamaño,
+          color,
+          cantidad: parseInt(cantidad)  // Convertir cantidad a número si es necesario
+        };        
+      });
+        console.log();
+      
+     const tallasUnicas = new Set(variantes.map(variante => variante.tamaño ));
+        detallesHtml = `<p class="detalles">Tallas: ${[...tallasUnicas].join(", ")}</p>`;
+        break;
+
+      case 'cervezas':
+        detallesHtml = `<p class="detalles">alc ${producto.alcohol}%  - IBU:${producto.ibu}</p>`;
+        break;
+      case 'calcomanias':
+        detallesHtml = `<p class="detalles">Tamaño: ${producto.medida}</p>`;
+        break;
+      default:
+        break;
     }
-
+        
     // se crea la card con toda la info para luego renderizarla
 
+    const imagenesString = producto.imagenes;
+    const imagenesArray = imagenesString.split(",");
+    
     cardsHTML += /* HTML */ `
           <div class="card-tienda" id="producto-${producto.id}">
-              <img class="card-tienda-img" src="${producto.imagen[0]}" alt="${producto.name}">
-              <h2 class="card-tienda-titulo">${producto.name}</h2>
+              <img class="card-tienda-img" src="${imagenesArray[0]}" alt="${producto.nombre}">
+              <h2 class="card-tienda-titulo">${producto.nombre}</h2>
               ${detallesHtml}
               <p class="precio">$ ${producto.precio}</p>
               <div class="btn-stock">

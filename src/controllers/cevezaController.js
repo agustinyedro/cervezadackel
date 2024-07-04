@@ -18,8 +18,11 @@ class CervezaController {
 
   static async create(req, res) {
     const { nombre, precio, descripción, imagenes, calibre, estilo, ibu, cantidad, alcohol, premios } = req.body;
+    // console.log(nombre, precio, descripción, imagenes, calibre, estilo, ibu, cantidad, alcohol, premios);
     try {
       const newCerveza = await CervezaModel.create({ nombre, precio, descripción, imagenes, calibre, estilo, ibu, cantidad, alcohol, premios });
+      // console.log(newCerveza);
+
       res.status(201).json(newCerveza);
     } catch (error) {
       res.status(500).json({ error: "Error al crear la cerveza" });
@@ -31,6 +34,7 @@ class CervezaController {
     const updateData = req.body;
     try {
       const updatedCerveza = await CervezaModel.update(id, updateData);
+       console.log(updatedCerveza);
       res.json(updatedCerveza);
     } catch (error) {
       res.status(500).json({ error: "Error al actualizar la cerveza" });

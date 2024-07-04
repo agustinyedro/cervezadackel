@@ -3,10 +3,20 @@ const ProductoModel = require("../models/mysql/productosModel");
 class ProductoController {
   static async getAll(req, res) {
     try {
-      const { tipo } = req.query;
-      const productos = await ProductoModel.getAll({ tipo });
+      let tipos = req.query.tipos;
+      
+      // Si tipos es un string, conviértelo en un array separado por comas
+      if (typeof tipos === 'string') {
+        tipos = tipos.split(',');
+      }
+  
+      // Llama al método getAll del modelo con los tipos especificados
+      const productos = await ProductoModel.getAll({ tipos });
+      
+      // Devuelve los productos en formato JSON
       res.json(productos);
     } catch (error) {
+      // Maneja los errores adecuadamente
       console.error("Error al obtener los productos:", error);
       res.status(500).json({ message: "Error al obtener los productos" });
     }
