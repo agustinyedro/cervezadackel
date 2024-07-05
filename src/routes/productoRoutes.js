@@ -13,6 +13,10 @@ router.post("/cerveza", CervezaController.create);
 router.post("/calcomania", CalcomaniaController.create);
 router.post("/remera", RemeraController.create);
 
+router.patch("/cerveza/:id", CervezaController.update);
+router.patch("/calcomania/:id", CalcomaniaController.update);
+router.patch("/remera/:id", RemeraController.update);
+
 router
    .route("/:id")
    .get(ProductoController.getById)
