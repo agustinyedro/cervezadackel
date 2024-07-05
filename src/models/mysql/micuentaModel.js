@@ -4,10 +4,11 @@ const { SALT_ROUNDS } = require("../../utils/config");
 
 
 class micuentaModel {
+  
   static async getAll({ rol } = {}) {
 
     // Construir la consulta base
-    let sql = "SELECT BIN_TO_UUID(usuario_id) id, username, rol FROM Usuario";
+    let sql = "SELECT BIN_TO_UUID(usuario_id) user_id, username, rol FROM Usuario";
     const queryParams = [];
 
     // Agregar filtros si se proporcionan

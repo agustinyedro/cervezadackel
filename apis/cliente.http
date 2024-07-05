@@ -1,0 +1,28 @@
+### Treaer todos los clientes
+GET http://localhost:3000/clientes
+
+### POR ID
+GET  http://localhost:3000/clientes/1
+
+
+### por user_id
+GET  http://localhost:3000/clientes/userid/59bb6ea2-3322-11ef-9404-cecd028ee826
+
+### POST
+
+POST http://localhost:3000/clientes
+Content-Type: application/json
+
+{
+  
+  "Nombre": "Diego",
+  "Apellido": "Messi",
+  "Email": "carlos_tevez@gmail.com",
+  "Direccion": "12-25",
+  "Ciudad": "Villa Maria",
+  "Pais": "chile",
+  "CodigoPostal": "5300",
+  "Telefono": "02227454546",
+  "Estado": "activo",
+  "usuario_id": "01c523ac-32f2-11ef-9404-cecd028ee826"
+}

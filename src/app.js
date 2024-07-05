@@ -32,6 +32,7 @@ const productoRoute = require("./routes/productoRoutes");
 const registerRoute = require("./routes/registerRoutes");
 const tiendaRoute = require("./routes/tiendaRoutes");
 const micuenta2Route = require("./routes/usuario");
+const clienteRoute = require("./routes/clienteRoutes");
 
 // Rutas
 app.use("/", indexRoute);
@@ -43,6 +44,7 @@ app.use("/productos", productoRoute);
 app.use("/register", registerRoute);
 app.use("/tienda", tiendaRoute);
 app.use("/micuenta2", micuenta2Route);
+app.use("/clientes", clienteRoute);
 
 app.use("/", (req, res) => res.status(404).json({ message: "Ruta no encontrada" }));
 
