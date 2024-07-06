@@ -53,7 +53,7 @@ class contactoController {
 
 
 
-module.exports = clienteController;
+module.exports = clienteModel;
 
   // static async delete(req, res) {
   //   const { id } = req.params;

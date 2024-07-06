@@ -60,4 +60,13 @@ class clienteModel {
   }
 }
 
+//
+// Configurar metodo Para implementar el método estático findByIdAndDelete en el modelo clienteModel para 
+//eliminar en la BBDD utilizando un id 
+
+//falta completar Primero el usuario_id y despues el id
+
+
+
+
 module.exports = clienteModel;
