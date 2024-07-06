@@ -26,3 +26,6 @@ Content-Type: application/json
   "Estado": "activo",
   "usuario_id": "01c523ac-32f2-11ef-9404-cecd028ee826"
 }
+
+### DELETE
+DELETE http://localhost:3000/clientes/1

@@ -34,6 +34,27 @@ class contactoController {
      }
    }
 
+   static async delete(req, res) {
+    const { id } = req.params;
+    try {
+      const result = await clienteModel.findByIdAndDelete(id);
+      if (!result) {
+        return res.status(404).json({ error: "Cliente no encontrado" });
+      }
+      res.status(200).json({ message: "Cliente eliminado exitosamente" });
+    } catch (error) {
+      res.status(500).json({ error: "Error al eliminar cliente"});
+    }
+  }
+
+
+  
+};
+
+
+
+module.exports = clienteController;
+
   // static async delete(req, res) {
   //   const { id } = req.params;
   //   // console.log(id);
@@ -45,6 +66,6 @@ class contactoController {
 
   //   return res.json({ message: "Contacto eliminado" });
   // }
-}
+
 
 module.exports = contactoController;
