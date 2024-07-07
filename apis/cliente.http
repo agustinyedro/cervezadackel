@@ -27,5 +27,9 @@ Content-Type: application/json
   "usuario_id": "01c523ac-32f2-11ef-9404-cecd028ee826"
 }
 
-### DELETE
-DELETE http://localhost:3000/clientes/1
+### DELETE por usuario_id
+DELETE http://localhost:3000/clientes/usuario_id/
+
+
+### DELETE por id
+DELETE http://localhost:3000/clientes/id

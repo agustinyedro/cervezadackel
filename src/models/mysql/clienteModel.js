@@ -58,15 +58,33 @@ class clienteModel {
     );
     return result.affectedRows > 0;
   }
+
+  static async deleteUsuario(usuario_id) {
+    try {
+        const result = await pool.query(
+            `DELETE FROM Usuarios WHERE id = ?`,
+            [usuario_id]
+        );
+        return result.affectedRows; // Número de filas afectadas 
+    } catch (error) {
+        console.error("Error al borrar el usuario:", error);
+        throw error;
+    }
 }
 
-//
-// Configurar metodo Para implementar el método estático findByIdAndDelete en el modelo clienteModel para 
-//eliminar en la BBDD utilizando un id 
+  static async deleteClienteByUsuarioId(usuario_id) {
+    try {
+      const result = await pool.query(
+          `DELETE FROM Clientes WHERE usuario_id = UUID_TO_BIN(?)`,
+          [usuario_id]
+      );
+      return result.affectedRows; // Número de filas afectadas
+    } catch (error) {
+      console.error("Error al borrar el cliente:", error);
+      throw error;
+    }
+}
 
-//falta completar Primero el usuario_id y despues el id
-
-
-
+}
 
 module.exports = clienteModel;
