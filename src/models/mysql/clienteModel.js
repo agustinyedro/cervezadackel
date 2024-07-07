@@ -51,6 +51,80 @@ class clienteModel {
     }
   }
 
+// metodo update
+static async update({Id, Nombre, Apellido, Email, Direccion, Ciudad, Pais, CodigoPostal, Telefono, Estado, usuario_id}) {
+  // await initializeConnection();
+
+   const updates = [];
+   const values = [];
+// hacer un foreach
+
+  if (Nombre) {
+      updates.push("Nombre = ?");
+      values.push(Nombre);
+  }
+  if (Apellido) {
+      updates.push("Apellido = ?");
+      values.push(Apellido);
+  }
+  if (Email) {
+      updates.push("Email = ?");
+      values.push(Email);
+  }
+  if (Direccion) {
+      updates.push("Direccion = ?");
+      values.push(Direccion);
+  }
+  if (Ciudad) {
+      updates.push("Ciudad = ?");
+      values.push(Ciudad);
+  }
+  if (Pais) {
+      updates.push("Pais = ?");
+      values.push(Pais);
+  }
+  if (CodigoPostal) {
+      updates.push("CodigoPostal = ?");
+      values.push(CodigoPostal);
+  }
+  if (Telefono) {
+      updates.push("Telefono = ?");
+      values.push(Telefono);
+  }
+  if (Estado) {
+      updates.push("Estado = ?");
+      values.push(Estado);
+  }
+
+  if (usuario_id) {
+      updates.push("usuario_id = UUID_TO_BIN(?)");
+      values.push(usuario_id);
+  }
+
+  if (updates.length === 0) {
+      throw new Error("No se encontró campo para actualizar");
+  }
+
+  values.push(Id);
+
+  // const pool.query = `UPDATE Clientes SET ${updates.join(", ")} WHERE id = ?`;
+
+  try {
+      const [result] = await pool.query(
+        `UPDATE Clientes SET ${updates.join(", ")} WHERE id = ?`
+      );
+
+      return result.updateId;
+  } catch (error) {
+      console.error("Error durante la actualización:", error);
+      throw error;
+  }
+}
+
+// fin metodo update
+
+
+
   static async delete({ id }) {
     const [result] = await pool.query(
       "DELETE FROM Consulta WHERE id_consulta = ?",

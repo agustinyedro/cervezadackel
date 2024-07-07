@@ -34,6 +34,21 @@ class contactoController {
      }
    }
 
+// realizar controlador de update
+
+static async update(req, res) {
+  
+ try {
+   const { id } = req.params;
+   const { Nombre, Apellido, Email, Direccion, Ciudad, Pais, CodigoPostal, Telefono, Estado, usuario_id } = req.body;
+  //  const { id } = await clienteModel.update({ input: req.body });
+   if ({ id }) return res.json({ id });
+  //  res.status(200).json({ mensaje: 'Cliente actualizado exitosamente' });
+ } catch (error) {
+   res.status(400).json({ error: "Error cliente no encontrado" });
+ }
+}
+
   // static async delete(req, res) {
   //   const { id } = req.params;
   //   // console.log(id);
