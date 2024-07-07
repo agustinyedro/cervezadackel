@@ -132,6 +132,33 @@ static async update({Id, Nombre, Apellido, Email, Direccion, Ciudad, Pais, Codig
     );
     return result.affectedRows > 0;
   }
+
+  static async deleteUsuario(usuario_id) {
+    try {
+        const result = await pool.query(
+            `DELETE FROM Usuarios WHERE id = ?`,
+            [usuario_id]
+        );
+        return result.affectedRows; // Número de filas afectadas 
+    } catch (error) {
+        console.error("Error al borrar el usuario:", error);
+        throw error;
+    }
+}
+
+  static async deleteClienteByUsuarioId(usuario_id) {
+    try {
+      const result = await pool.query(
+          `DELETE FROM Clientes WHERE usuario_id = UUID_TO_BIN(?)`,
+          [usuario_id]
+      );
+      return result.affectedRows; // Número de filas afectadas
+    } catch (error) {
+      console.error("Error al borrar el cliente:", error);
+      throw error;
+    }
+}
+
 }
 
 module.exports = clienteModel;
