@@ -39,7 +39,6 @@ class contactoModel {
     }
     return result[0];
   }
-
   static async create({ input }) {
     
     const { nombre, email, telefono, motivo, mensage, medio } = input;
@@ -49,7 +48,6 @@ class contactoModel {
     );
     return result.insertId;
   }
-
   static async delete({ id }) {
     const [result] = await pool.query(
       "DELETE FROM Consulta WHERE id_consulta = ?",

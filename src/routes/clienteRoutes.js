@@ -6,12 +6,12 @@ router.get("/", clienteController.getAll);
 router.get("/userid/:user_id", clienteController.getByUser);
 
 // router.get("/contactos", clienteController.getAll);
-router.post("/", clienteController.create);
+ router.post("/", clienteController.create);
 
 router
   .route("/:id")
   .get(clienteController.getById)
-//   .patch(clienteController.update)
+  .patch(clienteController.update)
   .delete(clienteController.delete);
 
 module.exports = router;

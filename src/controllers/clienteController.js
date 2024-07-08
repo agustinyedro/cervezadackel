@@ -33,13 +33,25 @@ class clienteController {
     }
   }
 
+  static async update(req, res) {
+    try {
+      const { id } = req.params;
+      const cliente = await clienteModel.update({ id, input: req.body });
+      if (cliente) return res.json(cliente);
+
+      res.status(200).json({ mensaje: "Cliente actualizado exitosamente" });
+    } catch (error) {
+      res.status(400).json({ error: "Error cliente no encontrado" });
+    }
+  }
+  
   static async delete(req, res) {
     const { id } = req.params;
 
     try {
       const result = await clienteModel.delete({ id });
 
-       console.log(result);
+      console.log(result);
       if (!result) {
         return res.status(404).json({ message: "Contacto no encontrado" });
       }

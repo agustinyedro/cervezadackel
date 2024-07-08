@@ -51,13 +51,87 @@ class clienteModel {
     }
   }
 
+  static async update({id, input}) {
+    const { Nombre, Apellido, Email, Direccion, Ciudad, Pais, CodigoPostal, Telefono, Estado, usuario_id } = input;
+  
+     const updates = [];
+     const values = [];
+
+  
+    if (Nombre) {
+        updates.push("Nombre = ?");
+      values.push(Nombre);
+    }
+    // console.log(values);
+    if (Apellido) {
+        updates.push("Apellido = ?");
+        values.push(Apellido);
+    }
+    if (Email) {
+        updates.push("Email = ?");
+        values.push(Email);
+    }
+    if (Direccion) {
+        updates.push("Direccion = ?");
+        values.push(Direccion);
+    }
+    if (Ciudad) {
+        updates.push("Ciudad = ?");
+        values.push(Ciudad);
+    }
+    if (Pais) {
+        updates.push("Pais = ?");
+        values.push(Pais);
+    }
+    if (CodigoPostal) {
+        updates.push("CodigoPostal = ?");
+        values.push(CodigoPostal);
+    }
+    if (Telefono) {
+        updates.push("Telefono = ?");
+        values.push(Telefono);
+    }
+    if (Estado) {
+        updates.push("Estado = ?");
+        values.push(Estado);
+    }
+  
+    if (usuario_id) {
+        updates.push("usuario_id = UUID_TO_BIN(?)");
+        values.push(usuario_id);
+    }
+  
+    if (updates.length === 0) {
+        throw new Error("No se encontró campo para actualizar");
+    }
+  
+    values.push(id);
+   
+    try {
+        const [result] = await pool.query(
+          `UPDATE Clientes SET ${updates.join(", ")} WHERE id = ?` , values
+        );
+        
+      if (result.affectedRows > 0) {
+        const cliente = await this.getById({ id });
+        return cliente;
+        
+      } else {
+        throw new Error("Error cliente no encontrado");
+    }
+    } catch (error) {
+        console.error("Error durante la actualización:", error);
+        throw error;
+    }
+  }
+
   static async delete({ id }) {
     
     try {
    
       // Obtener el user_id a partir del id
       const { user_id } = await this.getById({ id });
-      console.log("usuario_id", user_id);
+      // console.log("usuario_id", user_id);
   
       // Eliminar el registro en Clientes
       await pool.query(
