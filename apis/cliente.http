@@ -32,4 +32,4 @@ DELETE http://localhost:3000/clientes/usuario_id/
 
 
 ### DELETE por id
-DELETE http://localhost:3000/clientes/id
+DELETE http://localhost:3000/clientes/3

@@ -37,7 +37,7 @@ class clienteModel {
   static async create({ input }) {
     const { Nombre, Apellido, Email, Direccion, Ciudad, Pais, CodigoPostal, Telefono, Estado, usuario_id } = input;
     // console.log("Datos de entrada:", input);
-    
+
     try {
       const [result] = await pool.query(
         `INSERT INTO Clientes (Nombre, Apellido, Email, Direccion, Ciudad, Pais, CodigoPostal, Telefono, Estado, usuario_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, UUID_TO_BIN(?))`,
@@ -52,39 +52,33 @@ class clienteModel {
   }
 
   static async delete({ id }) {
-    const [result] = await pool.query(
-      "DELETE FROM Consulta WHERE id_consulta = ?",
-      [id]
-    );
-    return result.affectedRows > 0;
-  }
-
-  static async deleteUsuario(usuario_id) {
+    
     try {
-        const result = await pool.query(
-            `DELETE FROM Usuarios WHERE id = ?`,
-            [usuario_id]
-        );
-        return result.affectedRows; // Número de filas afectadas 
-    } catch (error) {
-        console.error("Error al borrar el usuario:", error);
-        throw error;
-    }
-}
-
-  static async deleteClienteByUsuarioId(usuario_id) {
-    try {
-      const result = await pool.query(
-          `DELETE FROM Clientes WHERE usuario_id = UUID_TO_BIN(?)`,
-          [usuario_id]
+   
+      // Obtener el user_id a partir del id
+      const { user_id } = await this.getById({ id });
+      console.log("usuario_id", user_id);
+  
+      // Eliminar el registro en Clientes
+      await pool.query(
+        "DELETE FROM Clientes WHERE id = ?",
+        [id]
       );
-      return result.affectedRows; // Número de filas afectadas
+  
+      // Eliminar el usuario en la tabla Usuario
+      const [result] = await pool.query(
+        "DELETE FROM Usuario WHERE usuario_id = UUID_TO_BIN(?)",
+        [user_id]
+      );
+  
+      return result.affectedRows > 0;
     } catch (error) {
+      // Revertir la transacción en caso de error
+      
       console.error("Error al borrar el cliente:", error);
       throw error;
-    }
-}
-
+    } 
+  }
 }
 
 module.exports = clienteModel;
