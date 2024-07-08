@@ -52,7 +52,7 @@ class clienteModel {
   }
 
 // metodo update
-static async update({Id, Nombre, Apellido, Email, Direccion, Ciudad, Pais, CodigoPostal, Telefono, Estado, usuario_id}) {
+static async update({Id, Nombre, Apellido, Email, Direccion, Ciudad, Pais, CodigoPostal, Telefono, Estado}) {
   // await initializeConnection();
 
    const updates = [];
