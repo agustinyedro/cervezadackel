@@ -34,7 +34,7 @@ class CervezaController {
     const updateData = req.body;
     try {
       const updatedCerveza = await CervezaModel.update(id, updateData);
-       console.log(updatedCerveza);
+      //  console.log(updatedCerveza);
       res.json(updatedCerveza);
     } catch (error) {
       res.status(500).json({ error: "Error al actualizar la cerveza" });

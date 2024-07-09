@@ -4,23 +4,20 @@
 GET http://localhost:3000/productos
 
 ### Recuperar un producto por id
-GET http://localhost:3000/productos/12
+GET http://localhost:3000/productos/10
 
 ### Recuperar todos los productos por su tipo
 GET http://localhost:3000/productos?tipos=cervezas
 
 ### recuperar por mas de un tipo
-
 GET http://localhost:3000/productos?tipos=cervezas,remeras
-
-
 
 ### Crear una cerveza con POST
 POST http://localhost:3000/productos/cerveza
 Content-Type: application/json
 
 {
-  "nombre": "el Diego",
+  "nombre": "cerveza 1",
   "precio": 3500.00,
   "descripción": "Cerveza dorada, de aroma dulce y carácter suave a malta. Sabor a lúpulo moderado y bajo amargor. Una experiencia suave y grata donde la malta se expresa con simpleza y frescura",
   "imagenes": [
@@ -28,7 +25,7 @@ Content-Type: application/json
     "/img/cervezas/golden2.webp"
   ],
   "calibre":473,
-  "estilo": "Goleador",
+  "estilo": "Sabrosa",
   "ibu": 38,
   "cantidad": 100,
   "alcohol": 6.0,
@@ -38,15 +35,15 @@ Content-Type: application/json
 }
 
 ### Borrar un producto
-DELETE http://localhost:3000/productos/11
+DELETE http://localhost:3000/productos/14
 
 
 ### Actualizar una película
-PATCH http://localhost:3000/productos/cerveza/12
+PATCH http://localhost:3000/productos/cerveza/14
 Content-Type: application/json
 
 {
-  "nombre": "2024"
+  "nombre": "Cerveza24"
 }
 
 

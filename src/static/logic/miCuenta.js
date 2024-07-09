@@ -1,31 +1,28 @@
 import { validarDatos } from "./validacionDeDatos/validarDatos.js";
 import { focus } from "./validacionDeDatos/eliminarError.js";
-// import { usuariosData } from "./usuarios/usuariosData.js";
-
 
 async function getUserInfo() {
   try {
-      const response = await fetch('/micuenta2/api/user', {
-          method: 'GET',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          credentials: 'include' // Incluir las cookies en la solicitud
-      });
+    const response = await fetch('/micuenta2/api/user', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include' // Incluir las cookies en la solicitud
+    });
 
     if (!response.ok) {
-        return null
-          throw new Error('No hay usuario');
-      }
-
-      const user = await response.json();
-      return user;
-  } catch (error) {
-      console.error('There was a problem with your fetch operation:', error);
+      console.error('No hay usuario, respuesta no ok:', response.statusText);
       return null;
+    }
+
+    const user = await response.json();
+    return user;
+  } catch (error) {
+    console.error('There was a problem with your fetch operation:', error);
+    return null;
   }
 }
-
 
 const userInfo = await getUserInfo();
 
@@ -34,7 +31,6 @@ if (userInfo) {
 }
 
 const $btnIngresar = document.getElementById("btn-ingresar");
-
 
 $btnIngresar.addEventListener("click", async (event) => {
   event.preventDefault();
@@ -45,7 +41,7 @@ $btnIngresar.addEventListener("click", async (event) => {
 
   // Asegúrate de que la función validarDatos no esté causando problemas
   console.log("Validando datos del formulario...");
-  if(validarDatos($form) !== false){ 
+  if (validarDatos($form) !== false) {
     try {
       const response = await fetch("/micuenta/login", {
         method: "POST",
@@ -56,9 +52,11 @@ $btnIngresar.addEventListener("click", async (event) => {
       });
 
       if (response.ok) {
+        console.log("Inicio de sesión exitoso");
         window.location = "/micuenta/protegido";
       } else {
         const data = await response.json();
+        console.error("Error de inicio de sesión:", data.message);
         alert(data.message || "Usuario o contraseña incorrectos");
       }
     } catch (error) {
@@ -70,26 +68,22 @@ $btnIngresar.addEventListener("click", async (event) => {
   }
 });
 
-
 focus(document.getElementById("name"));
 focus(document.getElementById("password"));
-// let usuariosA = [];
 
-
-/* funcion para el ojo de contraseña */
 const togglePassword = document.querySelectorAll('.toggle-password');
 
-  togglePassword.forEach(icon => {
-    icon.addEventListener('click', () => {
-      const input = document.querySelector(icon.getAttribute('data-toggle'));
-      if (input.type === 'password') {
-        input.type = 'text';
-        icon.classList.remove('fa-eye');
-        icon.classList.add('fa-eye-slash');
-      } else {
-        input.type = 'password';
-        icon.classList.remove('fa-eye-slash');
-        icon.classList.add('fa-eye');
-      }
-    });
+togglePassword.forEach(icon => {
+  icon.addEventListener('click', () => {
+    const input = document.querySelector(icon.getAttribute('data-toggle'));
+    if (input.type === 'password') {
+      input.type = 'text';
+      icon.classList.remove('fa-eye');
+      icon.classList.add('fa-eye-slash');
+    } else {
+      input.type = 'password';
+      icon.classList.remove('fa-eye-slash');
+      icon.classList.add('fa-eye');
+    }
   });
+});

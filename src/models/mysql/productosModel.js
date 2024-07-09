@@ -158,9 +158,7 @@ class ProductoModel {
   
 
   static async delete(id) {
-    // await initializepool();
     const tipoProducto = await this.getTipoProductoById(id);
-
     // Función para eliminar imágenes relacionadas y el producto de la tabla principal
     const eliminarProductoYImagenes = async (id) => {
         const deleteImagenesSql = `
@@ -179,22 +177,22 @@ class ProductoModel {
     switch (tipoProducto) {
         case "calcomanias":
             await require("./calcomaniaModel").delete(id);
-            await eliminarProductoYImagenes(id);
-            return true;
+            break;
 
         case "remeras":
             await require("./remeraModel").delete(id);
-            await eliminarProductoYImagenes(id);
-            return true;
+            break;
 
         case "cervezas":
             await require("./cervezasModel").delete(id);
-            await eliminarProductoYImagenes(id);
-            return true;
+            break;
 
         default:
             throw new Error("Tipo de producto no válido");
     }
+
+    await eliminarProductoYImagenes(id);
+    return true;
 }
 }
 

@@ -24,7 +24,7 @@ Content-Type: application/json
   "CodigoPostal": "5300",
   "Telefono": "02227454546",
   "Estado": "activo",
-  "usuario_id": "01c523ac-32f2-11ef-9404-cecd028ee826"
+  "usuario_id": "7e032406-3d44-11ef-85b9-cecd028ee826"
 }
 
 ### Update 

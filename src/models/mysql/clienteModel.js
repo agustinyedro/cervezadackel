@@ -125,7 +125,7 @@ class clienteModel {
     }
   }
 
-  static async delete({ id }) {
+  static async delete({ id }) { 
     
     try {
    

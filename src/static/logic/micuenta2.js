@@ -13,22 +13,9 @@ async function getUserInfo() {
         }
 
         const user = await response.json();
-        const user_id = user.user_id;
-        console.log(user_id);
-        
-        const response2 = await fetch(`/clientes/userid/${user_id}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            credentials: 'include' // Incluir las cookies en la petición
-        });
-            
-        if (!response2.ok) {
-            throw new Error('Network response was not ok');
-        }
+      
 
-        return response2.json();
+        return user;
 
     } catch (error) {
         console.error('There was a problem with your fetch operation:', error);
@@ -41,9 +28,7 @@ async function getUserInfo() {
 const userInfo = await getUserInfo();
 
 /* si no existe el usuario */
-if(!userInfo) {
-    window.location = "/micuenta";
-}
+
 
 /* si existe el usuario */
 

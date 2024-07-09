@@ -252,8 +252,6 @@ class CervezaModel extends ProductoModel {
     `;
 
     await pool.query(sql, [id]);
-
-    return super.delete(id);
   }
 }
 
